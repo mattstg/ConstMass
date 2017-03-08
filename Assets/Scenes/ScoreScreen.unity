@@ -1536,7 +1536,7 @@ GameObject:
   - component: {fileID: 1212441326}
   - component: {fileID: 1212441325}
   m_Layer: 5
-  m_Name: Frame
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2645,7 +2645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032653318}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ContentFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
