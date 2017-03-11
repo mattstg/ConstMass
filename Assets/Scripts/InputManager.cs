@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour {
         {
             _MouseHeld(GetRealMouse(Input.mousePosition));
         }
-        else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Stationary)
+        else if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Stationary))
         {
             _MouseHeld(GetRealMouse(Input.GetTouch(0).position));
         }

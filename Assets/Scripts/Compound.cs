@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Compound : MonoBehaviour
 {
-    public SpriteRenderer sr;
-    public Transform lockChild;
-    public GV.CompoundType ctype;
-    public Vector2 curDir;
-    public float curSpeed;
     [HideInInspector]
     bool isLocked = false;
+    SpriteRenderer sr;
+    Transform lockChild;
+    public GV.CompoundType ctype;
+    Vector2 curDir;
+    float curSpeed;
+    
     float immunityCoutner = GV.Compound_Immunity;
 
     public void Initialize(GV.CompoundType _ctype)
@@ -22,6 +23,7 @@ public class Compound : MonoBehaviour
 
     public void Initialize()
     {
+        sr = GetComponent<SpriteRenderer>();
         curDir = new Vector2(Random.Range(-1, 1f), Random.Range(-1, 1f)).normalized;
         curSpeed = GV.Start_Element_Speed;
         sr.color = GV.CompoundToColor(ctype);
