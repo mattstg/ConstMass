@@ -24,6 +24,9 @@ public class CompoundManager  {
 
     List<Compound> activeCompounds;
     Transform compoundParent;
+    Compound selectedCompound;
+    bool compoundIsSelected = false; //doing if(selectedCompound) has minute costs, but ipad...
+    //This class pretty much does everything in game
 
     public void CreateAndInitializeLevel(int lvl)
     {
@@ -47,15 +50,62 @@ public class CompoundManager  {
 
     public void Update(float dt)
     {
+        foreach(Compound c in activeCompounds)
+            c.UpdateMovement(dt);
+
+        //int curCount 
         //Make each active compound float, bounce if near walls, snap back in if out of bounds
         //make any nearby that are not "held" or "onCooldown" merge
             //merge produces new ones, in different directions
 
     }
 
-    private void UpdateCompoundPosition(Compound compound)
+    private void CompoundSelected(Compound _selectedCompound)
     {
+        selectedCompound = _selectedCompound;
+        selectedCompound.SetLock(true);
+        compoundIsSelected = true;
+        //Setup the arrow and stuff here
+    }
 
+
+    private void LaunchCurrentSelectedCompound()
+    {
+        selectedCompound.SetLock(false);
+        selectedCompound = null;
+        compoundIsSelected = false;
+    }
+    //Mouse handling
+
+    public void MouseClicked(Vector2 loc)
+    {
+        if(compoundIsSelected)
+            LaunchCurrentSelectedCompound();
+
+        foreach(Compound c in activeCompounds)
+        {
+            if (MathHelper.ApproxDist(c.transform.position, loc) < GV.Mouse_Selection_Distance)
+            {
+                CompoundSelected(c);
+                break;
+            }
+        }
+    }
+
+    
+
+    public void MouseHeld(Vector2 loc)
+    {
+        if(compoundIsSelected)
+        {
+            //Do the arrow stuff
+        }
+    }
+
+    public void MouseReleased(Vector2 loc)
+    {
+        if (compoundIsSelected)
+            LaunchCurrentSelectedCompound();
     }
 
 }

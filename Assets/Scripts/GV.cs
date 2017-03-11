@@ -8,6 +8,9 @@ public class GV {
 
 
     public static readonly float Compound_Immunity = 1;  //How long after a reaction before can react again
+    public static readonly Vector4 Game_Bounds = new Vector4(2.5f,4.7f,-6.5f,-4.7f);  //top right xy, bottom left xy
+    public static readonly float Mouse_Selection_Distance = .3f;
+    public static readonly float Start_Element_Speed = 2f;
 
 
     public static string CompoundToString(GV.CompoundType ctype)
@@ -20,4 +23,18 @@ public class GV {
                 return "Err";
         }
     }
+
+    public static Color CompoundToColor(GV.CompoundType ctype)
+    {
+        switch (ctype)
+        {
+            case CompoundType.Oxygen:
+                return Color.red;
+            default:
+                return Color.white;
+        }
+    }
+
+
+
 }
