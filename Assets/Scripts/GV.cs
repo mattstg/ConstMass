@@ -4,32 +4,41 @@ using UnityEngine;
 
 public class GV {
 
-    public enum CompoundType { Oxygen }
+    public enum MoleculeType { Hydrogen, Hydrogen2 }
 
+    //WS
+    public static Transform MoleculeParent;
 
     public static readonly float Compound_Immunity = 1;  //How long after a reaction before can react again
     public static readonly Vector4 Game_Bounds = new Vector4(3f,4.7f,-6.3f,-4.7f);  //top right xy, bottom left xy
     public static readonly float Mouse_Selection_Distance = .3f;
     public static readonly float Start_Element_Speed = 2f;
+    public static float Temperature = 2;
+    public static float Temperature_Force_Per_Degree = 1;
+    public static float Merge_Time = .3f; //time it takes for molecules to merge
+    public static float Merge_Safe_Zone_Radius = .3f; //size of invisible merge protector
 
-
-    public static string CompoundToString(GV.CompoundType ctype)
+    public static string CompoundToString(GV.MoleculeType ctype)
     {
         switch(ctype)
         {
-            case CompoundType.Oxygen:
-                return "O";
+            case MoleculeType.Hydrogen:
+                return "H";
+            case MoleculeType.Hydrogen2:
+                return "H2";
             default:
                 return "Err";
         }
     }
 
-    public static Color CompoundToColor(GV.CompoundType ctype)
+    public static Color CompoundToColor(GV.MoleculeType ctype)
     {
         switch (ctype)
         {
-            case CompoundType.Oxygen:
-                return Color.red;
+            case MoleculeType.Hydrogen:
+                return Color.white;
+            case MoleculeType.Hydrogen2:
+                return Color.blue;
             default:
                 return Color.white;
         }

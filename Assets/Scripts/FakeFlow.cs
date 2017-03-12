@@ -7,11 +7,13 @@ public class FakeFlow : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        CompoundManager.Instance.CreateAndInitializeLevel(0);	
+        GameManager.Instance.CreateAndInitializeLevel(0);	
 	}
 	
     void Update()
     {
-        CompoundManager.Instance.Update(Time.deltaTime);
+        float dt = Time.deltaTime;
+        GameManager.Instance.Update(dt);
+        MergeManager.Instance.UpdateMerger(dt);
     }
 }

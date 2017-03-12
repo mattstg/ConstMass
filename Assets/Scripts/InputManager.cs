@@ -47,17 +47,17 @@ public class InputManager : MonoBehaviour {
 
     private void _MouseUp(Vector2 clickPos)
     {
-        CompoundManager.Instance.MouseReleased(clickPos);
+        GameManager.Instance.MouseReleased(clickPos);
     }
 
     private void _MouseClicked(Vector2 clickPos)
     {
-        CompoundManager.Instance.MouseClicked(clickPos);
+        GameManager.Instance.MouseClicked(clickPos);
     }
 
     private void _MouseHeld(Vector2 clickPos)
     {
-        CompoundManager.Instance.MouseHeld(clickPos);
+        GameManager.Instance.MouseHeld(clickPos);
     }
 
   

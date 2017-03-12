@@ -2,56 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CompoundManager  {
+public class GameManager  {
    
     #region Singleton
-    private static CompoundManager instance;
+    private static GameManager instance;
 
-    private CompoundManager() { }
+    private GameManager() { }
 
-    public static CompoundManager Instance
+    public static GameManager Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = new CompoundManager();
+                instance = new GameManager();
             }
             return instance;
         }
     }
     #endregion
 
-    List<Compound> activeCompounds;
+    public static List<Molecule> activeCompounds; //to access everywhere, gets filled by MergeManager
     Transform compoundParent;
-    Compound selectedCompound;
+    Molecule selectedCompound;
     bool compoundIsSelected = false; //doing if(selectedCompound) has minute costs, but ipad...
     //This class pretty much does everything in game
 
     public void CreateAndInitializeLevel(int lvl)
     {
-        activeCompounds = new List<Compound>();
+        activeCompounds = new List<Molecule>();
         GameObject go = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Levels/level" + lvl)) as GameObject;
         compoundParent = go.transform;
         foreach(Transform t in compoundParent)
-        {
-            Compound newCompound = t.GetComponent<Compound>();
-            newCompound.Initialize();
-            activeCompounds.Add(newCompound);
-        }
+            MergeManager.Instance.CreateMolecule(t.GetComponent<MoleculeEditorLoader>().moleculeType, t.position);
+        MonoBehaviour.Destroy(go);
     }
 
     public void UnloadCurrentLevel()
     {
         MonoBehaviour.Destroy(compoundParent.gameObject);
-        activeCompounds = new List<Compound>();
+        activeCompounds = new List<Molecule>();
         compoundParent = null;
     }
 
     public void Update(float dt)
     {
-        foreach(Compound c in activeCompounds)
-            c.UpdateMovement(dt);
+        //foreach(Compound c in activeCompounds)
+           
 
         //int curCount 
         //Make each active compound float, bounce if near walls, snap back in if out of bounds
@@ -60,7 +57,7 @@ public class CompoundManager  {
 
     }
 
-    private void CompoundSelected(Compound _selectedCompound)
+    private void CompoundSelected(Molecule _selectedCompound)
     {
         selectedCompound = _selectedCompound;
         selectedCompound.SetLock(true);
@@ -75,14 +72,16 @@ public class CompoundManager  {
         selectedCompound = null;
         compoundIsSelected = false;
     }
-    //Mouse handling
+
+    //Mouse Code
+    #region MouseHandling
 
     public void MouseClicked(Vector2 loc)
     {
         if(compoundIsSelected)
             LaunchCurrentSelectedCompound();
 
-        foreach(Compound c in activeCompounds)
+        foreach(Molecule c in activeCompounds)
         {
             if (MathHelper.ApproxDist(c.transform.position, loc) < GV.Mouse_Selection_Distance)
             {
@@ -91,7 +90,6 @@ public class CompoundManager  {
             }
         }
     }
-
     
 
     public void MouseHeld(Vector2 loc)
@@ -107,5 +105,6 @@ public class CompoundManager  {
         if (compoundIsSelected)
             LaunchCurrentSelectedCompound();
     }
+    #endregion
 
 }
