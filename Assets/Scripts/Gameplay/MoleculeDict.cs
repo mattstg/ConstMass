@@ -29,7 +29,7 @@ public class MoleculeDict
     {
         moleculeDict = new Dictionary<GV.MoleculeType, MoleculeStruct>()
         {
-            { GV.MoleculeType.Hydrogen, new MoleculeStruct(1.0079f,new List<GV.MoleculeType>() { GV.MoleculeType.Hydrogen }) }
+            { GV.MoleculeType.H2, new MoleculeStruct(2*1.0079f,new List<GV.MoleculeType>() { GV.MoleculeType.H2 }) }
         };
     }
 
@@ -37,8 +37,8 @@ public class MoleculeDict
     {
         reactionDictionary = new Dictionary<Vector2, ReactionStruct>();
 
-        ReactionStruct hh = new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.Hydrogen2 });
-        reactionDictionary.Add(new Vector2((int)GV.MoleculeType.Hydrogen, (int)GV.MoleculeType.Hydrogen), hh);
+        //ReactionStruct hh = new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.Hydrogen2 });
+        //reactionDictionary.Add(new Vector2((int)GV.MoleculeType.Hydrogen, (int)GV.MoleculeType.Hydrogen), hh);
        
     }
 

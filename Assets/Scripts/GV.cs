@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GV {
 
-    public enum MoleculeType { Hydrogen, Hydrogen2 }
+    public enum MoleculeType { H2 , Cl2, HCl, H20, CO2, NaCl, NaOH, KOH, KCL, NaHCO3, Na2O, K2O }
 
     //WS
     public static Transform MoleculeParent;
@@ -23,32 +23,5 @@ public class GV {
     //Main Game
     public static float[] Game_Length = new float[] { 30, 40, 50, 50, 80 };
     public static int Game_Lesson_Max = 5;
-
-    public static string CompoundToString(GV.MoleculeType ctype)
-    {
-        switch(ctype)
-        {
-            case MoleculeType.Hydrogen:
-                return "H";
-            case MoleculeType.Hydrogen2:
-                return "H2";
-            default:
-                return "Err";
-        }
-    }
-
-    public static Color CompoundToColor(GV.MoleculeType ctype)
-    {
-        switch (ctype)
-        {
-            case MoleculeType.Hydrogen:
-                return Color.white;
-            case MoleculeType.Hydrogen2:
-                return Color.blue;
-            default:
-                return Color.white;
-        }
-    }
-
 
 }
