@@ -5,7 +5,7 @@ using UnityEngine;
 public class GV {
 
     public enum AtomType { H, O, C, Na, K, Cl }
-    public enum MoleculeType { H2 , Cl2, HCl, H20, CO2, NaCl, NaOH, KOH, KCl, NaHCO3, Na2O, K2O }
+    public enum MoleculeType { H2 , Cl2, HCl, H2O, CO2, NaCl, NaOH, KOH, KCl, NaHCO3, Na2O, K2O }
 
     //WS
     public static Transform MoleculeParent;
@@ -14,7 +14,7 @@ public class GV {
     public static readonly Vector4 Game_Bounds = new Vector4(3f,4.7f,-6.3f,-4.7f);  //top right xy, bottom left xy
     public static readonly float Mouse_Selection_Distance = .3f;
     public static readonly float Start_Element_Speed = 2f;
-    public static float Temperature = 2;
+    public static float Temperature = 1;
     public static float Temperature_Force_Per_Degree = 1;
 
     //Chemical

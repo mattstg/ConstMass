@@ -47,7 +47,7 @@ public class MoleculeDict
             { GV.MoleculeType.H2,     new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.H,  GV.AtomType.H                 })},
             { GV.MoleculeType.Cl2,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.Cl, GV.AtomType.Cl                })},
             { GV.MoleculeType.CO2,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.C,  GV.AtomType.O,  GV.AtomType.O })},
-            { GV.MoleculeType.H20,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.H,  GV.AtomType.H,  GV.AtomType.O })},
+            { GV.MoleculeType.H2O,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.H,  GV.AtomType.H,  GV.AtomType.O })},
             { GV.MoleculeType.HCl,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.H,  GV.AtomType.Cl                })},
             { GV.MoleculeType.K2O,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.K,  GV.AtomType.K,  GV.AtomType.O })},
             { GV.MoleculeType.KCl,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.K,  GV.AtomType.Cl                })},
@@ -61,7 +61,15 @@ public class MoleculeDict
 
     private void SetupReactionDictionary()
     {
-        reactionDictionary = new Dictionary<Vector2, ReactionStruct>();
+        reactionDictionary = new Dictionary<Vector2, ReactionStruct>()
+        {
+            { new Vector2((int)GV.MoleculeType.H2    , (int)GV.MoleculeType.Cl2), new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.HCl , GV.MoleculeType.HCl })},
+            { new Vector2((int)GV.MoleculeType.NaHCO3, (int)GV.MoleculeType.HCl), new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.NaCl, GV.MoleculeType.CO2, GV.MoleculeType.H2O })},
+            { new Vector2((int)GV.MoleculeType.Na2O  , (int)GV.MoleculeType.H2O), new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.NaOH, GV.MoleculeType.NaOH })},
+            { new Vector2((int)GV.MoleculeType.NaOH  , (int)GV.MoleculeType.HCl), new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.NaCl, GV.MoleculeType.H2O })},
+            { new Vector2((int)GV.MoleculeType.H2O   , (int)GV.MoleculeType.K2O), new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.KOH , GV.MoleculeType.KOH })},
+            { new Vector2((int)GV.MoleculeType.KOH   , (int)GV.MoleculeType.HCl), new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.KCl , GV.MoleculeType.H2O })}
+        };
 
         //ReactionStruct hh = new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.Hydrogen2 });
         //reactionDictionary.Add(new Vector2((int)GV.MoleculeType.Hydrogen, (int)GV.MoleculeType.Hydrogen), hh);
