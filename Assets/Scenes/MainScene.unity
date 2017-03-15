@@ -100,7 +100,8 @@ GameObject:
   m_Component:
   - component: {fileID: 69522486}
   - component: {fileID: 69522487}
-  m_Layer: 0
+  - component: {fileID: 69522488}
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -128,12 +129,24 @@ BoxCollider2D:
   m_GameObject: {fileID: 69522485}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5009b0f27e6acae4bb0269b643333770, type: 2}
-  m_IsTrigger: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 10, y: 1}
+--- !u!114 &69522488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69522485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859e62efe7fcd3f48be44fc629f6d797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reboundVector: {x: 1, y: -1}
 --- !u!1 &150281924
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +526,8 @@ GameObject:
   m_Component:
   - component: {fileID: 803038969}
   - component: {fileID: 803038970}
-  m_Layer: 0
+  - component: {fileID: 803038971}
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -541,12 +555,24 @@ BoxCollider2D:
   m_GameObject: {fileID: 803038968}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5009b0f27e6acae4bb0269b643333770, type: 2}
-  m_IsTrigger: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 10}
+--- !u!114 &803038971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803038968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859e62efe7fcd3f48be44fc629f6d797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reboundVector: {x: -1, y: 1}
 --- !u!1 &829882815
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +644,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1029787019}
   - component: {fileID: 1029787020}
-  m_Layer: 0
+  - component: {fileID: 1029787021}
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -646,12 +673,24 @@ BoxCollider2D:
   m_GameObject: {fileID: 1029787018}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5009b0f27e6acae4bb0269b643333770, type: 2}
-  m_IsTrigger: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 10, y: 1}
+--- !u!114 &1029787021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1029787018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859e62efe7fcd3f48be44fc629f6d797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reboundVector: {x: 1, y: -1}
 --- !u!1 &1178321001
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +796,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1278331429}
   - component: {fileID: 1278331430}
-  m_Layer: 0
+  - component: {fileID: 1278331431}
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -785,12 +825,24 @@ BoxCollider2D:
   m_GameObject: {fileID: 1278331428}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5009b0f27e6acae4bb0269b643333770, type: 2}
-  m_IsTrigger: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 10}
+--- !u!114 &1278331431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1278331428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859e62efe7fcd3f48be44fc629f6d797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reboundVector: {x: -1, y: 1}
 --- !u!1 &1306263321
 GameObject:
   m_ObjectHideFlags: 0

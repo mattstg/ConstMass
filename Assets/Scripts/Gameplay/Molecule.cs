@@ -48,6 +48,15 @@ public class Molecule : MonoBehaviour
         rb2d = null;
     }
 
+    public void OnTriggerEnter2D(Collider2D coli)
+    {
+        if (coli.CompareTag("Walls"))
+        {
+            Debug.Log("called");
+            Rebound(coli.GetComponent<WallRebound>().reboundVector);
+        }
+    }
+
     public void OnCollisionEnter2D(Collision2D coli)
     {
         if (!isLocked && !isMerging && coli.transform.CompareTag("Molecule"))
@@ -59,6 +68,12 @@ public class Molecule : MonoBehaviour
                 MergeManager.Instance.MergeTwoMolecules(this, m);
             }
         }
+    }
+
+    public void Rebound(Vector2 reboundVector)
+    {
+        Debug.Log("current velo: " + rb2d.velocity + " mult by " + reboundVector + " result is: " + new Vector2(rb2d.velocity.x * reboundVector.x, rb2d.velocity.y * reboundVector.y));
+        rb2d.velocity = new Vector2(rb2d.velocity.x * reboundVector.x, rb2d.velocity.y * reboundVector.y);             
     }
 
     /* public void BoundsCorrection()
