@@ -7,7 +7,7 @@ public class MoleculeDict
     #region Singleton
     private static MoleculeDict instance;
 
-    private MoleculeDict() { SetupMoleculeDict(); SetupReactionDictionary(); }
+    private MoleculeDict() { SetupAtomDict(); SetupMoleculeDict(); SetupReactionDictionary(); }
 
     public static MoleculeDict Instance
     {
@@ -22,14 +22,40 @@ public class MoleculeDict
     }
     #endregion
 
+    Dictionary<GV.AtomType, AtomStruct> atomDict;
     Dictionary<GV.MoleculeType, MoleculeStruct> moleculeDict;
     Dictionary<Vector2, ReactionStruct> reactionDictionary;
+
+
+    private void SetupAtomDict()
+    {
+        atomDict = new Dictionary<GV.AtomType, AtomStruct>()
+        {
+            { GV.AtomType.C,  new AtomStruct(12.011f) },
+            { GV.AtomType.Cl, new AtomStruct(35.354f) },
+            { GV.AtomType.H,  new AtomStruct(1.0079f) },
+            { GV.AtomType.K,  new AtomStruct(39.098f) },
+            { GV.AtomType.Na, new AtomStruct(22.990f) },
+            { GV.AtomType.O,  new AtomStruct(15.999f) }
+        };
+    }
 
     private void SetupMoleculeDict()
     {
         moleculeDict = new Dictionary<GV.MoleculeType, MoleculeStruct>()
         {
-            { GV.MoleculeType.H2, new MoleculeStruct(2*1.0079f,new List<GV.MoleculeType>() { GV.MoleculeType.H2 }) }
+            { GV.MoleculeType.H2,     new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.H,  GV.AtomType.H                 })},
+            { GV.MoleculeType.Cl2,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.Cl, GV.AtomType.Cl                })},
+            { GV.MoleculeType.CO2,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.C,  GV.AtomType.O,  GV.AtomType.O })},
+            { GV.MoleculeType.H20,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.H,  GV.AtomType.H,  GV.AtomType.O })},
+            { GV.MoleculeType.HCl,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.H,  GV.AtomType.Cl                })},
+            { GV.MoleculeType.K2O,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.K,  GV.AtomType.K,  GV.AtomType.O })},
+            { GV.MoleculeType.KCl,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.K,  GV.AtomType.Cl                })},
+            { GV.MoleculeType.KOH,    new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.K,  GV.AtomType.O,  GV.AtomType.H })},
+            { GV.MoleculeType.Na2O,   new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.Na, GV.AtomType.Na, GV.AtomType.O })},
+            { GV.MoleculeType.NaCl,   new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.Na, GV.AtomType.Cl                })},
+            { GV.MoleculeType.NaHCO3, new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.Na, GV.AtomType.H,  GV.AtomType.C, GV.AtomType.O, GV.AtomType.O, GV.AtomType.O })},
+            { GV.MoleculeType.NaOH,   new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.Na, GV.AtomType.O,  GV.AtomType.H })}
         };
     }
 
@@ -56,18 +82,32 @@ public class MoleculeDict
        return new List<GV.MoleculeType>(reactionDictionary[new Vector2((int)m1, (int)m2)].products);        //It should never make it this far if these cannot react, returns a copy of the list
     }
 
+    public float GetAtomMass(GV.AtomType atomType)
+    {
+        return atomDict[atomType].mass;
+    }
+
+    private class AtomStruct
+    {
+        public float mass;
+
+        public AtomStruct(float _mass)
+        {
+            mass = _mass;
+        }
+    }
+
 
     private class MoleculeStruct
     {
-        float mass;
-        int[] baseAtoms;
+        float mass = 0;
+        List<GV.AtomType> baseAtoms;
 
-        public MoleculeStruct(float _mass, List<GV.MoleculeType> baseAtoms)
+        public MoleculeStruct(List<GV.AtomType> baseAtoms)
         {
-            mass = _mass;
-            //Convert list to arr
+            foreach (GV.AtomType atom in baseAtoms)
+                mass += MoleculeDict.Instance.GetAtomMass(atom);
         }
-
     }
 
 
