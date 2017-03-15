@@ -15,8 +15,14 @@ public class GV {
     public static readonly float Start_Element_Speed = 2f;
     public static float Temperature = 2;
     public static float Temperature_Force_Per_Degree = 1;
+
+    //Chemical
     public static float Merge_Time = .3f; //time it takes for molecules to merge
     public static float Merge_Safe_Zone_Radius = .3f; //size of invisible merge protector
+
+    //Main Game
+    public static float[] Game_Length = new float[] { 30, 40, 50, 50, 80 };
+    public static int Game_Lesson_Max = 5;
 
     public static string CompoundToString(GV.MoleculeType ctype)
     {

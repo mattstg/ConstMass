@@ -23,26 +23,30 @@ public class GameManager  {
     #endregion
 
     public static List<Molecule> activeCompounds; //to access everywhere, gets filled by MergeManager
-    Transform compoundParent;
     Molecule selectedCompound;
     bool compoundIsSelected = false; //doing if(selectedCompound) has minute costs, but ipad...
+    bool levelLoaded = false;
     //This class pretty much does everything in game
 
     public void CreateAndInitializeLevel(int lvl)
     {
+        if (levelLoaded)
+            UnloadCurrentLevel();
         activeCompounds = new List<Molecule>();
         GameObject go = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Levels/level" + lvl)) as GameObject;
-        compoundParent = go.transform;
-        foreach(Transform t in compoundParent)
+        foreach(Transform t in go.transform)
             MergeManager.Instance.CreateMolecule(t.GetComponent<MoleculeEditorLoader>().moleculeType, t.position);
         MonoBehaviour.Destroy(go);
+        levelLoaded = true;
     }
 
     public void UnloadCurrentLevel()
     {
-        MonoBehaviour.Destroy(compoundParent.gameObject);
+        foreach (Transform t in GV.MoleculeParent)
+            MonoBehaviour.Destroy(t.gameObject);
         activeCompounds = new List<Molecule>();
-        compoundParent = null;
+        MergeManager.Instance.ClearMergeManager();
+        levelLoaded = false;
     }
 
     public void Update(float dt)

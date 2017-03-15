@@ -7,7 +7,7 @@ using LoLSDK;
 public class ScoreScreenManager : MonoBehaviour {
 
     public static string nextSceneName;
-    public static LessonType thisLesson;
+    public static int thisLesson;
 
     public Transform textParent;
 
@@ -31,7 +31,7 @@ public class ScoreScreenManager : MonoBehaviour {
             if (t.name != "Total")
             {
                 string[] splitName = t.name.Split('-');
-                LessonType lessonType = (LessonType)System.Enum.Parse(typeof(LessonType), splitName[0], true);
+                int lessonType = (int)System.Enum.Parse(typeof(int), splitName[0], true);
                 if (lessonType > thisLesson)
                 {
                     t.gameObject.SetActive(false);

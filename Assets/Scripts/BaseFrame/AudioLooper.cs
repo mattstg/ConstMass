@@ -11,8 +11,8 @@ public class AudioLooper {
     bool[] playingAudio = new bool[2];
     private float fadeTime = 3;
 
-    public void StartAudioLooper(LessonType lessonType)
-    {
+    public void StartAudioLooper(int lessonType)
+    {/*
         if (lessonType != LessonType.Intro && lessonType != LessonType.Post) //they have music, not ambience
         {
             curTime[0] = curTime[1] = 0;
@@ -21,7 +21,7 @@ public class AudioLooper {
             audioName = lessonType + "Ambient.mp3";
             isPlaying = true;
             PlayAudio(0);
-        }
+        }*/
     }
 
     public void Update()
@@ -61,8 +61,8 @@ public class AudioLooper {
     }
 
 
-    private float GetLengthOfAmbient(LessonType lessonType)
-    {
+    private float GetLengthOfAmbient(int lessonType)
+    {/*
         switch (lessonType)
         {
             case LessonType.Frog:
@@ -75,7 +75,7 @@ public class AudioLooper {
                 return 36;
             case LessonType.Caribou:
                 return 8;
-        }
+        }*/
         return 0;
     }
 

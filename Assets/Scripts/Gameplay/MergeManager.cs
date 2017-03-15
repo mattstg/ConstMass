@@ -63,6 +63,10 @@ public class MergeManager
         toRet.Initialize(mtype);
     }
 
+    public void ClearMergeManager() //level finished
+    {
+        activeMergers = new List<MergeStruct>();
+    }
 
     private class MergeStruct
     {

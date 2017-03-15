@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 
+    public static bool gameInputActivate = false;
     bool compoundSelected = false;
 
     public void Update()
     {
+        if (!gameInputActivate)
+            return;
         //Mouse Pressed
         if (Input.GetMouseButtonDown(0))
         {
