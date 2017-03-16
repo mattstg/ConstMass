@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859e62efe7fcd3f48be44fc629f6d797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reboundVector: {x: 1, y: -1}
+  reboundVector: {x: 0, y: -1}
 --- !u!1 &150281924
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859e62efe7fcd3f48be44fc629f6d797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reboundVector: {x: -1, y: 1}
+  reboundVector: {x: 1, y: 0}
 --- !u!1 &829882815
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859e62efe7fcd3f48be44fc629f6d797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reboundVector: {x: 1, y: -1}
+  reboundVector: {x: 0, y: 1}
 --- !u!1 &1178321001
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859e62efe7fcd3f48be44fc629f6d797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reboundVector: {x: -1, y: 1}
+  reboundVector: {x: -1, y: 0}
 --- !u!1 &1306263321
 GameObject:
   m_ObjectHideFlags: 0

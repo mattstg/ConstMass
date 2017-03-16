@@ -52,7 +52,6 @@ public class Molecule : MonoBehaviour
     {
         if (coli.CompareTag("Walls"))
         {
-            Debug.Log("called");
             Rebound(coli.GetComponent<WallRebound>().reboundVector);
         }
     }
@@ -72,8 +71,16 @@ public class Molecule : MonoBehaviour
 
     public void Rebound(Vector2 reboundVector)
     {
-        Debug.Log("current velo: " + rb2d.velocity + " mult by " + reboundVector + " result is: " + new Vector2(rb2d.velocity.x * reboundVector.x, rb2d.velocity.y * reboundVector.y));
-        rb2d.velocity = new Vector2(rb2d.velocity.x * reboundVector.x, rb2d.velocity.y * reboundVector.y);             
+        //Debug.Log("current velo: " + rb2d.velocity + " mult by " + reboundVector + " result is: " + new Vector2(rb2d.velocity.x * reboundVector.x, rb2d.velocity.y * reboundVector.y));
+        //rb2d.velocity = new Vector2(rb2d.velocity.x * reboundVector.x, rb2d.velocity.y * reboundVector.y);    cannot do, double colision is a thing
+        if(reboundVector.x == -1)
+            rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x) * -1, rb2d.velocity.y);
+        else if(reboundVector.x == 1)
+            rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y);
+        else if (reboundVector.y == -1)
+            rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y)*-1);
+        else if (reboundVector.y == 1)
+            rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y));
     }
 
     /* public void BoundsCorrection()

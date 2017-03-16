@@ -6,7 +6,6 @@ public class GV {
 
     public enum AtomType { H, O, C, Na, K, Cl }
     public enum MoleculeType { H2 , Cl2, HCl, H2O, CO2, NaCl, NaOH, KOH, KCl, NaHCO3, Na2O, K2O }
-
     //WS
     public static Transform MoleculeParent;
 

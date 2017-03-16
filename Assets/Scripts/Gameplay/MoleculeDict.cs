@@ -57,6 +57,9 @@ public class MoleculeDict
             { GV.MoleculeType.NaHCO3, new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.Na, GV.AtomType.H,  GV.AtomType.C, GV.AtomType.O, GV.AtomType.O, GV.AtomType.O })},
             { GV.MoleculeType.NaOH,   new MoleculeStruct(new List<GV.AtomType>() { GV.AtomType.Na, GV.AtomType.O,  GV.AtomType.H })}
         };
+
+        foreach(KeyValuePair<GV.MoleculeType,MoleculeStruct> kv in moleculeDict)
+            kv.Value.mass = GetAtomMass(kv.Value.baseAtoms);
     }
 
     private void SetupReactionDictionary()
@@ -73,8 +76,9 @@ public class MoleculeDict
 
         //ReactionStruct hh = new ReactionStruct(1, new List<GV.MoleculeType>() { GV.MoleculeType.Hydrogen2 });
         //reactionDictionary.Add(new Vector2((int)GV.MoleculeType.Hydrogen, (int)GV.MoleculeType.Hydrogen), hh);
-       
+
     }
+
 
 
     public bool CanReact(GV.MoleculeType m1, GV.MoleculeType m2)
@@ -95,6 +99,14 @@ public class MoleculeDict
         return atomDict[atomType].mass;
     }
 
+    public float GetAtomMass(List<GV.AtomType> atomList)
+    {
+        float mass = 0;
+        foreach (GV.AtomType atom in atomList)
+            mass += GetAtomMass(atom);
+        return mass;
+    }
+
     private class AtomStruct
     {
         public float mass;
@@ -108,13 +120,12 @@ public class MoleculeDict
 
     private class MoleculeStruct
     {
-        float mass = 0;
-        List<GV.AtomType> baseAtoms;
+        public float mass = 0;
+        public List<GV.AtomType> baseAtoms;
 
-        public MoleculeStruct(List<GV.AtomType> baseAtoms)
+        public MoleculeStruct(List<GV.AtomType> _baseAtoms)
         {
-            foreach (GV.AtomType atom in baseAtoms)
-                mass += MoleculeDict.Instance.GetAtomMass(atom);
+            baseAtoms =_baseAtoms;
         }
     }
 

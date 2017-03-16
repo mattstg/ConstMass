@@ -55,7 +55,7 @@ public class MergeManager
 
     public void CreateMolecule(GV.MoleculeType mtype, Vector2 pos)
     {
-        GameObject newMole = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Molecules/" + mtype)) as GameObject;
+        GameObject newMole = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Molecules/Compounds/" + mtype)) as GameObject;
         newMole.transform.position = pos;
         newMole.transform.SetParent(GV.MoleculeParent);
         Molecule toRet = newMole.GetComponent<Molecule>();
