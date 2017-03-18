@@ -61,14 +61,6 @@ public class GameManager  {
 
     }
 
-    private void CompoundSelected(Molecule _selectedCompound)
-    {
-        selectedCompound = _selectedCompound;
-        selectedCompound.SetLock(true);
-        compoundIsSelected = true;
-        //Setup the arrow and stuff here
-    }
-
 
     private void LaunchCurrentSelectedCompound()
     {
@@ -82,14 +74,11 @@ public class GameManager  {
 
     public void MouseClicked(Vector2 loc)
     {
-        if(compoundIsSelected)
-            LaunchCurrentSelectedCompound();
-
         foreach(Molecule c in activeCompounds)
         {
             if (MathHelper.ApproxDist(c.transform.position, loc) < GV.Mouse_Selection_Distance)
             {
-                CompoundSelected(c);
+                Launcher.Instance.SetupLaunch(c);
                 break;
             }
         }
@@ -98,16 +87,12 @@ public class GameManager  {
 
     public void MouseHeld(Vector2 loc)
     {
-        if(compoundIsSelected)
-        {
-            //Do the arrow stuff
-        }
+        Launcher.Instance.UpdateMousePosition(loc);
     }
 
     public void MouseReleased(Vector2 loc)
     {
-        if (compoundIsSelected)
-            LaunchCurrentSelectedCompound();
+        Launcher.Instance.ReleaseMouse(loc);
     }
     #endregion
 

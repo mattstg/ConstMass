@@ -34,7 +34,13 @@ public class Molecule : MonoBehaviour
 
     public void Launch(Vector2 dir, float speed)
     {
-        rb2d.AddForce(dir.normalized * speed);
+        rb2d.velocity = dir.normalized * speed;
+        //rb2d.AddForce();
+    }
+
+    public void Launch(Vector2 speed)
+    {
+        rb2d.velocity = speed;
     }
 
     public void DestroyRbAndColi()
