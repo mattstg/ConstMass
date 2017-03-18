@@ -63,7 +63,7 @@ public class GameFlow : MonoBehaviour {
 
     private void LoadLevel(int lvl)
     {
-        GameManager.Instance.CreateAndInitializeLevel(0);
+        GameManager.Instance.CreateAndInitializeLevel(lvl);
         InputManager.gameInputActivate = true;
         roundTime = 0;
 
