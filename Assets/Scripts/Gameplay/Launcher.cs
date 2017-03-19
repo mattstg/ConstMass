@@ -60,6 +60,18 @@ public class Launcher
         
     }
 
+    public void ClearLauncher() //at game end
+    {
+        toLaunch = null;
+        moleInitialVelo = new Vector2();
+        moleSelected = false;
+        molePos = new Vector2();
+        elasticDist = 0;
+        elasticGraphics.SetActive(false);
+        elasticGraphicEnabled = false;
+        elasticAnimationOccuring = false;
+    }
+
     public void UpdateMousePosition(Vector2 pos)
     {
         if (elasticAnimationOccuring)

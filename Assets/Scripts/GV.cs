@@ -6,8 +6,10 @@ public class GV {
 
     public enum AtomType { H, O, C, Na, K, Cl }
     public enum MoleculeType { H2 , Cl2, HCl, H2O, CO2, NaCl, NaOH, KOH, KCl, NaHCO3, Na2O, K2O }
+    public static readonly int Molecule_Enum_Count = 12;
     //WS
     public static Transform MoleculeParent;
+    public static GameFlow gameFlow;
 
     
 
@@ -18,7 +20,7 @@ public class GV {
     public static float Temperature = 1;
     public static float Temperature_Force_Per_Degree = 1;
 
-    public static readonly float Molecule_Scale = .4f; //scales all new molecules
+    public static readonly float Molecule_Scale = .5f; //scales all new molecules
     public static readonly float Molecule_Speed_Start = 1;
     public static readonly float Molecule_Speed_Min = .33f;
     public static readonly float Molecule_Speed_Max = 5f;

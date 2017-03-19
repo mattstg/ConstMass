@@ -1287,7 +1287,6 @@ MonoBehaviour:
   canTimeOut: 1
   scoreText: {fileID: 1306263322}
   levelSelected: {fileID: 401438652}
-  trackScoreAsTime: 1
 --- !u!4 &1336928103
 Transform:
   m_ObjectHideFlags: 0

@@ -22,15 +22,25 @@ public class GameManager  {
     }
     #endregion
 
+    ScoreText scoreText;
+
     public static List<Molecule> activeCompounds = new List<Molecule>(); //to access everywhere, gets filled by MergeManager
     Molecule selectedCompound;
     bool compoundIsSelected = false; //doing if(selectedCompound) has minute costs, but ipad...
-    bool levelLoaded = false;
+    bool gameRunning = false;
+    int curLoadedLevel = 0;
+    float winTimeChecker = 3;
+    protected float roundTime = 0;
     //This class pretty much does everything in game
+
+    public void LinkScoreText(ScoreText st)
+    {
+        scoreText = st;
+    }
 
     public void CreateAndInitializeLevel(int lvl)
     {
-        if (levelLoaded)
+        if (gameRunning)
             UnloadCurrentLevel();
         activeCompounds = new List<Molecule>();
         GameObject go = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Levels/level" + lvl)) as GameObject;
@@ -38,7 +48,9 @@ public class GameManager  {
         foreach(Transform t in go.transform)
             MergeManager.Instance.CreateMolecule(t.GetComponent<MoleculeEditorLoader>().moleculeType, t.position);
         MonoBehaviour.Destroy(go);
-        levelLoaded = true;
+        gameRunning = true;
+        curLoadedLevel = lvl;
+        roundTime = GV.Game_Length[lvl];
     }
 
     public void UnloadCurrentLevel()
@@ -47,14 +59,95 @@ public class GameManager  {
             MonoBehaviour.Destroy(t.gameObject);
         activeCompounds = new List<Molecule>();
         MergeManager.Instance.ClearMergeManager();
-        levelLoaded = false;
+        Launcher.Instance.ClearLauncher();
+        gameRunning = false;
     }
 
     public void Update(float dt)
     {
-        foreach (Molecule c in activeCompounds)
-            c.LimitSpeedAndBoundry();
+        if (gameRunning)
+        {
+            Launcher.Instance.Update(dt);
 
+            foreach (Molecule c in activeCompounds)
+                c.LimitSpeedAndBoundry();
+
+            MergeManager.Instance.UpdateMerger(dt);
+
+            roundTime -= dt;
+            roundTime = Mathf.Clamp(roundTime, 0, 512);
+            scoreText.SetScoreTime(roundTime);
+
+            GameEndCheck(dt);
+        }
+    }
+
+    private void GameEndCheck(float dt)
+    {
+        if (winTimeChecker <= 0)
+        {
+            if (GameManager.Instance.IsGameOver())
+            {
+                GV.gameFlow.GameFinished(CalculateGameScore());
+                gameRunning = false;
+                roundTime = 0;
+                return;
+            }
+            winTimeChecker = 3;
+        }
+        else
+        {
+            winTimeChecker -= dt;
+        }
+
+        if(roundTime <= 0)
+        {
+            GV.gameFlow.GameFinished(CalculateGameScore());
+            gameRunning = false;
+            roundTime = 0;
+            return;
+        }
+    }
+
+
+    public bool IsGameOver()
+    {
+        int[] moleculeCount = new int[GV.Molecule_Enum_Count];
+        foreach(Molecule c in activeCompounds)
+            moleculeCount[(int)c.mtype]++;
+
+        switch(curLoadedLevel)
+        {
+            case 0:
+                return moleculeCount[(int)GV.MoleculeType.HCl] >= 8;
+            case 1:
+                return moleculeCount[(int)GV.MoleculeType.H2O] >= 4;
+            case 2:
+                return moleculeCount[(int)GV.MoleculeType.NaCl] >= 6;
+            case 3:
+                return moleculeCount[(int)GV.MoleculeType.H2O] >= 3;
+        }
+        return false;
+    }
+
+    public float CalculateGameScore()
+    {
+        int[] moleculeCount = new int[GV.Molecule_Enum_Count];
+        foreach (Molecule c in activeCompounds)
+            moleculeCount[(int)c.mtype]++;
+
+        switch (curLoadedLevel)
+        {
+            case 0:
+                return moleculeCount[(int)GV.MoleculeType.HCl] / 8f;
+            case 1:
+                return moleculeCount[(int)GV.MoleculeType.H2O] / 4f;
+            case 2:
+                return moleculeCount[(int)GV.MoleculeType.NaCl] / 6f;
+            case 3:
+                return moleculeCount[(int)GV.MoleculeType.H2O] / 3f;
+        }
+        return 0;
     }
 
 
