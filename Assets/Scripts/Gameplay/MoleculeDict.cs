@@ -99,6 +99,11 @@ public class MoleculeDict
         return atomDict[atomType].mass;
     }
 
+    public float GetMoleculeMass(GV.MoleculeType molType)
+    {
+        return moleculeDict[molType].mass;
+    }
+
     public float GetAtomMass(List<GV.AtomType> atomList)
     {
         float mass = 0;

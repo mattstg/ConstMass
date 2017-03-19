@@ -58,6 +58,8 @@ public class MergeManager
         GameObject newMole = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Molecules/Compounds/" + mtype)) as GameObject;
         newMole.transform.position = pos;
         newMole.transform.SetParent(GV.MoleculeParent);
+        newMole.transform.localScale = newMole.transform.localScale * GV.Molecule_Scale;
+        newMole.GetComponent<Rigidbody2D>().mass = MoleculeDict.Instance.GetMoleculeMass(mtype);
         Molecule toRet = newMole.GetComponent<Molecule>();
         GameManager.activeCompounds.Add(toRet);
         toRet.Initialize(mtype);

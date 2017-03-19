@@ -30,6 +30,8 @@ public class Launcher
     Vector2 curMousePos;
     Vector2 molePos;
     float elasticDist = 0;
+    bool elasticAnimationOccuring = false;
+    float curElasticAnimTime = 0;
     //Launch_Min_Dist = .25f;
     //Launch_Max_Velo = 5f;
     //Launch_Velo_Per_Dist = 2;
@@ -44,6 +46,9 @@ public class Launcher
 
     public void SetupLaunch(Molecule _toLaunch)
     {
+        if (elasticAnimationOccuring)
+            return; //incase you click while the animation still going down
+
         if (toLaunch)
             LaunchCurrentMolecule();
         toLaunch = _toLaunch;
@@ -52,10 +57,14 @@ public class Launcher
         molePos = curMousePos = toLaunch.transform.position;
         moleSelected = true;
         elasticDist = 0;
+        
     }
 
     public void UpdateMousePosition(Vector2 pos)
     {
+        if (elasticAnimationOccuring)
+            return;
+
         if (moleSelected)
         {
             curMousePos = pos;
@@ -93,8 +102,28 @@ public class Launcher
 
     public void ReleaseMouse(Vector2 pos)
     {
-        if (moleSelected)
-            LaunchCurrentMolecule();
+        if (moleSelected && !elasticAnimationOccuring)
+        {
+            elasticAnimationOccuring = true;
+            curElasticAnimTime = GV.Launch_Elastic_Time;
+        }
+    }
+
+    public void Update(float dt)
+    {
+        if(elasticAnimationOccuring)
+        {
+            curElasticAnimTime -= Time.deltaTime;
+            if (curElasticAnimTime <= 0)
+            {
+                LaunchCurrentMolecule();
+            }
+            else
+            {
+                float length = elasticDist * (curElasticAnimTime / GV.Launch_Elastic_Time);
+                elasticGraphics.transform.localScale = new Vector2(length, 1);
+            }
+        }
     }
 
     private void LaunchCurrentMolecule()
@@ -122,6 +151,7 @@ public class Launcher
             elasticDist = 0;
             elasticGraphics.SetActive(false);
             elasticGraphicEnabled = false;
+            elasticAnimationOccuring = false;
         }
     }
     

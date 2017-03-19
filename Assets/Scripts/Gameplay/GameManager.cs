@@ -22,7 +22,7 @@ public class GameManager  {
     }
     #endregion
 
-    public static List<Molecule> activeCompounds; //to access everywhere, gets filled by MergeManager
+    public static List<Molecule> activeCompounds = new List<Molecule>(); //to access everywhere, gets filled by MergeManager
     Molecule selectedCompound;
     bool compoundIsSelected = false; //doing if(selectedCompound) has minute costs, but ipad...
     bool levelLoaded = false;
@@ -52,13 +52,8 @@ public class GameManager  {
 
     public void Update(float dt)
     {
-        //foreach(Compound c in activeCompounds)
-           
-
-        //int curCount 
-        //Make each active compound float, bounce if near walls, snap back in if out of bounds
-        //make any nearby that are not "held" or "onCooldown" merge
-            //merge produces new ones, in different directions
+        foreach (Molecule c in activeCompounds)
+            c.LimitSpeedAndBoundry();
 
     }
 
@@ -77,7 +72,7 @@ public class GameManager  {
     {
         foreach(Molecule c in activeCompounds)
         {
-            if (MathHelper.ApproxDist(c.transform.position, loc) < GV.Mouse_Selection_Distance)
+            if (MathHelper.ApproxDist(c.transform.position, loc) <= GV.Mouse_Selection_Distance && c.IsSelectable())
             {
                 Launcher.Instance.SetupLaunch(c);
                 break;

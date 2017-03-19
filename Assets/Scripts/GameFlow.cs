@@ -85,7 +85,7 @@ public class GameFlow : MonoBehaviour {
     public void Update()
     {
         float dt = Time.deltaTime;
-
+        Launcher.Instance.Update(dt);
         GameManager.Instance.Update(dt);
         MergeManager.Instance.UpdateMerger(dt);
 
@@ -93,7 +93,7 @@ public class GameFlow : MonoBehaviour {
             audioLooper.Update();
 
         if (roundTimerActive)
-            roundTime += Time.deltaTime;
+            roundTime += dt;
 
         if (trackScoreAsTime)
             scoreText.SetScoreTime(roundTime);
