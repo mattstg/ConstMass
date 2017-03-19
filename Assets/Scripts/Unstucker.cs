@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Unstucker : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+	public float unstuckTimer = 1f;
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        unstuckTimer -= Time.deltaTime;
+        if (unstuckTimer <= 0)
+            Destroy(this.gameObject);
 	}
 }

@@ -44,7 +44,6 @@ public class GameManager  {
             UnloadCurrentLevel();
         activeCompounds = new List<Molecule>();
         GameObject go = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Levels/level" + lvl)) as GameObject;
-        Debug.Log("load: " + "Prefabs/Levels/level" + lvl);
         foreach(Transform t in go.transform)
             MergeManager.Instance.CreateMolecule(t.GetComponent<MoleculeEditorLoader>().moleculeType, t.position);
         MonoBehaviour.Destroy(go);
