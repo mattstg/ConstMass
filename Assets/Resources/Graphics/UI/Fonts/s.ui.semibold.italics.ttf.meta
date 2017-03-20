@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8c698d36385edb344aa7444794d3128d
-timeCreated: 1488957871
+guid: 0bbfefacb4a51304ea555deebeb73cef
+timeCreated: 1488960111
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -13,7 +13,6 @@ TrueTypeFontImporter:
   fontNames:
   - Segoe UI
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 67a50b069f73c294d8e9cd764041526c, type: 3}
   - {fileID: 12800000, guid: 87d634dd0db5a644b93730f42c29f597, type: 3}
   customCharacters: 
   fontRenderingMode: 0

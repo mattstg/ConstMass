@@ -30,6 +30,7 @@ public class Molecule : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         Vector2 launchDir = new Vector2(Random.Range(-1, 1f), Random.Range(-1, 1f)).normalized;
         rb2d.velocity = launchDir * GV.Molecule_Speed_Start;
+        gameObject.AddComponent<RandomSpin>();
         GameObject tm = Instantiate(Resources.Load("Prefabs/MoleText")) as GameObject;
         tm.GetComponent<Renderer>().sortingLayerName = "MoleculeText";
         tm.GetComponent<TextMesh>().text = GV.GetMoleculeRichText(mtype);
@@ -45,7 +46,8 @@ public class Molecule : MonoBehaviour
     public void SetLock(bool _isLocked)
     {
         isLocked = _isLocked;
-        rb2d.constraints = (isLocked)? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.None;
+        //rb2d.constraints = (isLocked)? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.None;
+        rb2d.constraints = (isLocked) ? RigidbodyConstraints2D.FreezePosition : RigidbodyConstraints2D.None;
     }
 
     public void Launch(Vector2 dir, float speed)
