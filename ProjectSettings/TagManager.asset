@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Molecule
   - Walls
-  - MoleculeText
   layers:
   - Default
   - TransparentFX
@@ -46,4 +45,7 @@ TagManager:
     locked: 0
   - name: Molecule
     uniqueID: 2915486655
+    locked: 0
+  - name: MoleculeText
+    uniqueID: 275954889
     locked: 0

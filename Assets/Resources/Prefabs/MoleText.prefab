@@ -80,16 +80,16 @@ TextMesh:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1548178844790610}
   m_Text: Cl2
-  m_OffsetZ: 0
-  m_CharacterSize: 0.3
+  m_OffsetZ: -1
+  m_CharacterSize: 0.1
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 0
+  m_TabSize: 0
+  m_FontSize: 30
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 87d634dd0db5a644b93730f42c29f597, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294935595
