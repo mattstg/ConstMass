@@ -20,10 +20,10 @@ public class GV {
     public static float Temperature = 1;
     public static float Temperature_Force_Per_Degree = 1;
 
-    public static readonly float Molecule_Scale = .5f; //scales all new molecules
+    public static readonly float Molecule_Scale = .7f; //scales all new molecules
     public static readonly float Molecule_Speed_Start = 1;
     public static readonly float Molecule_Speed_Min = .33f;
-    public static readonly float Molecule_Speed_Max = 5f;
+    public static readonly float Molecule_Speed_Max = 4f;
     public static bool Molecule_Text_Active = false;
 
     //Chemical
