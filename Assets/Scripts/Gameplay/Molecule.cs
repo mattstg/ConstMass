@@ -8,13 +8,16 @@ public class Molecule : MonoBehaviour
     bool isMerging = false;
     Rigidbody2D rb2d;
     public GV.MoleculeType mtype;
-    
+    Transform textMesh;
+    bool textIsActive;
+
     float immunityCoutner = GV.Compound_Immunity;
 
     public void Initialize(GV.MoleculeType _mtype)
     {
         mtype = _mtype;
         Initialize();
+
     }
 
     public bool IsSelectable()
@@ -27,6 +30,14 @@ public class Molecule : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         Vector2 launchDir = new Vector2(Random.Range(-1, 1f), Random.Range(-1, 1f)).normalized;
         rb2d.velocity = launchDir * GV.Molecule_Speed_Start;
+        GameObject tm = Instantiate(Resources.Load("Prefabs/MoleText")) as GameObject;
+        tm.GetComponent<Renderer>().sortingLayerName = "MoleculeText";
+        tm.GetComponent<TextMesh>().text = GV.GetMoleculeRichText(mtype);
+        textMesh = tm.transform;
+        textMesh.SetParent(transform);
+        textMesh.localPosition = new Vector3();
+        textIsActive = GV.Molecule_Text_Active;
+        textMesh.gameObject.SetActive(textIsActive);
         //rb2d.AddForce(GV.Temperature_Force_Per_Degree,ForceMode2D.Impulse);
         //initialize the UI, values already initialized
     }
@@ -43,7 +54,7 @@ public class Molecule : MonoBehaviour
         //rb2d.AddForce();
     }
 
-    public void LimitSpeedAndBoundry()
+    public void UpdateMolecule()
     {
         if (!isLocked && !isMerging)
         {
@@ -59,6 +70,13 @@ public class Molecule : MonoBehaviour
 
             BoundsCorrection();
         }
+        if(textIsActive != GV.Molecule_Text_Active)
+        {
+            textIsActive = GV.Molecule_Text_Active;
+            textMesh.gameObject.SetActive(textIsActive);
+        }
+        if (textIsActive)
+            textMesh.transform.rotation = Quaternion.identity;
     }
 
     public void Launch(Vector2 speed)

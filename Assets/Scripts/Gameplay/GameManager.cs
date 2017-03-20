@@ -69,7 +69,7 @@ public class GameManager  {
             Launcher.Instance.Update(dt);
 
             foreach (Molecule c in activeCompounds)
-                c.LimitSpeedAndBoundry();
+                c.UpdateMolecule();
 
             MergeManager.Instance.UpdateMerger(dt);
 

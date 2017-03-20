@@ -10,7 +10,7 @@ public class GV {
     //WS
     public static Transform MoleculeParent;
     public static GameFlow gameFlow;
-
+    
     
 
     public static readonly float Compound_Immunity = 1;  //How long after a reaction before can react again
@@ -24,6 +24,7 @@ public class GV {
     public static readonly float Molecule_Speed_Start = 1;
     public static readonly float Molecule_Speed_Min = .33f;
     public static readonly float Molecule_Speed_Max = 5f;
+    public static bool Molecule_Text_Active = false;
 
     //Chemical
     public static float Merge_Time = .3f; //time it takes for molecules to merge
@@ -39,4 +40,38 @@ public class GV {
     public static readonly float Launch_Velo_Per_Dist = 2;
     public static readonly float Launch_Elastic_Time = .32f; //time to elastic launch
 
+
+    public static string GetMoleculeRichText(MoleculeType mtype)
+    {
+        switch (mtype)
+        {
+            case MoleculeType.H2:
+                break;
+            case MoleculeType.Cl2:
+                break;
+            case MoleculeType.HCl:
+                break;
+            case MoleculeType.H2O:
+                break;
+            case MoleculeType.CO2:
+                break;
+            case MoleculeType.NaCl:
+                break;
+            case MoleculeType.NaOH:
+                break;
+            case MoleculeType.KOH:
+                break;
+            case MoleculeType.KCl:
+                break;
+            case MoleculeType.NaHCO3:
+                break;
+            case MoleculeType.Na2O:
+                break;
+            case MoleculeType.K2O:
+                break;
+            default:
+                break;
+        }
+        return mtype.ToString();
+    }
 }

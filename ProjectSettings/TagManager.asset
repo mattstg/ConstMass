@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Molecule
   - Walls
+  - MoleculeText
   layers:
   - Default
   - TransparentFX

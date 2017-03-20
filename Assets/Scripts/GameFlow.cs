@@ -68,6 +68,10 @@ public class GameFlow : MonoBehaviour {
         LoadLevel(int.Parse(levelSelected.text));
     }
 
+    public void ToggleNamePressed()
+    {
+        GV.Molecule_Text_Active = !GV.Molecule_Text_Active;
+    }
 
     public void Update()
     {
