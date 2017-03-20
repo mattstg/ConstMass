@@ -50,6 +50,7 @@ public class GameManager  {
         gameRunning = true;
         curLoadedLevel = lvl;
         roundTime = GV.Game_Length[lvl];
+        scoreText.gameObject.SetActive(true);
     }
 
     public void UnloadCurrentLevel()
@@ -66,6 +67,7 @@ public class GameManager  {
     {
         if (gameRunning)
         {
+        
             Launcher.Instance.Update(dt);
 
             foreach (Molecule c in activeCompounds)
@@ -75,14 +77,7 @@ public class GameManager  {
 
             roundTime -= dt;
             roundTime = Mathf.Clamp(roundTime, 0, 512);
-            try
-            {
-                scoreText.SetScoreTime(roundTime);
-            }
-            catch
-            {
-                Debug.Log("scoreText is: " + (scoreText == null));
-            }
+            scoreText.SetScoreTime(roundTime);
 
             GameEndCheck(dt);
         }
@@ -94,9 +89,7 @@ public class GameManager  {
         {
             if (GameManager.Instance.IsGameOver())
             {
-                GV.gameFlow.GameFinished(CalculateGameScore());
-                gameRunning = false;
-                roundTime = 0;
+                EndGame();
                 return;
             }
             winTimeChecker = 3;
@@ -108,13 +101,19 @@ public class GameManager  {
 
         if(roundTime <= 0)
         {
-            GV.gameFlow.GameFinished(CalculateGameScore());
-            gameRunning = false;
-            roundTime = 0;
+            EndGame();
             return;
         }
     }
 
+    private void EndGame()
+    {
+        gameRunning = false;
+        float timeToComplete = roundTime;
+        roundTime = 99;
+        scoreText.gameObject.SetActive(false);
+        GV.gameFlow.GameFinished(CalculateGameScore(timeToComplete));
+    }
 
     public bool IsGameOver()
     {
@@ -136,7 +135,7 @@ public class GameManager  {
         return false;
     }
 
-    public float CalculateGameScore()
+    public float CalculateGameScore(float timeToComplete)
     {
         int[] moleculeCount = new int[GV.Molecule_Enum_Count];
         foreach (Molecule c in activeCompounds)

@@ -67,8 +67,8 @@ public class CanvasButton : MonoBehaviour
         {
             WasClicked(true);
         }
-        if (clickAudio)
-            canvasManager.PlayAudio(UISoundEffect.Click);
+        //if (clickAudio)
+        //    canvasManager.PlayAudio(UISoundEffect.Click);
     }
 
     public void SetSelected(bool becomesSelected, bool directAction)
