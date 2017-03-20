@@ -8,6 +8,7 @@ public class GameFlow : MonoBehaviour {
 	public bool canTimeOut = true;
 	
     protected AudioLooper audioLooper;
+    PanelManager panelManager;
     public ScoreText scoreText; //public, send to gamemanager and clear
     public UnityEngine.UI.InputField levelSelected; //temp to restart/force load level
 
@@ -23,19 +24,23 @@ public class GameFlow : MonoBehaviour {
         GV.gameFlow = this;
         GameManager.Instance.LinkScoreText(scoreText);
         scoreText = null;
-	}
+        panelManager = GameObject.FindObjectOfType<PanelManager>();
+        StartNextLoadout();
+    }
 
     private void StartNextLoadout()
     {
         //Start the LessonManager
-        
+        panelManager.LoadPanel((PanelID)currentLevel, LessonFinished);
     }
 
     public void LessonFinished()
     {
+        Debug.Log("lesson finished");
         //Then play current level:game
         if(currentLevel >= GV.Game_Lesson_Max)
         {
+            Debug.Log("END OF GAME FLOW");
             //Was the final lesson, not followed by a game, load scorescreen or end the game
         }
         else
@@ -58,8 +63,6 @@ public class GameFlow : MonoBehaviour {
     {
         GameManager.Instance.CreateAndInitializeLevel(lvl);
         InputManager.gameInputActivate = true;
-        
-
     }
 
 

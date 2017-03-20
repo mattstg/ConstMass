@@ -75,7 +75,14 @@ public class GameManager  {
 
             roundTime -= dt;
             roundTime = Mathf.Clamp(roundTime, 0, 512);
-            scoreText.SetScoreTime(roundTime);
+            try
+            {
+                scoreText.SetScoreTime(roundTime);
+            }
+            catch
+            {
+                Debug.Log("scoreText is: " + (scoreText == null));
+            }
 
             GameEndCheck(dt);
         }
