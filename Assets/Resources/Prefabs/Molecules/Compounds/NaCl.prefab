@@ -36,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4034550019458846}
   - component: {fileID: 212957662773263420}
-  - component: {fileID: 58093716851846826}
   m_Layer: 8
   m_Name: Chlorine
   m_TagString: Molecule
@@ -69,10 +68,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4462466357339274}
-  - component: {fileID: 114820353823266984}
   - component: {fileID: 61862379522129566}
-  m_Layer: 0
-  m_Name: Unstucker
+  m_Layer: 8
+  m_Name: Coli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +85,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4608699089932228}
   - component: {fileID: 212225002604441844}
-  - component: {fileID: 58024606725310252}
   m_Layer: 8
   m_Name: Sodium
   m_TagString: Molecule
@@ -184,34 +181,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58024606725310252
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1785956245980062}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58093716851846826
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1550724319539746}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
 --- !u!61 &61862379522129566
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -238,17 +207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mtype: 5
---- !u!114 &114820353823266984
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1725630057632366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eceed51e6e82f8418609aebe6b22010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212225002604441844
 SpriteRenderer:
   m_ObjectHideFlags: 1

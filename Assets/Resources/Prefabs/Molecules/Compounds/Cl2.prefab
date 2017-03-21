@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4774771242986328}
   - component: {fileID: 212185494074975022}
-  m_Layer: 0
+  - component: {fileID: 61919923868221226}
+  m_Layer: 8
   m_Name: Connector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,23 +45,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1675491591904636
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4494100644627158}
-  - component: {fileID: 58947965557766350}
-  - component: {fileID: 114048152264267084}
-  m_Layer: 8
-  m_Name: Unstucker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1809305202526146
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +54,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4516720703970124}
   - component: {fileID: 212759030718324578}
-  - component: {fileID: 58270467537910002}
   m_Layer: 8
   m_Name: Chlorine
   m_TagString: Molecule
@@ -87,7 +70,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4483822220416104}
   - component: {fileID: 212010507361757436}
-  - component: {fileID: 58896671225926382}
   m_Layer: 8
   m_Name: Chlorine
   m_TagString: Molecule
@@ -108,7 +90,6 @@ Transform:
   - {fileID: 4774771242986328}
   - {fileID: 4483822220416104}
   - {fileID: 4516720703970124}
-  - {fileID: 4494100644627158}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,19 +105,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4272286977660520}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4494100644627158
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1675491591904636}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4272286977660520}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4516720703970124
 Transform:
@@ -184,12 +152,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58270467537910002
-CircleCollider2D:
+--- !u!61 &61919923868221226
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809305202526146}
+  m_GameObject: {fileID: 1051532225400972}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -197,46 +165,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58896671225926382
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918861507050884}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58947965557766350
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1675491591904636}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.24207604
---- !u!114 &114048152264267084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1675491591904636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eceed51e6e82f8418609aebe6b22010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 0.68, y: 0.71}
 --- !u!114 &114291242272410876
 MonoBehaviour:
   m_ObjectHideFlags: 1

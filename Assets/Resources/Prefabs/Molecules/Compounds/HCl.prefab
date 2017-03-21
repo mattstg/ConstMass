@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4904600592474748}
   - component: {fileID: 212289456294570932}
-  - component: {fileID: 58675643738188146}
   m_Layer: 8
   m_Name: Hydrogen
   m_TagString: Molecule
@@ -69,10 +68,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4183637029488166}
-  - component: {fileID: 114442503112065668}
   - component: {fileID: 61352469260772582}
-  m_Layer: 0
-  m_Name: Unstucker
+  m_Layer: 8
+  m_Name: Coli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +85,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4888870601748532}
   - component: {fileID: 212067158846422308}
-  - component: {fileID: 58355535713778258}
   m_Layer: 8
   m_Name: Chlorine
   m_TagString: Molecule
@@ -184,34 +181,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58355535713778258
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1776481024516716}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58675643738188146
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1036055562703768}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
 --- !u!61 &61352469260772582
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -226,18 +195,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.28}
---- !u!114 &114442503112065668
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1715384158508706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eceed51e6e82f8418609aebe6b22010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unstuckTimer: 1
 --- !u!114 &114800754490808152
 MonoBehaviour:
   m_ObjectHideFlags: 1

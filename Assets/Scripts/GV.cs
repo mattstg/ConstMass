@@ -37,7 +37,7 @@ public class GV {
     //launch vars
     public static readonly float Launch_Min_Dist = .5f;
     public static readonly float Launch_Max_Velo = 5f;
-    public static readonly float Launch_Velo_Per_Dist = 2;
+    public static readonly float Launch_Velo_Per_Dist = 1.2f;
     public static readonly float Launch_Elastic_Time = .32f; //time to elastic launch
 
 

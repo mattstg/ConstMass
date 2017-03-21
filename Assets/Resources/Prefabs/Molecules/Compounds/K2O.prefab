@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4425661649626404}
   - component: {fileID: 212640092943264232}
-  - component: {fileID: 58910387179990952}
   m_Layer: 8
   m_Name: Oxygen
   m_TagString: Molecule
@@ -37,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4960304721787596}
   - component: {fileID: 212019122176778562}
-  - component: {fileID: 58449866034308134}
   m_Layer: 8
   m_Name: Potassium
   m_TagString: Molecule
@@ -54,7 +52,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4536496698817524}
   - component: {fileID: 212868887913402672}
-  - component: {fileID: 58845373647051522}
   m_Layer: 8
   m_Name: Potassium (2)
   m_TagString: Molecule
@@ -70,10 +67,40 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4101703571361914}
-  - component: {fileID: 114329548804864304}
-  - component: {fileID: 58247874459349006}
   m_Layer: 0
   m_Name: Unstucker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1599119387988602
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4023066173404692}
+  - component: {fileID: 61003651282023916}
+  m_Layer: 8
+  m_Name: c1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1856003739290284
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4422409668465522}
+  - component: {fileID: 61679326348636598}
+  m_Layer: 8
+  m_Name: c2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +155,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4023066173404692
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1599119387988602}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3720752, w: 0.9282026}
+  m_LocalPosition: {x: -0.194, y: 0.182, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4101703571361914}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 43.687}
 --- !u!4 &4101703571361914
 Transform:
   m_ObjectHideFlags: 1
@@ -137,7 +177,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.02, y: -0.019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4023066173404692}
+  - {fileID: 4422409668465522}
   m_Father: {fileID: 4707577494523864}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,6 +196,19 @@ Transform:
   m_Father: {fileID: 4707577494523864}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45.643}
+--- !u!4 &4422409668465522
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856003739290284}
+  m_LocalRotation: {x: 0, y: 0, z: -0.3720727, w: 0.92820364}
+  m_LocalPosition: {x: 0.162, y: 0.198, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4101703571361914}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -43.687}
 --- !u!4 &4425661649626404
 Transform:
   m_ObjectHideFlags: 1
@@ -245,12 +300,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58247874459349006
-CircleCollider2D:
+--- !u!61 &61003651282023916
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1444575791187040}
+  m_GameObject: {fileID: 1599119387988602}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -258,13 +313,13 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!58 &58449866034308134
-CircleCollider2D:
+  m_Size: {x: 0.2, y: 0.8}
+--- !u!61 &61679326348636598
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1083974565789984}
+  m_GameObject: {fileID: 1856003739290284}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -272,47 +327,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58845373647051522
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1112246511367208}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58910387179990952
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1047019409012114}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!114 &114329548804864304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1444575791187040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eceed51e6e82f8418609aebe6b22010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unstuckTimer: 1
+  m_Size: {x: 0.2, y: 0.8}
 --- !u!114 &114830285364490290
 MonoBehaviour:
   m_ObjectHideFlags: 1
