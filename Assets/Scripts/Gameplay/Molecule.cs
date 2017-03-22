@@ -33,7 +33,7 @@ public class Molecule : MonoBehaviour
         gameObject.AddComponent<RandomSpin>();
         GameObject tm = Instantiate(Resources.Load("Prefabs/MoleText")) as GameObject;
         tm.GetComponent<Renderer>().sortingLayerName = "MoleculeText";
-        tm.GetComponent<TextMesh>().text = GV.GetMoleculeRichText(mtype);
+        tm.GetComponent<TextMesh>().text = GV.MoleculeFormula(mtype);
         textMesh = tm.transform;
         textMesh.SetParent(transform);
         textMesh.localPosition = new Vector3();

@@ -56,19 +56,24 @@ public class QuestionLoader
 
                 /*  
                     For each question:
+
                     1.  Create a new QuestionData instance
+
                     2.  Set strings qd.question and .info
+
                     3.  Add answers sequentially by using qd.AddAnswer():
                             void AddAnswer(string answer, bool isCorrect), or
                             void AddAnswer(string answer)
                                 For simplicity, you can use the second one for incorrect answers,
                                 but be sure to use the first one for the correct answer
+                    
                     4.  After this, you can use qd.SetCorrectText() to append a string to
                         string qd.correctText, which starts out as "Correct!":
                             void SetCorrectText(string appendix), or
                             void SetCorrectText()
                                 Use the second one to automatically append the text of the
                                 correct answer to the end of "Correct!"
+                    
                     5.  After setting the QuestionData as needed, use this.AddQuestion():
                             void AddQuestion(string prefabName, QuestionData data, QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
                                 prefabName: either this.questionSingle or .questionDouble
@@ -82,6 +87,7 @@ public class QuestionLoader
                                 data: the QuestionData just generated
                                 For the final three variables, always use:
                                     "quizPage, questionsParent, questions"
+                    
                     6.  For efficiency, set questions.Capacity to the total number of Questions to be added,
                         before the initial AddQuestion() call.
                 */

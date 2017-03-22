@@ -19,6 +19,7 @@ public class PageLoader
     private string simpleImage = "SimpleImagePage";
     private string scrollImage = "ScrollImagePage";
     private string quiz = "QuizPage";
+    private string breakdown = "BreakdownPage";
 
     #region Singleton
     private static PageLoader instance;
@@ -65,6 +66,7 @@ public class PageLoader
 
                 /*  
                     For each page:
+
                     1.  Declare an instance of Page (base/derived class)* as the return of this.AddPage():
                             Page AddPage(string prefabName, PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
                                 prefabName: choose from the strings declared above:
@@ -82,11 +84,12 @@ public class PageLoader
                                                     simpleImage / scrollImage
                                 CascadeTextPage:    cascadeText
                                 QuizPage:           quiz
+                    
                     2.  Set the relevant Panel settings for the Page.
                         These five Page methods apply to the appearance/function of the Panel container,
                         rather than the Page content, and are applied by PanelManager.ApplyPageSettings()
                         every time a page is (re)opened.
-                        Refer to the Page class to see the default values.
+                        Refer to the Page class/prefabs to see the default values.
                             void ScrollSettings(bool scrRect, bool scrollbar, bool pageMask)
                             void TitleSettings(bool active, bool textOverride, string text)
                             void NextSettings(bool active, bool enabled, bool textOverride, string text)
@@ -96,6 +99,7 @@ public class PageLoader
                                 started displaying the Page, you can either modify them directly
                                 through PanelManager, or else update the settings from within the Page,
                                 and then call panelManager.ApplyPageSettings(panelManager.GetCurrentPage())
+                    
                     3.  Set the relevant Page settings.
                         These directly affect Page content.
                             Page:
@@ -111,7 +115,9 @@ public class PageLoader
                                     charactersPerSecond = 60f  /  smoothTime = 3f
                             QuizPage:
                                 void LoadQuiz(QuizID id)
+                    
                     4.  Make any other custom adjustments as needed by directly modifying values as needed.
+
                     5.  For efficiency, set pages.Capacity to the total number of Pages to be added,
                         before the initial AddPage() call.
                 */

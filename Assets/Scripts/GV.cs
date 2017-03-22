@@ -41,37 +41,79 @@ public class GV {
     public static readonly float Launch_Elastic_Time = .32f; //time to elastic launch
 
 
-    public static string GetMoleculeRichText(MoleculeType mtype)
+    public static string MoleculeFormula(MoleculeType mtype)
     {
+        string formula = mtype.ToString();
         switch (mtype)
         {
             case MoleculeType.H2:
+                formula = "H" + S(2);
                 break;
             case MoleculeType.Cl2:
+                formula = "Cl" + S(2);
                 break;
             case MoleculeType.HCl:
+                formula = "HCl";
                 break;
             case MoleculeType.H2O:
+                formula = "H" + S(2) + "O";
                 break;
             case MoleculeType.CO2:
+                formula = "CO" + S(2);
                 break;
             case MoleculeType.NaCl:
+                formula = "NaCl";
                 break;
             case MoleculeType.NaOH:
+                formula = "NaOH";
                 break;
             case MoleculeType.KOH:
+                formula = "KOH";
                 break;
             case MoleculeType.KCl:
+                formula = "KCl";
                 break;
             case MoleculeType.NaHCO3:
+                formula = "NaHCO" + S(3);
                 break;
             case MoleculeType.Na2O:
+                formula = "Na" + S(2) + "O";
                 break;
             case MoleculeType.K2O:
+                formula = "K" + S(2) + "O";
                 break;
             default:
                 break;
         }
-        return mtype.ToString();
+        return formula;
+    }
+
+    public static char S(int subscript)
+    {
+        switch (subscript)
+        {
+            case 0:
+                return '\u2080';
+            case 1:
+                return '\u2081';
+            case 2:
+                return '\u2082';
+            case 3:
+                return '\u2083';
+            case 4:
+                return '\u2084';
+            case 5:
+                return '\u2085';
+            case 6:
+                return '\u2086';
+            case 7:
+                return '\u2087';
+            case 8:
+                return '\u2088';
+            case 9:
+                return '\u2089';
+            default:
+                return ' ';
+        }
     }
 }
