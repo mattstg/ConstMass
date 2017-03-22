@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MoleculeDict
 {
@@ -110,6 +111,11 @@ public class MoleculeDict
         foreach (GV.AtomType atom in atomList)
             mass += GetAtomMass(atom);
         return mass;
+    }
+
+    public List<GV.AtomType> GetAtomList(GV.MoleculeType mtype)
+    {
+        return moleculeDict[mtype].baseAtoms.ToList<GV.AtomType>();
     }
 
     private class AtomStruct
