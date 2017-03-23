@@ -52,6 +52,7 @@ public class GameFlow : MonoBehaviour {
 
         //Then start next level sequence
         InputManager.gameInputActivate = false;
+        GameManager.Instance.RecordCurrentLevel();
         GameManager.Instance.UnloadCurrentLevel();
         currentLevel++;
         StartNextLoadout();

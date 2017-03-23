@@ -38,6 +38,14 @@ public class GameManager  {
         scoreText = st;
     }
 
+    public void RecordCurrentLevel()
+    {
+        List<GV.MoleculeType> endLevelMoleList = new List<GV.MoleculeType>();
+        foreach(Molecule m in activeCompounds)
+            endLevelMoleList.Add(m.mtype);
+        LevelMoleculeTracker.Instance.RecordLevel(curLoadedLevel, endLevelMoleList);
+    }
+
     public void CreateAndInitializeLevel(int lvl)
     {
         if (gameRunning)
