@@ -69,7 +69,8 @@ public class GameFlow : MonoBehaviour {
 
     public void RestartLevelButton()
     {
-        LoadLevel(int.Parse(levelSelected.text));
+        currentLevel = int.Parse(levelSelected.text);
+        LoadLevel(currentLevel);
     }
 
     public void ToggleNamePressed()

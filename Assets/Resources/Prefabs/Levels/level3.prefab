@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 10
+  moleculeType: 8
 --- !u!114 &114552056021290312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 4
 --- !u!114 &114639070948342522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 11
+  moleculeType: 8
 --- !u!114 &114768233629643260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 4
 --- !u!114 &114800805082890552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 9
+  moleculeType: 5
 --- !u!114 &114808269325684704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 10
+  moleculeType: 8
 --- !u!114 &114889725001114942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 4
 --- !u!114 &114939770908588110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,4 +500,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 10
+  moleculeType: 9

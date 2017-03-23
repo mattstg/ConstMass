@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 8
 --- !u!114 &114059830570245138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 8
 --- !u!114 &114116208201464540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 8
 --- !u!114 &114325443817166624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,4 +374,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 8

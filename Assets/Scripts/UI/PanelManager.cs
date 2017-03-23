@@ -79,11 +79,7 @@ public class PanelManager : MonoBehaviour
         }
         if (infoParent)
             infoParent.gameObject.SetActive(false);
-        LoadPanel(panelID, Empty);  // just for development; remove when GameFlow calls LoadPanel() and passes callback delegate as second argument
     }
-
-    public void Empty() { } // just for development, while LoadPanel(CPC) is
-                            // called here from Start() instead of from GameFlow
 
     public void ButtonClicked(PanelButton button)
     {

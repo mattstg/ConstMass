@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 9
+  moleculeType: 5
 --- !u!114 &114208448467209298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 9
+  moleculeType: 5
 --- !u!114 &114218605281853872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 9
+  moleculeType: 8
 --- !u!114 &114561390849046240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 10
+  moleculeType: 8
 --- !u!114 &114590062838764702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 10
+  moleculeType: 8
 --- !u!114 &114646022315157160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 5
 --- !u!114 &114651024203578140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 9
+  moleculeType: 5
 --- !u!114 &114821033235825174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 4
 --- !u!114 &114838797315776874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,4 +542,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c714ce1e8b20f147ad54a0954c0a7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moleculeType: 1
+  moleculeType: 4

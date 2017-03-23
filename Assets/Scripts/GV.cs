@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GV {
 
-    public enum AtomType { H, O, C, Na, K, Cl }
-    public enum MoleculeType { H2 , Cl2, HCl, H2O, CO2, NaCl, NaOH, KOH, KCl, NaHCO3, Na2O, K2O }
+    public enum AtomType { H, C, O, Na, Cl, K }
+    public enum MoleculeType { H2, H2O, HCl, CO2, Na2O, NaHCO3, NaOH, NaCl, Cl2, K2O, KOH, KCl }
     public static readonly int Molecule_Enum_Count = 12;
     //WS
     public static Transform MoleculeParent;

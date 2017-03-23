@@ -43,6 +43,7 @@ public class GameManager  {
         List<GV.MoleculeType> endLevelMoleList = new List<GV.MoleculeType>();
         foreach(Molecule m in activeCompounds)
             endLevelMoleList.Add(m.mtype);
+        endLevelMoleList.Sort();
         LevelMoleculeTracker.Instance.RecordLevel(curLoadedLevel, endLevelMoleList);
     }
 
