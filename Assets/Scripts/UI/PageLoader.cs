@@ -20,6 +20,7 @@ public class PageLoader
     private string scrollImage = "ScrollImagePage";
     private string quiz = "QuizPage";
     private string breakdown = "BreakdownPage";
+    private string score = "ScorePage";
 
     #region Singleton
     private static PageLoader instance;
@@ -58,91 +59,145 @@ public class PageLoader
 
     private void PreLevel0(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-        // introduction
-
-        // pre-0
+        // INTRODUCTION
         Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.SetTextContent("PreLevel0");
+        a.TitleSettings(true, true, "INTRODUCTION");
+        a.SetTextContent("");
+
+        // PRE-0
+        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
+        b.TitleSettings(true, true, "LESSON 1");
+        b.SetTextContent("");
+        Page c = AddPage(simpleText, panelManager, pagesParent, pages);
+        c.TitleSettings(true, true, "TUTORIAL 1");
+        c.SetTextContent("");
+        Page d = AddPage(simpleText, panelManager, pagesParent, pages);
+        d.TitleSettings(true, true, "OBJECTIVE 1");
+        d.SetTextContent("");
 
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
-        pre0breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN");
+        pre0breakdown.TitleSettings(true, true, "LEVEL 1:  PRE-GAME BREAKDOWN");
         pre0breakdown.NextSettings(true, true, true, "Begin!");
     }
 
     private void PreLevel1(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-        // post-0
+      // POST-0
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
-        pre0breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN");
+        pre0breakdown.TitleSettings(true, true, "LEVEL 1:  PRE-GAME BREAKDOWN");
         BreakdownPage post0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post0breakdown.SetLevel(0, false);
-        post0breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN");
+        post0breakdown.TitleSettings(true, true, "LEVEL 1:  POST-GAME BREAKDOWN");
 
-        // pre-1
+        QuizPage quiz0 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        quiz0.TitleSettings(true, true, "LEVEL 1:  QUIZ");
+        quiz0.LoadQuiz(QuizID.Level0);
+
+        ScorePage score0 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
+        score0.UpdateScores(0);
+
+        // PRE-1
         Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.SetTextContent("PreLevel1");
+        a.TitleSettings(true, true, "LESSON 2");
+        a.BackSettings(false, true, false, "");
+        a.SetTextContent("");
+        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
+        b.TitleSettings(true, true, "OBJECTIVE 2");
+        b.SetTextContent("");
 
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
-        pre1breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN");
+        pre1breakdown.TitleSettings(true, true, "LEVEL 2:  PRE-GAME BREAKDOWN");
         pre1breakdown.NextSettings(true, true, true, "Begin!");
     }
 
     private void PreLevel2(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-        // post-1
+      // POST-1
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
-        pre1breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN");
+        pre1breakdown.TitleSettings(true, true, "LEVEL 2:  PRE-GAME BREAKDOWN");
         BreakdownPage post1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post1breakdown.SetLevel(1, false);
-        post1breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN");
+        post1breakdown.TitleSettings(true, true, "LEVEL 2:  POST-GAME BREAKDOWN");
 
-        // pre-2
+        QuizPage quiz1 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        quiz1.TitleSettings(true, true, "LEVEL 2:  QUIZ");
+        quiz1.LoadQuiz(QuizID.Level1);
+
+        ScorePage score1 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
+        score1.UpdateScores(1);
+
+        // PRE-2
         Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.SetTextContent("PreLevel2");
+        a.TitleSettings(true, true, "LESSON 3");
+        a.BackSettings(false, true, false, "");
+        a.SetTextContent("");
+        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
+        b.TitleSettings(true, true, "OBJECTIVE 3");
+        b.SetTextContent("");
 
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
-        pre2breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN");
+        pre2breakdown.TitleSettings(true, true, "LEVEL 3:  PRE-GAME BREAKDOWN");
         pre2breakdown.NextSettings(true, true, true, "Begin!");
     }
 
     private void PreLevel3(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-        // post-2
+      // POST-2
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
-        pre2breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN");
+        pre2breakdown.TitleSettings(true, true, "LEVEL 3:  PRE-GAME BREAKDOWN");
         BreakdownPage post2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post2breakdown.SetLevel(2, false);
-        post2breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN");
+        post2breakdown.TitleSettings(true, true, "LEVEL 3:  POST-GAME BREAKDOWN");
 
-        // pre-3
+        QuizPage quiz2 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        quiz2.TitleSettings(true, true, "LEVEL 3:  QUIZ");
+        quiz2.LoadQuiz(QuizID.Level2);
+
+        ScorePage score2 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
+        score2.UpdateScores(2);
+
+        // PRE-3
         Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.SetTextContent("PreLevel3");
+        a.TitleSettings(true, true, "LESSON 4");
+        a.BackSettings(false, true, false, "");
+        a.SetTextContent("");
+        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
+        b.TitleSettings(true, true, "OBJECTIVE 4");
+        b.SetTextContent("");
 
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
-        pre3breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN");
+        pre3breakdown.TitleSettings(true, true, "LEVEL 4:  PRE-GAME BREAKDOWN");
         pre3breakdown.NextSettings(true, true, true, "Begin!");
     }
 
     private void Final(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-        // post-3
+      // POST-3
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
-        pre3breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN");
+        pre3breakdown.TitleSettings(true, true, "LEVEL 4:  PRE-GAME BREAKDOWN");
         BreakdownPage post3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post3breakdown.SetLevel(3, false);
-        post3breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN");
+        post3breakdown.TitleSettings(true, true, "LEVEL 4:  POST-GAME BREAKDOWN");
 
-        // conclusion
+        QuizPage quiz3 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        quiz3.TitleSettings(true, true, "LEVEL 4:  QUIZ");
+        quiz3.LoadQuiz(QuizID.Level3);
+
+        ScorePage score3 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
+        score3.UpdateScores(3);
+
+        // CONCLUSION
         Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.SetTextContent("Final");
+        a.TitleSettings(true, true, "CONCLUSION");
+        a.SetTextContent("");
     }
 
     public List<Page> LoadPages(PanelID panelID, PanelManager panelManager)

@@ -6,7 +6,7 @@ using LoLSDK;
 
 public enum QuizID
 {
-    LevelA, LevelB, LevelC, LevelD, QuizTutorial, None
+    Level0, Level1, Level2, Level3, QuizTutorial, None
 };
 
 public class QuestionLoader
@@ -40,16 +40,16 @@ public class QuestionLoader
 
         switch (quizID)
         {
-            case QuizID.LevelA:
+            case QuizID.Level0:
 
                 break;
-            case QuizID.LevelB:
+            case QuizID.Level1:
 
                 break;
-            case QuizID.LevelC:
+            case QuizID.Level2:
 
                 break;
-            case QuizID.LevelD:
+            case QuizID.Level3:
 
                 break;
             case QuizID.QuizTutorial:

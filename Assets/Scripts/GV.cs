@@ -32,7 +32,7 @@ public class GV {
 
     //Main Game
     public static readonly float[] Game_Length = new float[] { 30, 40, 50, 50, 80 };
-    public static readonly int Game_Lesson_Max = 5;
+    public static readonly int Game_Lesson_Max = 4;
 
     //launch vars
     public static readonly float Launch_Min_Dist = .5f;
@@ -47,19 +47,19 @@ public class GV {
         switch (mtype)
         {
             case MoleculeType.H2:
-                formula = "H" + S(2);
+                formula = "H" + SubscriptNumeral(2);
                 break;
             case MoleculeType.Cl2:
-                formula = "Cl" + S(2);
+                formula = "Cl" + SubscriptNumeral(2);
                 break;
             case MoleculeType.HCl:
                 formula = "HCl";
                 break;
             case MoleculeType.H2O:
-                formula = "H" + S(2) + "O";
+                formula = "H" + SubscriptNumeral(2) + "O";
                 break;
             case MoleculeType.CO2:
-                formula = "CO" + S(2);
+                formula = "CO" + SubscriptNumeral(2);
                 break;
             case MoleculeType.NaCl:
                 formula = "NaCl";
@@ -74,13 +74,13 @@ public class GV {
                 formula = "KCl";
                 break;
             case MoleculeType.NaHCO3:
-                formula = "NaHCO" + S(3);
+                formula = "NaHCO" + SubscriptNumeral(3);
                 break;
             case MoleculeType.Na2O:
-                formula = "Na" + S(2) + "O";
+                formula = "Na" + SubscriptNumeral(2) + "O";
                 break;
             case MoleculeType.K2O:
-                formula = "K" + S(2) + "O";
+                formula = "K" + SubscriptNumeral(2) + "O";
                 break;
             default:
                 break;
@@ -88,7 +88,7 @@ public class GV {
         return formula;
     }
 
-    public static char S(int subscript)
+    public static char SubscriptNumeral(int subscript)
     {
         switch (subscript)
         {
