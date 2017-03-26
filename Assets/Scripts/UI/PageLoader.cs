@@ -59,21 +59,44 @@ public class PageLoader
 
     private void PreLevel0(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-        // INTRODUCTION
-        Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.TitleSettings(true, true, "INTRODUCTION");
-        a.SetTextContent("");
+    // INTRODUCTION, PRE-0
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        a.TitleSettings(true, true, "");
+        a.ifExceedsPage = IfExceedsPage.ExtendDownward;
+        a.SetTextContent("<i>Dance of Atoms</i> is a game about what happens to atoms and molecules during <i>chemical reactions</i>. Chemical reactions occur when atoms of colliding molecules " +
+            "rearrange themselves by breaking current bonds and creating new ones, leading to the formation of new substances.");
 
-        // PRE-0
-        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
-        b.TitleSettings(true, true, "LESSON 1");
-        b.SetTextContent("");
-        Page c = AddPage(simpleText, panelManager, pagesParent, pages);
-        c.TitleSettings(true, true, "TUTORIAL 1");
-        c.SetTextContent("");
-        Page d = AddPage(simpleText, panelManager, pagesParent, pages);
-        d.TitleSettings(true, true, "OBJECTIVE 1");
-        d.SetTextContent("");
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        b.TitleSettings(true, true, "");
+        b.ifExceedsPage = IfExceedsPage.ExtendDownward;
+        b.SetTextContent("In a chemical reaction, the molecules that collide are called the <i>reactants</i>, and the molecules that are produced are called the <i>products</i>.\n\n" +
+            "During a chemical reaction, atoms are never created or destroyed. Therefore, even though the atoms are rearranged into new molecules, the total amount of each type of atom in the reactants " +
+            "is always equal to the total amount of each type of atom in the products.\n\n" +
+            "Every atom of each type of element has a specific mass, known as <i>atomic mass</i> (measured in <i>atomic mass units</i>, or <i>amu</i>). During a chemical reaction, atoms’ atomic masses never change.");
+
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        e.TitleSettings(true, true, "");
+        e.ifExceedsPage = IfExceedsPage.ExtendDownward;
+        e.SetTextContent("Because both the total number of each type of atom and the individual mass of each atom do not change during a chemical reaction, the total mass of the reactants is " +
+            "always the same as the total mass of the products.\n\n" +
+            "This principle is known as the <i>conservation of matter in chemical reactions</i>.");
+
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        c.TitleSettings(true, true, "");
+        c.ifExceedsPage = IfExceedsPage.ExtendDownward;
+        c.SetTextContent("Think of it this way: if you build four chairs out of an assortment of pieces of wood, and then take them apart and use every piece of wood to build a desk and a stool instead, " +
+            "the combined weight of the desk and the stool will equal the total weight of the four chairs!");
+
+        Page tutorial = AddPage(simpleText, panelManager, pagesParent, pages);
+        tutorial.TitleSettings(true, true, "TUTORIAL 1");
+        tutorial.SetTextContent("");
+
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        d.TitleSettings(true, true, "");
+        d.ifExceedsPage = IfExceedsPage.ExtendDownward;
+        d.SetTextContent("In the first level, you will be required to make 8 HCl (hydrogen chloride) molecules from 4 H" + S(2) + " (pure hydrogen) molecules and 4 Cl" + S(2) + " (pure chlorine) molecules.\n\n" +
+            "You will be using the following chemical reaction equation:\n" +
+            "H" + S(2) + " + Cl" + S(2) + " = 2HCl");
 
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
@@ -83,7 +106,7 @@ public class PageLoader
 
     private void PreLevel1(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-      // POST-0
+    // POST-0
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
         pre0breakdown.TitleSettings(true, true, "LEVEL 1:  PRE-GAME BREAKDOWN");
@@ -99,13 +122,26 @@ public class PageLoader
         score0.UpdateScores(0);
 
         // PRE-1
-        Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.TitleSettings(true, true, "LESSON 2");
-        a.BackSettings(false, true, false, "");
-        a.SetTextContent("");
-        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
-        b.TitleSettings(true, true, "OBJECTIVE 2");
-        b.SetTextContent("");
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        a.SetTextContent("You may have noticed in the last level that the temperature of the reaction chamber changed whenever a chemical reaction occurred. You might have even noticed that the speeds of the molecules changed whenever the temperature changed.\n\n" +
+            "All chemical reactions are either <i>endothermic</i> or <i>exothermic</i>.\n\n" +
+            "For an endothermic reaction to occur, it requires more energy than it has stored in its chemical bonds, and so it must absorb energy from its surroundings (often in the form of heat).\n\n" +
+            "Exothermic reactions, on the other hand, produce an excess of energy, which is then released into the surroundings (again, often as heat).");
+        a.TitleSettings(true, true, "");
+        a.ifExceedsPage = IfExceedsPage.ExtendDownward;
+
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        b.SetTextContent("When an endothermic reaction absorbs heat from its surroundings, it slows down the movements of the surrounding molecules. When an exothermic reactions emits heat, it speeds up the movements of the surrounding molecules.\n\n" +
+            "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones. But watch out: faster-moving molecules will be harder for you to hit with your molecule accelerator!");
+        b.TitleSettings(true, true, "");
+        b.ifExceedsPage = IfExceedsPage.ExtendDownward;
+
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        c.SetTextContent("In the next level, you will be required to make 4 H" + S(2) + "O (water) molecules from 2 H" + S(2) + " molecules, 2 Cl molecules, and 4 NaHCO" + S(3) + " (sodium bicarbonate, commonly called baking soda) molecules.\n\n" +
+            "This will require that you use the reaction in the previous level in combination with a new one:\n" +
+            "NaHCO" + S(2) + " + HCl->NaCl + CO" + S(2) + " + H" + S(2) + "O");
+        c.TitleSettings(true, true, "");
+        c.ifExceedsPage = IfExceedsPage.ExtendDownward;
 
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
@@ -115,7 +151,7 @@ public class PageLoader
 
     private void PreLevel2(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-      // POST-1
+    // POST-1
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
         pre1breakdown.TitleSettings(true, true, "LEVEL 2:  PRE-GAME BREAKDOWN");
@@ -130,7 +166,7 @@ public class PageLoader
         ScorePage score1 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
         score1.UpdateScores(1);
 
-        // PRE-2
+    // PRE-2
         Page a = AddPage(simpleText, panelManager, pagesParent, pages);
         a.TitleSettings(true, true, "LESSON 3");
         a.BackSettings(false, true, false, "");
@@ -147,7 +183,7 @@ public class PageLoader
 
     private void PreLevel3(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-      // POST-2
+    // POST-2
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
         pre2breakdown.TitleSettings(true, true, "LEVEL 3:  PRE-GAME BREAKDOWN");
@@ -162,7 +198,7 @@ public class PageLoader
         ScorePage score2 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
         score2.UpdateScores(2);
 
-        // PRE-3
+    // PRE-3
         Page a = AddPage(simpleText, panelManager, pagesParent, pages);
         a.TitleSettings(true, true, "LESSON 4");
         a.BackSettings(false, true, false, "");
@@ -179,7 +215,7 @@ public class PageLoader
 
     private void Final(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
-      // POST-3
+    // POST-3
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
         pre3breakdown.TitleSettings(true, true, "LEVEL 4:  PRE-GAME BREAKDOWN");
@@ -194,7 +230,7 @@ public class PageLoader
         ScorePage score3 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
         score3.UpdateScores(3);
 
-        // CONCLUSION
+    // CONCLUSION
         Page a = AddPage(simpleText, panelManager, pagesParent, pages);
         a.TitleSettings(true, true, "CONCLUSION");
         a.SetTextContent("");
@@ -363,5 +399,15 @@ public class PageLoader
         f.TitleSettings(true, true, "CascadeTextPage");
         f.CascadeTextSettings(150f, true, 3f, IfExceedsPage.ExtendDownward);
         f.NextSettings(true, true, true, "Goodbye");
+    }
+
+    public char S(int s)
+    {
+        return GV.SubscriptNumeral(s);
+    }
+
+    public string N(GV.MoleculeType m)
+    {
+        return GV.MoleculeFormula(m);
     }
 }

@@ -40,6 +40,7 @@ public class GV {
     public static readonly float Launch_Velo_Per_Dist = 1.2f;
     public static readonly float Launch_Elastic_Time = .32f; //time to elastic launch
 
+    public static bool cascadeSpeedOverride = true;
 
     public static string MoleculeFormula(MoleculeType mtype)
     {
@@ -113,7 +114,8 @@ public class GV {
             case 9:
                 return '\u2089';
             default:
-                return ' ';
+                Debug.Log("GV.SubscriptNumeral() error, argument out of bounds.");
+                return 'X';
         }
     }
 }

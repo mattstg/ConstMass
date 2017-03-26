@@ -51,6 +51,8 @@ public class CascadeTextPage : Page
     {
         base.AssignPanelManager(_panelManager);
         buttonsParent = panelManager.buttonsParent;
+        if (GV.cascadeSpeedOverride)
+            charactersPerSecond = 600f;
     }
 
     void Update()
@@ -246,11 +248,16 @@ public class CascadeTextPage : Page
 
     public void CascadeTextSettings(float charactersPerSecond, bool autoScroll, float smoothTime, IfExceedsPage ifExceedsPage)
     {
-        this.charactersPerSecond = charactersPerSecond;
+        if (!GV.cascadeSpeedOverride)
+            this.charactersPerSecond = charactersPerSecond;
+        else
+            this.charactersPerSecond = 600f;
         this.autoScroll = autoScroll;
         this.smoothTime = smoothTime;
         this.ifExceedsPage = ifExceedsPage;
         if (this.ifExceedsPage == IfExceedsPage.BestFitFontSize)
             usePageMask = false;
+        else
+            usePageMask = true;
     }
 }

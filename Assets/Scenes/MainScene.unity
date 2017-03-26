@@ -817,7 +817,7 @@ Prefab:
     - target: {fileID: 114128880490692650, guid: aceb5598b61a44f4596efa8a472ef3d4,
         type: 2}
       propertyPath: panelID
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224053355481610522, guid: aceb5598b61a44f4596efa8a472ef3d4,
         type: 2}
