@@ -14,10 +14,11 @@ public class QuizPage : Page
     protected List<Question> questions = new List<Question>();
     protected QuizStatus status = QuizStatus.Answering;
 
-    protected int submissionAttempts = 0;
+    List<float> quizScores;
 
     protected override void Awake()
     {
+        quizScores = new List<float>();
         questionsParent = (RectTransform)transform;
         if (quizID != QuizID.None)
             LoadQuiz();
@@ -103,16 +104,24 @@ public class QuizPage : Page
                     panelManager.nextButton.SetEnabled(false);
                 break;
             case QuizStatus.SomeIncorrect:
+                quizScores.Add(CorrectCount() / questions.Count);
                 panelManager.nextButton.SetText("Try again");
                 panelManager.nextButton.SetEnabled(true);
                 foreach (Question q in questions)
                     q.QuestionFlow(statusChange);
                 break;
             case QuizStatus.AllCorrect:
+                quizScores.Add(1);
                 panelManager.nextButton.SetText("Perfect!");
                 panelManager.nextButton.SetEnabled(true);
                 foreach (Question q in questions)
                     q.QuestionFlow(statusChange);
+                float avrgScore = 0;
+                foreach (float qs in quizScores)
+                    avrgScore += qs;
+                avrgScore /= quizScores.Count;
+                ProgressTracker.Instance.SetScore(ProgressTracker.ScoreType.Quiz,GV.Current_Flow_Index,avrgScore);
+                ProgressTracker.Instance.SubmitProgress(2 * GV.Current_Flow_Index);
                 break;
             default:
                 break;

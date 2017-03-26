@@ -5,8 +5,12 @@ using LoLSDK;
 using System.Linq;
 
 public class ProgressTracker {
+    public enum ScoreType { Success, Time, Quiz }
+    public static readonly int maxScorePerRound = 1500;
+    public static readonly float lossPerQuizAttempt = .05f; //out of one, so
 
-	private static ProgressTracker instance;
+    #region singleton
+    private static ProgressTracker instance;
 
 	public static ProgressTracker Instance
 	{
@@ -19,77 +23,50 @@ public class ProgressTracker {
 			return instance;
 		}
 	}
+    #endregion
 
-	float[] roundScores = new float[5];
-	float[] roundMult = new float[5];
-    float maxScorePerRound = 1500;
-    float roundMultMax = .5f; //50% increase at 100% bonus
-    float lossPerQuizAttempt = .05f;
+    Dictionary<ScoreType, float[]> scoreDict;
+	float[] successScore = new float[4];
+    float[] timeScore    = new float[4];
+	float[] quizScore    = new float[4];
+    
     bool trackProgress = true;
 
 	private ProgressTracker()
 	{
-		for (int i = 0; i < 5; i++) 
-		{
-			roundScores [i] = 0;
-			roundMult [i] = 0;
-		}
-	}
+		for (int i = 0; i < 4; i++) 
+			successScore [i] = timeScore[i] = quizScore[i] = 0;
+        scoreDict = new Dictionary<ScoreType, float[]>()
+        {
+            {ScoreType.Success,successScore},
+            {ScoreType.Time,timeScore},
+            {ScoreType.Quiz,quizScore}
+        };
 
-    public float GetRoundScore(int lesson)
-    {
-        float score = roundScores[(int)lesson] * maxScorePerRound;
-        int toInt = (int)score;
-        score = (float)toInt;
-        return score;
     }
 
-    public float GetMultScore(int lesson)
+    public float GetScore(ScoreType scoreType,int lesson, bool raw = false)
     {
-        float bonus = 1 + roundMult[(int)lesson]*roundMultMax;
-
-        //round down to nearest percentage
-        bonus *= 100f;
-        int toInt = (int)bonus;
-        bonus = ((float)toInt) / 100f;
-
-        return bonus;
+        return (raw) ? (int)(scoreDict[scoreType][(int)lesson] * maxScorePerRound) : scoreDict[scoreType][(int)lesson];
     }
 
-    public float GetMultPercentage(int lesson)
+    public void SetScore(ScoreType scoreType, int lesson, float scoreValue)
     {
-        float bonus = roundMult[(int)lesson] * roundMultMax * 100f;
-        return (float)(int)bonus;
+        scoreDict[scoreType][(int)lesson] = scoreValue;
     }
 
-    public void SetRoundScore(float score, int round)
-	{
-		roundScores [round] = Mathf.Clamp(score,0,1);
-	}
-
-	public void SetRoundMult(float score, int round, int tries)
-	{
-        //float _scooore = score;
-        score = Mathf.Clamp(score - (tries * lossPerQuizAttempt), 0,1);
-        //Debug.Log("raw score: " + _scooore + " for round: " + round + " took " + tries + " tries, resulting in final score: " + score);
-        roundMult [round] = score;
-	}
-
-	public void SubmitProgress(int progressNumber)
+    public void SubmitProgress(int progressNumber)
 	{
         if(trackProgress)
-            LOLSDK.Instance.SubmitProgress(GetTotalScore(), progressNumber, 10);// SCORE, CURRENTPROGRESS, MAXPROGRESS
+            LOLSDK.Instance.SubmitProgress((int)GetTotalScore(), progressNumber, 8);// SCORE, CURRENTPROGRESS, MAXPROGRESS
     }
 
     public int GetTotalScore()
     {
-        float totalScore = 0;
-        for (int i = 0; i < 5; i++)
-        {
-            //totalScore += roundScores[i] * (1 + roundMult[i] * roundMultMax) * maxScorePerRound;
-            totalScore += GetRoundScore((int)i) * GetMultScore((int)i);
-            //Debug.Log(string.Format("i: {0}, TotalScore: {1}, GetRoundScore: {2}, GetMultScore: {3}, Score[i]: {4}", i, (int)totalScore, GetRoundScore((LessonType)i), GetMultScore((LessonType)i), GetRoundScore((LessonType)i) * GetMultScore((LessonType)i)));
-        }
-        return (int)totalScore;
+        int totalScore = 0;
+        foreach (ScoreType st in System.Enum.GetValues(typeof(ScoreType)))
+            for (int i = 0; i < 4; i++)
+                totalScore += (int)GetScore(st, i);
+        return totalScore;
     }
 }

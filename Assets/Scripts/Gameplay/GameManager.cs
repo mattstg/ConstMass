@@ -44,7 +44,7 @@ public class GameManager  {
         foreach(Molecule m in activeCompounds)
             endLevelMoleList.Add(m.mtype);
         endLevelMoleList.Sort();
-        LevelMoleculeTracker.Instance.RecordLevel(curLoadedLevel, endLevelMoleList);
+        LevelMoleculeTracker.Instance.RecordLevel(GV.Current_Flow_Index, endLevelMoleList);
     }
 
     public void CreateAndInitializeLevel(int lvl)
@@ -57,7 +57,7 @@ public class GameManager  {
             MergeManager.Instance.CreateMolecule(t.GetComponent<MoleculeEditorLoader>().moleculeType, t.position);
         MonoBehaviour.Destroy(go);
         gameRunning = true;
-        curLoadedLevel = lvl;
+        curLoadedLevel = GV.Current_Flow_Index;
         roundTime = GV.Game_Length[lvl];
         scoreText.gameObject.SetActive(true);
     }
@@ -121,7 +121,7 @@ public class GameManager  {
         float timeToComplete = roundTime;
         roundTime = 99;
         scoreText.gameObject.SetActive(false);
-        GV.gameFlow.GameFinished(CalculateGameScore(timeToComplete));
+        GV.gameFlow.GameFinished(CalculateGameScore(),CalculateTimeScore());
     }
 
     public bool IsGameOver()
@@ -130,7 +130,7 @@ public class GameManager  {
         foreach(Molecule c in activeCompounds)
             moleculeCount[(int)c.mtype]++;
 
-        switch(curLoadedLevel)
+        switch(GV.Current_Flow_Index)
         {
             case 0:
                 return moleculeCount[(int)GV.MoleculeType.HCl] >= 8;
@@ -144,13 +144,13 @@ public class GameManager  {
         return false;
     }
 
-    public float CalculateGameScore(float timeToComplete)
+    public float CalculateGameScore()
     {
         int[] moleculeCount = new int[GV.Molecule_Enum_Count];
         foreach (Molecule c in activeCompounds)
             moleculeCount[(int)c.mtype]++;
 
-        switch (curLoadedLevel)
+        switch (GV.Current_Flow_Index)
         {
             case 0:
                 return moleculeCount[(int)GV.MoleculeType.HCl] / 8f;
@@ -161,6 +161,11 @@ public class GameManager  {
             case 3:
                 return moleculeCount[(int)GV.MoleculeType.H2O] / 3f;
         }
+        return 0;
+    }
+
+    public float CalculateTimeScore()
+    {
         return 0;
     }
 
