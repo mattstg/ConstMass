@@ -6,21 +6,9 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour {
 
     public static bool Sound_Active = true;
-    public static bool SDK_Initialized = false;
     public GameObject muteButton;
 
-    void Start()
-    {
-        if (!SDK_Initialized)
-        {
-            LOLSDK.Init("com.Pansimula.BidForLife");
-            SDK_Initialized = true;
-        }
-        LOLAudio.Instance.PlayAudio("IntroMusic.mp3", true);
-        
-    }
-
-	public void StartPressed()
+    public void StartPressed()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("IntroScene");
         //LOLAudio.Instance.StopAudio("IntroMusic.mp3");
