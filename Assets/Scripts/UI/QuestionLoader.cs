@@ -37,7 +37,7 @@ public class QuestionLoader
     {
         QuestionData a = new QuestionData();
         a.question = "Which term describes the matter that goes into a chemical reaction?";
-        a.info = "";
+        a.info = "Hint: these are the things that do the <i>reacting</i> in a chemical reaction.";
         a.AddAnswer("Products");
         a.AddAnswer("Electrons");
         a.AddAnswer("Solvents");
@@ -46,7 +46,7 @@ public class QuestionLoader
 
         QuestionData b = new QuestionData();
         b.question = "If 3 H" + S(2) + " molecules and 3 Cl" + S(2) + " molecules react to form hydrogen chloride, how many HCl molecules will be produced?";
-        b.info = "";
+        b.info = "Hint: the reactants in this question are composed of 6 hydrogen atoms and 6 chlorine atoms. Each HCl molecule is composed of 1 hydrogen atom and 1 chlorine atom.";
         b.AddAnswer("1");
         b.AddAnswer("3");
         b.AddAnswer("6", true);
@@ -55,7 +55,7 @@ public class QuestionLoader
 
         QuestionData c = new QuestionData();
         c.question = "If 20amu of one substance chemically reacts with 25amu of another substance, what will the total mass of the products be?";
-        c.info = "";
+        c.info = "Remember, in a chemical reaction, the total mass of the reactants is always equal to the total mass of the products.";
         c.AddAnswer("5amu");
         c.AddAnswer("45amu", true);
         c.AddAnswer("22.5amu");
@@ -71,15 +71,15 @@ public class QuestionLoader
     public void Level1(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
     {
         QuestionData a = new QuestionData();
-        a.question = "Complete the sentence:  Endothermic reactions ...";
-        a.info = "";
+        a.question = "Complete the sentence:  Endothermic reactions...";
+        a.info = "If you can't remember, you'll just have to guess!";
         a.AddAnswer("require energy to occur, and exothermic reactions release excess energy", true);
         a.AddAnswer("release excess energy, and exothermic reactions require energy to occur");
         a.SetCorrectText("Endothermic reactions require energy to occur, and exothermic reactions release excess energy.");
 
         QuestionData b = new QuestionData();
         b.question = "How does heat affect the movement of molecules?";
-        b.info = "";
+        b.info = "Remember, heat is a form of energy!";
         b.AddAnswer("Molecules of warmer substances move faster", true);
         b.AddAnswer("Molecules of warmer substances move slower");
         b.AddAnswer("It depends on the type of substance");
@@ -98,7 +98,7 @@ public class QuestionLoader
     {
         QuestionData a = new QuestionData();
         a.question = "How many hydrogen atoms and oxygen atoms are present in the expression 4H" + S(2) + "O?";
-        a.info = "";
+        a.info = "Remember, the 4 means that there are 4 H" + S(2) + "O molecules present, while the " + S(2) + " means there are 2 hydrogen atoms in each molecule.";
         a.AddAnswer("4 hydrogen atoms and 2 oxygen atoms");
         a.AddAnswer("8 hydrogen atoms and 1 oxygen atom");
         a.AddAnswer("4 hydrogen atoms and 8 oxygen atoms");
@@ -107,7 +107,7 @@ public class QuestionLoader
 
         QuestionData b = new QuestionData();
         b.question = "Select the balanced form of the following chemical equation:\nZn + HCl  →  H" + S(2) + " + ZnCl" + S(2);
-        b.info = "";
+        b.info = "Hint: the correct answer will have the same number of each type of atom on the right side of the equation as there are on the left.";
         b.AddAnswer("Zn + 2HCl  →\nH" + S(2) + " + ZnCl" + S(2), true);
         b.AddAnswer("2Zn + HCl  →\nH" + S(2) + " + ZnCl" + S(2));
         b.AddAnswer("Zn + 2HCl  →\n2H" + S(2) + " + ZnCl" + S(2));
@@ -116,7 +116,7 @@ public class QuestionLoader
 
         QuestionData c = new QuestionData();
         c.question = "Select the balanced form of the following chemical equation:\nC" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  CO" + S(2) + " + H" + S(2) + "O";
-        c.info = "";
+        c.info = "Hint: the correct answer will have the same number of each type of atom on the right side of the equation as there are on the left.";
         c.AddAnswer("C" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  11CO" + S(2) + " + 12H" + S(2) + "O");
         c.AddAnswer("C" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  12CO" + S(2) + " + 11H" + S(2) + "O", true);
         c.SetCorrectText("Zn + 2HCl  →  H" + S(2) + " + ZnCl" + S(2));
@@ -136,14 +136,14 @@ public class QuestionLoader
     {
         QuestionData a = new QuestionData();
         a.question = "Is the following chemical equation balanced?\n6H" + S(2) + "O + 6CO" + S(2) + "  →  C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 6O" + S(2);
-        a.info = "";
+        a.info = "Hint: count how many hydrogen, oxygen, and carbon atoms are on either side of the equation. If they are equal, then the equation is balanced!";
         a.AddAnswer("Yes", true);
         a.AddAnswer("No");
         a.SetCorrectText("Yes, the equation is balanced.");
 
         QuestionData b = new QuestionData();
         b.question = "How many oxygen atoms are present in the following expression?\n2C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 12O" + S(2);
-        b.info = "";
+        b.info = "Just add them up!";
         b.AddAnswer("8");
         b.AddAnswer("13");
         b.AddAnswer("24");
@@ -152,7 +152,7 @@ public class QuestionLoader
 
         QuestionData c = new QuestionData();
         c.question = "Why do the coals and ashes that remain after a log has burned weigh less than the original log?";
-        c.info = "";
+        c.info = "Remember, atoms in chemical reactions are never created or destroyed, and their masses never change!";
         c.AddAnswer("They don’t");
         c.AddAnswer("Some of the original matter escaped as gas and smoke", true);
         c.AddAnswer("Some of the original atoms were destroyed");
