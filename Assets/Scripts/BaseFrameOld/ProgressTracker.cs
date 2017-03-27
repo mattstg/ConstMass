@@ -52,7 +52,13 @@ public class ProgressTracker {
 
     public void SetScore(ScoreType scoreType, int lesson, float scoreValue)
     {
-        scoreDict[scoreType][(int)lesson] = scoreValue;
+        try {
+            scoreDict[scoreType][(int)lesson] = scoreValue;
+        }
+        catch
+        {
+            Debug.Log("score set fail for: " + scoreType + " index: " + lesson + "  value of " + scoreValue);
+        }
     }
 
     public void SubmitProgress(int progressNumber)

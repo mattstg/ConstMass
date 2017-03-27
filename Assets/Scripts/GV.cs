@@ -34,9 +34,16 @@ public class GV {
     public static readonly float[] Game_Length = new float[] { 30, 40, 50, 50, 80 };
     public static readonly int Game_Lesson_Max = 4;
 
+    //Score
+    public static readonly float Time_Score_Perc_For_Max = .8f;
+    public static readonly float Score_Time_Max = 500;
+    public static readonly float Score_Success_Max = 1500;
+    public static readonly float Score_Quiz_Max = 1500;
+
     //launch vars
     public static readonly float Launch_Min_Dist = .5f;
     public static readonly float Launch_Max_Velo = 5f;
+    public static readonly float Launch_Elastic_Max_Dist = 3f;
     public static readonly float Launch_Velo_Per_Dist = 1.2f;
     public static readonly float Launch_Elastic_Time = .32f; //time to elastic launch
 

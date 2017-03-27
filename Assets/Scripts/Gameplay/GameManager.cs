@@ -118,10 +118,11 @@ public class GameManager  {
     private void EndGame()
     {
         gameRunning = false;
-        float timeToComplete = roundTime;
+        float gameScore = CalculateGameScore();
+        float timeScore = CalculateTimeScore();
         roundTime = 99;
         scoreText.gameObject.SetActive(false);
-        GV.gameFlow.GameFinished(CalculateGameScore(),CalculateTimeScore());
+        GV.gameFlow.GameFinished(gameScore, timeScore);
     }
 
     public bool IsGameOver()
@@ -166,7 +167,9 @@ public class GameManager  {
 
     public float CalculateTimeScore()
     {
-        return 0;
+        float perc = Mathf.Clamp01(1 - (roundTime / GV.Game_Length[GV.Current_Flow_Index]));
+        float score = perc;
+        return score;
     }
 
 

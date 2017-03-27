@@ -145,7 +145,7 @@ public class Launcher
             if (elasticGraphicEnabled)
             {
                 float launchAng = Mathf.Atan2(curMousePos.y - molePos.y, curMousePos.x - molePos.x) * 180 / Mathf.PI;
-                float launchSpeed = Mathf.Clamp(elasticDist * GV.Launch_Velo_Per_Dist, 0, GV.Launch_Max_Velo);
+                float launchSpeed = GetElasticLaunchVelo(elasticDist);
                 Vector2 launchVector = MathHelper.DegreeToVector2(launchAng + 180).normalized;
                 toLaunch.Launch(launchVector * launchSpeed);
             }
@@ -166,7 +166,16 @@ public class Launcher
             elasticAnimationOccuring = false;
         }
     }
-    
-    
+
+    private float GetElasticLaunchVelo(float elasticDist)
+    {
+        if (elasticDist < GV.Launch_Min_Dist)
+            return 0;
+        float percMax = Mathf.Clamp01(elasticDist / GV.Launch_Elastic_Max_Dist);
+        float launchSpeed = Mathf.Lerp(GV.Molecule_Speed_Min, GV.Molecule_Speed_Max, percMax);
+        return launchSpeed;
+    }
+
+
 
 }
