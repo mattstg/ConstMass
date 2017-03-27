@@ -12,7 +12,7 @@ public class Question : MonoBehaviour
     public QuestionInfo infoButton;
     public Text infoText;
     public RectTransform answersParent;
-    protected List<QuestionAnswer> answers = new List<QuestionAnswer>();
+    public List<QuestionAnswer> answers = new List<QuestionAnswer>();
     public QuestionData data;
 
     protected QuizPage quiz;

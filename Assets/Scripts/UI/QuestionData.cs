@@ -36,7 +36,7 @@ public class QuestionData
 
     public void SetCorrectText(string appendix)
     {
-        correctText = "Correct! " + appendix;
+        correctText = "Correct!  " + appendix;
     }
 
     public void SetCorrectText()

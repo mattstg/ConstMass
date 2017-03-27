@@ -215,8 +215,6 @@ public class PanelManager : MonoBehaviour
         }
         if (currentPage == 0)
             backButton.SetActive(false);
-        else
-            backButton.SetActive(true);
     }
 
     public void SetTitleActive(bool becomesActive)
@@ -287,7 +285,7 @@ public class PanelManager : MonoBehaviour
             nextButton.SetText(p.nextText);
         else
             nextButton.SetText(defaultNextButtonText);
-
+        
         backButton.SetActive(p.backActive);
         backButton.SetEnabled(p.backEnabled);
         if (p.backTextOverride)

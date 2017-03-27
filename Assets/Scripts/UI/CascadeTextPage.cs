@@ -23,7 +23,7 @@ public class CascadeTextPage : Page
     private float timeElapsed = 0f;
     protected CascadeTextStatus status = CascadeTextStatus.Ready;
 
-    public IfExceedsPage ifExceedsPage = IfExceedsPage.BestFitFontSize;
+    public IfExceedsPage ifExceedsPage = IfExceedsPage.ExtendDownward;
     public bool autoScroll = true;
     public float smoothTime = 3f;
     public float offset = 0f;
@@ -34,6 +34,8 @@ public class CascadeTextPage : Page
     private Vector2 previousParentDimensions;
     private int originalFontSize = 26;
     private bool fontResized = false;
+
+    public bool canSkip = false;
 
 
     protected override void Awake()
@@ -230,7 +232,7 @@ public class CascadeTextPage : Page
         if (status == CascadeTextStatus.Ready)
         {
             status = CascadeTextStatus.Writing;
-            if (buttonsParent)
+            if (buttonsParent && !canSkip)
                 buttonsParent.gameObject.SetActive(false);
             InitializeTextPosition();
         }

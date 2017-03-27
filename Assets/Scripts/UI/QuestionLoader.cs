@@ -33,6 +33,138 @@ public class QuestionLoader
     }
     #endregion
 
+    public void Level0(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    {
+        QuestionData a = new QuestionData();
+        a.question = "Which term describes the matter that goes into a chemical reaction?";
+        a.info = "";
+        a.AddAnswer("Products");
+        a.AddAnswer("Electrons");
+        a.AddAnswer("Solvents");
+        a.AddAnswer("Reactants", true);
+        a.SetCorrectText("For any given reaction, the chemicals that go into it are the reactants.\nThe chemicals that come out of it are the products.");
+
+        QuestionData b = new QuestionData();
+        b.question = "If 3 H" + S(2) + " molecules and 3 Cl" + S(2) + " molecules react to form hydrogen chloride, how many HCl molecules will be produced?";
+        b.info = "";
+        b.AddAnswer("1");
+        b.AddAnswer("3");
+        b.AddAnswer("6", true);
+        b.AddAnswer("12");
+        b.SetCorrectText("6 HCl molecules will be produced.");
+
+        QuestionData c = new QuestionData();
+        c.question = "If 20amu of one substance chemically reacts with 25amu of another substance, what will the total mass of the products be?";
+        c.info = "";
+        c.AddAnswer("5amu");
+        c.AddAnswer("45amu", true);
+        c.AddAnswer("22.5amu");
+        c.AddAnswer("It depends on the types of substances involved");
+        c.SetCorrectText("The total mass of the products will be 45amu.");
+
+
+        AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, b, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, c, quizPage, questionsParent, questions);
+    }
+
+    public void Level1(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    {
+        QuestionData a = new QuestionData();
+        a.question = "Complete the sentence:  Endothermic reactions ...";
+        a.info = "";
+        a.AddAnswer("require energy to occur, and exothermic reactions release excess energy", true);
+        a.AddAnswer("release excess energy, and exothermic reactions require energy to occur");
+        a.SetCorrectText("Endothermic reactions require energy to occur, and exothermic reactions release excess energy.");
+
+        QuestionData b = new QuestionData();
+        b.question = "How does heat affect the movement of molecules?";
+        b.info = "";
+        b.AddAnswer("Molecules of warmer substances move faster", true);
+        b.AddAnswer("Molecules of warmer substances move slower");
+        b.AddAnswer("It depends on the type of substance");
+        b.SetCorrectText();
+
+        Question aQuestion = AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, b, quizPage, questionsParent, questions);
+
+        aQuestion.answers[0].GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        aQuestion.answers[0].GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
+        aQuestion.answers[1].GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0);
+        aQuestion.answers[1].GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+    }
+
+    public void Level2(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    {
+        QuestionData a = new QuestionData();
+        a.question = "How many hydrogen atoms and oxygen atoms are present in the expression 4H" + S(2) + "O?";
+        a.info = "";
+        a.AddAnswer("4 hydrogen atoms and 2 oxygen atoms");
+        a.AddAnswer("8 hydrogen atoms and 1 oxygen atom");
+        a.AddAnswer("4 hydrogen atoms and 8 oxygen atoms");
+        a.AddAnswer("8 hydrogen atoms and 4 oxygen atoms", true);
+        a.SetCorrectText("4 molecules of H" + S(2) + "O together contain 8 hydrogen atoms and 4 oxygen atoms.");
+
+        QuestionData b = new QuestionData();
+        b.question = "Select the balanced form of the following chemical equation:\nZn + HCl  →  H" + S(2) + " + ZnCl" + S(2);
+        b.info = "";
+        b.AddAnswer("Zn + 2HCl  →\nH" + S(2) + " + ZnCl" + S(2), true);
+        b.AddAnswer("2Zn + HCl  →\nH" + S(2) + " + ZnCl" + S(2));
+        b.AddAnswer("Zn + 2HCl  →\n2H" + S(2) + " + ZnCl" + S(2));
+        b.AddAnswer("2Zn + 2HCl  →\nH" + S(2) + " + 2ZnCl" + S(2));
+        b.SetCorrectText();
+
+        QuestionData c = new QuestionData();
+        c.question = "Select the balanced form of the following chemical equation:\nC" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  CO" + S(2) + " + H" + S(2) + "O";
+        c.info = "";
+        c.AddAnswer("C" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  11CO" + S(2) + " + 12H" + S(2) + "O");
+        c.AddAnswer("C" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  12CO" + S(2) + " + 11H" + S(2) + "O", true);
+        c.SetCorrectText("Zn + 2HCl  →  H" + S(2) + " + ZnCl" + S(2));
+
+
+        AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, b, quizPage, questionsParent, questions);
+        Question cQuestion = AddQuestion(questionDouble, c, quizPage, questionsParent, questions);
+
+        cQuestion.answers[0].GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+        cQuestion.answers[0].GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
+        cQuestion.answers[1].GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0);
+        cQuestion.answers[1].GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+    }
+
+    public void Level3(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    {
+        QuestionData a = new QuestionData();
+        a.question = "Is the following chemical equation balanced?\n6H" + S(2) + "O + 6CO" + S(2) + "  →  C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 6O" + S(2);
+        a.info = "";
+        a.AddAnswer("Yes", true);
+        a.AddAnswer("No");
+        a.SetCorrectText("Yes, the equation is balanced.");
+
+        QuestionData b = new QuestionData();
+        b.question = "How many oxygen atoms are present in the following expression?\n2C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 12O" + S(2);
+        b.info = "";
+        b.AddAnswer("8");
+        b.AddAnswer("13");
+        b.AddAnswer("24");
+        b.AddAnswer("36", true);
+        b.SetCorrectText("2 glucose molecules and 12 O" + S(2) + " molecules together contain 36 oxygen atoms.");
+
+        QuestionData c = new QuestionData();
+        c.question = "Why do the coals and ashes that remain after a log has burned weigh less than the original log?";
+        c.info = "";
+        c.AddAnswer("They don’t");
+        c.AddAnswer("Some of the original matter escaped as gas and smoke", true);
+        c.AddAnswer("Some of the original atoms were destroyed");
+        c.AddAnswer("The original atoms lost some mass during the reaction");
+        c.SetCorrectText();
+
+
+        AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, b, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, c, quizPage, questionsParent, questions);
+    }
+
     public List<Question> LoadQuestions(QuizID quizID, QuizPage quizPage)
     {
         RectTransform questionsParent = quizPage.questionsParent;
@@ -41,16 +173,16 @@ public class QuestionLoader
         switch (quizID)
         {
             case QuizID.Level0:
-
+                Level0(quizPage, questionsParent, questions);
                 break;
             case QuizID.Level1:
-
+                Level1(quizPage, questionsParent, questions);
                 break;
             case QuizID.Level2:
-
+                Level2(quizPage, questionsParent, questions);
                 break;
             case QuizID.Level3:
-
+                Level3(quizPage, questionsParent, questions);
                 break;
             case QuizID.QuizTutorial:
 
@@ -131,7 +263,7 @@ public class QuestionLoader
         return questions;
     }
 
-    public void AddQuestion(string prefabName, QuestionData data, QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    public Question AddQuestion(string prefabName, QuestionData data, QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
     {
         prefabName = questionsPrefabDirectory + prefabName;
         GameObject go = Object.Instantiate(Resources.Load(prefabName)) as GameObject;
@@ -141,5 +273,11 @@ public class QuestionLoader
         q.ApplyData();
         q.AssignQuiz(quizPage);
         questions.Add(q);
+        return q;
+    }
+
+    public char S(int s)
+    {
+        return GV.SubscriptNumeral(s);
     }
 }

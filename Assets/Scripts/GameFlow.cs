@@ -68,8 +68,28 @@ public class GameFlow : MonoBehaviour {
 
     public void RestartLevelButton()
     {
-        GV.Current_Flow_Index = int.Parse(levelSelected.text);
-        LoadLevel(GV.Current_Flow_Index);
+        int index = int.Parse(levelSelected.text);
+        if (index % 2 == 0)     // even: panel
+        {
+            GV.Current_Flow_Index = (index / 2);
+            if (GV.Current_Flow_Index > 0)
+            {
+                GV.Current_Flow_Index--;
+                LoadLevel(GV.Current_Flow_Index);
+                GameFinished(1f, 1f);
+            }
+            else
+            {
+                GameManager.Instance.UnloadCurrentLevel();
+                StartNextLoadout();
+            }
+        }
+        else                    // odd: level
+        {
+            GV.Current_Flow_Index = (index - 1) / 2;
+            panelManager.ClosePanel();
+            LoadLevel(GV.Current_Flow_Index);
+        }
     }
 
     public void ToggleNamePressed()

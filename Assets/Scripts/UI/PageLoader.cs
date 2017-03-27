@@ -62,41 +62,36 @@ public class PageLoader
     // INTRODUCTION, PRE-0
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.TitleSettings(true, true, "");
-        a.ifExceedsPage = IfExceedsPage.ExtendDownward;
         a.SetTextContent("<i>Dance of Atoms</i> is a game about what happens to atoms and molecules during <i>chemical reactions</i>. Chemical reactions occur when atoms of colliding molecules " +
             "rearrange themselves by breaking current bonds and creating new ones, leading to the formation of new substances.");
 
         CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         b.TitleSettings(true, true, "");
-        b.ifExceedsPage = IfExceedsPage.ExtendDownward;
         b.SetTextContent("In a chemical reaction, the molecules that collide are called the <i>reactants</i>, and the molecules that are produced are called the <i>products</i>.\n\n" +
             "During a chemical reaction, atoms are never created or destroyed. Therefore, even though the atoms are rearranged into new molecules, the total amount of each type of atom in the reactants " +
             "is always equal to the total amount of each type of atom in the products.\n\n" +
             "Every atom of each type of element has a specific mass, known as <i>atomic mass</i> (measured in <i>atomic mass units</i>, or <i>amu</i>). During a chemical reaction, atoms’ atomic masses never change.");
 
-        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        e.TitleSettings(true, true, "");
-        e.ifExceedsPage = IfExceedsPage.ExtendDownward;
-        e.SetTextContent("Because both the total number of each type of atom and the individual mass of each atom do not change during a chemical reaction, the total mass of the reactants is " +
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        c.TitleSettings(true, true, "");
+        c.SetTextContent("Because both the total number of each type of atom, and the individual mass of each atom, never change during a chemical reaction, the total mass of the reactants is " +
             "always the same as the total mass of the products.\n\n" +
             "This principle is known as the <i>conservation of matter in chemical reactions</i>.");
 
-        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        c.TitleSettings(true, true, "");
-        c.ifExceedsPage = IfExceedsPage.ExtendDownward;
-        c.SetTextContent("Think of it this way: if you build four chairs out of an assortment of pieces of wood, and then take them apart and use every piece of wood to build a desk and a stool instead, " +
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        d.TitleSettings(true, true, "");
+        d.SetTextContent("Think of it this way: if you build four chairs out of an assortment of pieces of wood, and then take them apart and use every piece of wood to build a desk and a stool instead, " +
             "the combined weight of the desk and the stool will equal the total weight of the four chairs!");
 
         Page tutorial = AddPage(simpleText, panelManager, pagesParent, pages);
         tutorial.TitleSettings(true, true, "TUTORIAL 1");
         tutorial.SetTextContent("");
 
-        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        d.TitleSettings(true, true, "");
-        d.ifExceedsPage = IfExceedsPage.ExtendDownward;
-        d.SetTextContent("In the first level, you will be required to make 8 HCl (hydrogen chloride) molecules from 4 H" + S(2) + " (pure hydrogen) molecules and 4 Cl" + S(2) + " (pure chlorine) molecules.\n\n" +
-            "You will be using the following chemical reaction equation:\n" +
-            "H" + S(2) + " + Cl" + S(2) + " = 2HCl");
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        e.TitleSettings(true, true, "");
+        e.SetTextContent("In the first level, you will be required to make 8 HCl (hydrogen chloride) molecules from 4 H" + S(2) + " (pure hydrogen) molecules and 4 Cl" + S(2) + " (pure chlorine) molecules.\n\n" +
+            "You will be using the following chemical reaction equation:\n\n" +
+            "H" + S(2) + " + Cl" + S(2) + "  →  2HCl");
 
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
@@ -120,28 +115,27 @@ public class PageLoader
 
         ScorePage score0 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
         score0.UpdateScores(0);
+        score0.backActive = false;
 
-        // PRE-1
+    // PRE-1
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.SetTextContent("You may have noticed in the last level that the temperature of the reaction chamber changed whenever a chemical reaction occurred. You might have even noticed that the speeds of the molecules changed whenever the temperature changed.\n\n" +
             "All chemical reactions are either <i>endothermic</i> or <i>exothermic</i>.\n\n" +
             "For an endothermic reaction to occur, it requires more energy than it has stored in its chemical bonds, and so it must absorb energy from its surroundings (often in the form of heat).\n\n" +
             "Exothermic reactions, on the other hand, produce an excess of energy, which is then released into the surroundings (again, often as heat).");
         a.TitleSettings(true, true, "");
-        a.ifExceedsPage = IfExceedsPage.ExtendDownward;
+        a.backActive = false;
 
         CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         b.SetTextContent("When an endothermic reaction absorbs heat from its surroundings, it slows down the movements of the surrounding molecules. When an exothermic reactions emits heat, it speeds up the movements of the surrounding molecules.\n\n" +
             "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones. But watch out: faster-moving molecules will be harder for you to hit with your molecule accelerator!");
         b.TitleSettings(true, true, "");
-        b.ifExceedsPage = IfExceedsPage.ExtendDownward;
 
         CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        c.SetTextContent("In the next level, you will be required to make 4 H" + S(2) + "O (water) molecules from 2 H" + S(2) + " molecules, 2 Cl molecules, and 4 NaHCO" + S(3) + " (sodium bicarbonate, commonly called baking soda) molecules.\n\n" +
-            "This will require that you use the reaction in the previous level in combination with a new one:\n" +
-            "NaHCO" + S(2) + " + HCl->NaCl + CO" + S(2) + " + H" + S(2) + "O");
+        c.SetTextContent("In the next level, you will be required to make 4 H" + S(2) + "O (water) molecules from 2 H" + S(2) + " molecules, 2 Cl molecules, and 4 NaHCO" + S(3) + " (sodium bicarbonate, or baking soda) molecules.\n\n" +
+            "This will require that you use the reaction from the previous level together with a new one:\n\n" +
+            "NaHCO" + S(3) + " + HCl  →  NaCl + CO" + S(2) + " + H" + S(2) + "O");
         c.TitleSettings(true, true, "");
-        c.ifExceedsPage = IfExceedsPage.ExtendDownward;
 
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
@@ -165,15 +159,52 @@ public class PageLoader
 
         ScorePage score1 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
         score1.UpdateScores(1);
+        score1.backActive = false;
 
     // PRE-2
-        Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.TitleSettings(true, true, "LESSON 3");
-        a.BackSettings(false, true, false, "");
-        a.SetTextContent("");
-        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
-        b.TitleSettings(true, true, "OBJECTIVE 3");
-        b.SetTextContent("");
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        a.SetTextContent("A chemical equation is considered a <i>balanced</i> chemical equation if the total number of each type of atom in the reactants " +
+            "is equal to the total number of each type of atom in the products.");
+        a.TitleSettings(true, true, "");
+        a.backActive = false;
+
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        b.SetTextContent("Remember: when considering a chemical expression, such as 3CO" + S(2) + ", the large number that comes before the molecule refers to the amount of " +
+            "that type of molecule in the situation, while the small subscript numbers that come after certain atoms refer to the amount of that kind of atom in " +
+            "every molecule of that type.\n\n" +
+
+            "(If there is no subscript following an atom in such an expression, it means there is just 1 of those atoms in the molecule).");
+        b.TitleSettings(true, true, "");
+
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        c.SetTextContent("So, 3CO" + S(2) + " refers to 3 carbon dioxide molecules, each of which contains a single carbon atom and two oxygen atoms, for a total of 3 carbon atoms and 6 oxygen atoms.\n\n" +
+
+            "By totaling up the atoms on either side of a chemical equation in this manner, we can check whether the equation is balanced!");
+        c.TitleSettings(true, true, "");
+
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        d.SetTextContent("For instance, consider the following equation:  4Fe + 3O" + S(2) + "  →  Fe" + S(2) + "O" + S(3) + "\n\n" +
+
+            "This says that 4 Fe (iron) molecules react with 3 O" + S(2) + " (oxygen) molecules to create one Fe" + S(2) + "O" + S(3) + " (ferric oxide) molecule. " +
+            "The reactants are made up of 4 iron atoms and 6 oxygen atoms. However, the ferric oxide molecule that is produced " +
+            "contains only 2 iron atoms and 3 oxygen atoms; half of the iron and half of the oxygen have gone missing! Therefore, this equation must not be balanced.\n\n" +
+
+            "However, if the reaction produced <i>two</i> ferric oxide molecules, then the reactants and the products would be made up of the same number and types of atoms! " +
+            "The balanced equation looks like this:  4Fe + 3O" + S(2) + "  →  2Fe" + S(2) + "O" + S(3) + ".");
+        d.TitleSettings(true, true, "");
+
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        e.SetTextContent("In the next level, you will be required to produce 6 NaCl (sodium chloride, or salt) molecules out of 3 H" + S(2) + " molecules, 3 Cl molecules, 4 NaHCO" + S(3) + " molecules, " +
+            "and 2 Na" + S(2) + "O (sodium oxide) molecules. You will have to use the reactions from the previous levels as well as two new reactions:\n\n" +
+
+            "Na" + S(2) + "O + H" + S(2) + "O  →  2NaOH\n" +
+
+            "NaOH + HCl  →  NaCl + H" + S(2) + "O");
+        e.TitleSettings(true, true, "");
+
+        Page obj = AddPage(simpleText, panelManager, pagesParent, pages);
+        obj.TitleSettings(true, true, "OBJECTIVE 3");
+        obj.SetTextContent("");
 
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
@@ -197,15 +228,37 @@ public class PageLoader
 
         ScorePage score2 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
         score2.UpdateScores(2);
+        score2.backActive = false;
 
     // PRE-3
-        Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.TitleSettings(true, true, "LESSON 4");
-        a.BackSettings(false, true, false, "");
-        a.SetTextContent("");
-        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
-        b.TitleSettings(true, true, "OBJECTIVE 4");
-        b.SetTextContent("");
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        a.SetTextContent("Sometimes, part of a reactant can appear to go missing during a chemical reaction. However, we know that this never actually happens. " +
+            "Usually, the “missing” matter either escaped as a gas (sometimes an invisible gas), or else combined with something else to form a new substance with different properties.");
+        a.TitleSettings(true, true, "");
+        a.backActive = false;
+
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        b.SetTextContent("For example, think of a burning log. The wood is reacting with nearby oxygen molecules in a chemical reaction called <i>combustion</i>. When the fire has finished, " +
+            "it might seem like the reaction has destroyed some of the reactant matter: the ash and coals that remain weigh a lot less than the log did before it was burned. " +
+            "However, it turns out that if you capture all the gas and smoke that rises from the log during the reaction, and add their masses to the masses of the ash and coal, " +
+            "the total mass will always be equal to that of the original log!");
+        b.TitleSettings(true, true, "");
+
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        c.SetTextContent("When you balance a chemical equation, you are ensuring that the chemical reaction can occur without breaking the law of conservation of matter. In a balanced equation, " +
+            "the total mass of the products is always equal to the total mass of the reactants. Applying this principle to physical systems is known as using a <i>mass balance</i>. " +
+            "If you account for every atom going <i>into</i> a chemical reaction, you already know what atoms will make up the <i>products</i> of the chemical reaction!");
+        c.TitleSettings(true, true, "");
+
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        d.SetTextContent("In the final level, you need to produce 3 H" + S(2) + "O molecules out of 1 Na" + S(2) + "O molecule, 1 NaHCO" + S(3) + " molecule, 3 Cl molecules, 3 H" + S(2) + " molecules, " +
+            "and 1 K" + S(2) + "O (potassium oxide) molecule. You will need to use every chemical reaction from the previous levels, as well as two new reactions:\n\n" +
+
+            "H" + S(2) + "0 + K" + S(2) + "O  →  2KOH\n" +
+            "KOH + HCl  →  KCl + H" + S(2) + "O\n\n" +
+
+            "Good luck!");
+        d.TitleSettings(true, true, "");
 
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
@@ -229,11 +282,68 @@ public class PageLoader
 
         ScorePage score3 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
         score3.UpdateScores(3);
+        score3.backActive = false;
 
     // CONCLUSION
-        Page a = AddPage(simpleText, panelManager, pagesParent, pages);
-        a.TitleSettings(true, true, "CONCLUSION");
-        a.SetTextContent("");
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        a.SetTextContent("This final lesson is optional material. Feel free to skip it, but we recommend you check it out!\n\n" +
+            "It covers two chemical reactions that we think are truly fascinating. These reactions are occurring constantly around you and inside of you, and they are fundamental to life on earth!");
+        a.TitleSettings(true, true, "");
+        a.backActive = false;
+        a.canSkip = true;
+        
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        b.SetTextContent("<i>Photosynthesis</i> is a chemical reaction used by plant life to harness the energy in sunlight. It follows this equation:  " +
+            "6H" + S(2) + "O + 6CO" + S(2) + "  →  C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 6O" + S(2) + ".\n\n" +
+
+            "So, this says that photosynthesis is a reaction where 6 water molecules and 6 carbon dioxide molecules combine to form 1 big glucose molecule, and 6 oxygen molecules.\n\n" +
+
+            "However, photosynthesis is endothermic, so it needs energy from an outside source to occur. This energy is supplied by sunlight, and is stored in the chemical bonds " +
+            "inside the glucose molecule and the 6 oxygen molecules.");
+        b.TitleSettings(true, true, "");
+        b.canSkip = true;
+
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        c.SetTextContent("When an animal eats a plant, it consumes the plant’s glucose. When the animal inhales, it consumes oxygen molecules that were produced by photosynthesis reactions. " +
+            "A chemical reaction then occurs inside the body of the animal, known as <i>cellular respiration</i>.\n\n" +
+
+            "Cellular respiration follows this equation:  C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 6O" + S(2) + "  →  6H" + S(2) + "O + 6CO" + S(2) + ".\n\n" +
+
+            "Notice anything about this equation? It’s the exact reverse of photosynthesis! So, cellular respiration occurs when 1 glucose molecule and 6 oxygen molecules " +
+            "combine to produce 6 water molecules and 6 carbon dioxide molecules.");
+        c.TitleSettings(true, true, "");
+        c.canSkip = true;
+
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        d.SetTextContent("However, cellular respiration is an exothermic reaction, so it releases energy as it occurs. In fact, the amount of energy it releases is equal to the amount of " +
+            "sunlight energy that it took for the photosynthesis reaction that created the glucose in the first place! This energy is then used by the cells of the animal, " +
+            "and is what enables animals to move, think, and do pretty much everything that they do!");
+        d.TitleSettings(true, true, "");
+        d.canSkip = true;
+
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        e.SetTextContent("After the cellular respiration reaction has occurred, the 6 water molecules and 6 carbon dioxide molecules are shed from the body of the animal and released back " +
+            "into the atmosphere, where they can once again be the reactants of a photosynthesis reaction.\n\n" +
+
+            "This is how plants and animals continuously exchange matter and energy in a way that benefits them both, and allows life to harness energy from the sun’s rays. " +
+            "This is one of the reasons it is so important to preserve plant life on earth!");
+        e.TitleSettings(true, true, "");
+        e.canSkip = true;
+
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        f.SetTextContent("If you were playing close attention, you might have noticed that throughout the entire cycle of photosynthesis and cellular respiration, no matter went missing.\n\n" +
+
+            "Though the atoms may change partners on a regular basis, it is always the very same atoms, dancing on and on!");
+        f.TitleSettings(true, true, "");
+        f.canSkip = true;
+
+        CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        g.SetTextContent("Thanks for playing! We hope you enjoyed your playthrough of <i>Dance of Atoms</i>.\n\n" +
+
+            "Have a great day!");
+        g.TitleSettings(true, true, "");
+        g.NextSettings(true, true, true, "Finish");
+        g.canSkip = true;
     }
 
     public List<Page> LoadPages(PanelID panelID, PanelManager panelManager)
@@ -404,10 +514,5 @@ public class PageLoader
     public char S(int s)
     {
         return GV.SubscriptNumeral(s);
-    }
-
-    public string N(GV.MoleculeType m)
-    {
-        return GV.MoleculeFormula(m);
     }
 }

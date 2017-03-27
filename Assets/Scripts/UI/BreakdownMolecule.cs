@@ -71,6 +71,6 @@ public class BreakdownMolecule
         chlorine = cl;
         potassium = k;
         totalAtoms = hydrogen + carbon + oxygen + sodium + chlorine + potassium;
-        mass = hydrogen * 1.008 + carbon * 12.011 + oxygen * 15.999 + sodium * 29.990 + chlorine * 35.45 + potassium * 39.098;
+        mass = hydrogen * 1.008 + carbon * 12.011 + oxygen * 15.999 + sodium * 29.990 + chlorine * 35.453 + potassium * 39.098;
     }
 }
