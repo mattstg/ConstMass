@@ -47,7 +47,7 @@ public class ProgressTracker {
 
     public float GetScore(ScoreType scoreType,int lesson, bool raw = false)
     {
-        return (raw) ? (int)(scoreDict[scoreType][(int)lesson] * maxScorePerRound) : scoreDict[scoreType][(int)lesson];
+        return (raw) ? scoreDict[scoreType][(int)lesson] : (int)(scoreDict[scoreType][(int)lesson] * maxScorePerRound);
     }
 
     public void SetScore(ScoreType scoreType, int lesson, float scoreValue)

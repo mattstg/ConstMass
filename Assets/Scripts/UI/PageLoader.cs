@@ -202,10 +202,6 @@ public class PageLoader
             "NaOH + HCl  →  NaCl + H" + S(2) + "O");
         e.TitleSettings(true, true, "");
 
-        Page obj = AddPage(simpleText, panelManager, pagesParent, pages);
-        obj.TitleSettings(true, true, "OBJECTIVE 3");
-        obj.SetTextContent("");
-
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
         pre2breakdown.TitleSettings(true, true, "LEVEL 3:  PRE-GAME BREAKDOWN");
@@ -232,29 +228,35 @@ public class PageLoader
 
     // PRE-3
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        a.SetTextContent("Sometimes, part of a reactant can appear to go missing during a chemical reaction. However, we know that this never actually happens. " +
-            "Usually, the “missing” matter either escaped as a gas (sometimes an invisible gas), or else combined with something else to form a new substance with different properties.");
+        a.SetTextContent("Sometimes, part of a reactant can appear to go missing during a chemical reaction.\n\n" +
+
+            "However, we know that this never actually happens. Usually, the “missing” matter either escaped as a gas (sometimes an invisible gas), " +
+            "or else combined with something else to form a new substance with different properties.");
         a.TitleSettings(true, true, "");
         a.backActive = false;
 
         CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        b.SetTextContent("For example, think of a burning log. The wood is reacting with nearby oxygen molecules in a chemical reaction called <i>combustion</i>. When the fire has finished, " +
-            "it might seem like the reaction has destroyed some of the reactant matter: the ash and coals that remain weigh a lot less than the log did before it was burned. " +
+        b.SetTextContent("For example, think of a burning log. The wood is reacting with nearby oxygen molecules in a chemical reaction called <i>combustion</i>.\n\n" +
+
+            "When the fire has finished, it might seem like the reaction has destroyed some of the reactant matter: the ash and coals that remain weigh a lot less than the log did before it was burned.\n\n" +
+
             "However, it turns out that if you capture all the gas and smoke that rises from the log during the reaction, and add their masses to the masses of the ash and coal, " +
             "the total mass will always be equal to that of the original log!");
         b.TitleSettings(true, true, "");
 
         CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         c.SetTextContent("When you balance a chemical equation, you are ensuring that the chemical reaction can occur without breaking the law of conservation of matter. In a balanced equation, " +
-            "the total mass of the products is always equal to the total mass of the reactants. Applying this principle to physical systems is known as using a <i>mass balance</i>. " +
-            "If you account for every atom going <i>into</i> a chemical reaction, you already know what atoms will make up the <i>products</i> of the chemical reaction!");
+            "the total mass of the products is always equal to the total mass of the reactants.\n\n" +
+
+            "Applying this principle to physical systems is known as using a <i>mass balance</i>. If you account for every atom going <i>into</i> a chemical reaction, " +
+            "you already know what atoms will make up the <i>products</i> of the chemical reaction!");
         c.TitleSettings(true, true, "");
 
         CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         d.SetTextContent("In the final level, you need to produce 3 H" + S(2) + "O molecules out of 1 Na" + S(2) + "O molecule, 1 NaHCO" + S(3) + " molecule, 3 Cl molecules, 3 H" + S(2) + " molecules, " +
             "and 1 K" + S(2) + "O (potassium oxide) molecule. You will need to use every chemical reaction from the previous levels, as well as two new reactions:\n\n" +
 
-            "H" + S(2) + "0 + K" + S(2) + "O  →  2KOH\n" +
+            "H" + S(2) + "O + K" + S(2) + "O  →  2KOH\n" +
             "KOH + HCl  →  KCl + H" + S(2) + "O\n\n" +
 
             "Good luck!");

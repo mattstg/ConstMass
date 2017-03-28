@@ -112,14 +112,14 @@ public class QuestionLoader
         b.AddAnswer("2Zn + HCl  →\nH" + S(2) + " + ZnCl" + S(2));
         b.AddAnswer("Zn + 2HCl  →\n2H" + S(2) + " + ZnCl" + S(2));
         b.AddAnswer("2Zn + 2HCl  →\nH" + S(2) + " + 2ZnCl" + S(2));
-        b.SetCorrectText();
+        b.SetCorrectText("Zn + 2HCl  →  H" + S(2) + " + ZnCl" + S(2) + ".");
 
         QuestionData c = new QuestionData();
         c.question = "Select the balanced form of the following chemical equation:\nC" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  CO" + S(2) + " + H" + S(2) + "O";
         c.info = "Hint: the correct answer will have the same number of each type of atom on the right side of the equation as there are on the left.";
         c.AddAnswer("C" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  11CO" + S(2) + " + 12H" + S(2) + "O");
         c.AddAnswer("C" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  12CO" + S(2) + " + 11H" + S(2) + "O", true);
-        c.SetCorrectText("Zn + 2HCl  →  H" + S(2) + " + ZnCl" + S(2));
+        c.SetCorrectText();
 
 
         AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
