@@ -36,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4975366807007422}
   - component: {fileID: 212685318547526734}
-  - component: {fileID: 58293189318023192}
   m_Layer: 8
   m_Name: Oxygen
   m_TagString: Molecule
@@ -72,7 +71,7 @@ GameObject:
   - component: {fileID: 114295812060889072}
   m_Layer: 0
   m_Name: KOH
-  m_TagString: Untagged
+  m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +85,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4498102430500296}
   - component: {fileID: 212573210037371212}
-  - component: {fileID: 58955542038793314}
   m_Layer: 8
   m_Name: Potassium
   m_TagString: Molecule
@@ -302,34 +300,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58293189318023192
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1203371040245926}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58955542038793314
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1540715093286522}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
 --- !u!61 &61250492281129008
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -369,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd399ce4fa89cae40acc19cc4ee37d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugOut: 0
   mtype: 10
 --- !u!212 &212073724012107842
 SpriteRenderer:
@@ -401,7 +372,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -506,7 +477,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 1, g: 0.18620688, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -541,7 +512,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 0.0344826, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0

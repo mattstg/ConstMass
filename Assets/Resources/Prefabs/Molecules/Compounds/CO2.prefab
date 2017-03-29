@@ -35,7 +35,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4140863526292640}
   - component: {fileID: 212343942790615086}
-  - component: {fileID: 58939235146212480}
   m_Layer: 8
   m_Name: Oxygen
   m_TagString: Molecule
@@ -100,7 +99,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4282565119199258}
   - component: {fileID: 212100603393587310}
-  - component: {fileID: 58292811605857834}
   m_Layer: 8
   m_Name: Oxygen (1)
   m_TagString: Molecule
@@ -152,7 +150,7 @@ GameObject:
   - component: {fileID: 114477817404764928}
   m_Layer: 0
   m_Name: CO2
-  m_TagString: Untagged
+  m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,7 +179,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4630368950097074}
   - component: {fileID: 212488542590821376}
-  - component: {fileID: 58497518031335824}
   m_Layer: 8
   m_Name: Carbon
   m_TagString: Molecule
@@ -362,48 +359,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58292811605857834
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1309259805882280}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58497518031335824
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1919016695714528}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58939235146212480
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1079241315003626}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
 --- !u!61 &61884836771092950
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -429,6 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd399ce4fa89cae40acc19cc4ee37d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugOut: 0
   mtype: 3
 --- !u!212 &212100603393587310
 SpriteRenderer:
@@ -461,7 +417,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 0.0344826, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -531,7 +487,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 0.0344826, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -636,7 +592,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 0.1397059, g: 0.1397059, b: 0.1397059, a: 1}
   m_FlipX: 0
   m_FlipY: 0

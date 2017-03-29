@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4759533596161848}
   - component: {fileID: 212879441964221144}
-  - component: {fileID: 58086571179154514}
   m_Layer: 8
   m_Name: Oxygen
   m_TagString: Molecule
@@ -68,7 +67,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4706412702336454}
   - component: {fileID: 212386071074094448}
-  - component: {fileID: 58300877422620020}
   m_Layer: 8
   m_Name: Potassium
   m_TagString: Molecule
@@ -85,7 +83,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4908346945878464}
   - component: {fileID: 212702332077877976}
-  - component: {fileID: 58616745784160852}
   m_Layer: 8
   m_Name: Potassium
   m_TagString: Molecule
@@ -153,7 +150,7 @@ GameObject:
   - component: {fileID: 114830285364490290}
   m_Layer: 0
   m_Name: K2O
-  m_TagString: Untagged
+  m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1444575791187040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.019, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4023066173404692}
@@ -193,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923558871750832}
   m_LocalRotation: {x: -0, y: -0, z: -0.38786507, w: 0.9217162}
-  m_LocalPosition: {x: -0.19, y: 0.175, z: 0}
+  m_LocalPosition: {x: -0.19, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 0.3610343, z: 1}
   m_Children: []
   m_Father: {fileID: 4707577494523864}
@@ -219,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1603292525645498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.45, y: 0.45, z: 0}
+  m_LocalPosition: {x: -0.45, y: 0.465, z: 0}
   m_LocalScale: {x: 2.2, y: 2.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4707577494523864}
@@ -251,7 +248,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1144769235307230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.015, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 4707577494523864}
@@ -264,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873588128742280}
   m_LocalRotation: {x: -0, y: -0, z: 0.38307598, w: 0.92371684}
-  m_LocalPosition: {x: 0.174, y: 0.175, z: 0}
+  m_LocalPosition: {x: 0.174, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 0.3610343, z: 1}
   m_Children: []
   m_Father: {fileID: 4707577494523864}
@@ -277,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851061912340702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0.45, z: 0}
+  m_LocalPosition: {x: 0.45, y: 0.465, z: 0}
   m_LocalScale: {x: 2.2, y: 2.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4707577494523864}
@@ -303,48 +300,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58086571179154514
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1144769235307230}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58300877422620020
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1603292525645498}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58616745784160852
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851061912340702}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
 --- !u!61 &61003651282023916
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -384,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd399ce4fa89cae40acc19cc4ee37d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugOut: 0
   mtype: 9
 --- !u!212 &212386071074094448
 SpriteRenderer:
@@ -416,7 +372,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 1, g: 0.18620688, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -451,7 +407,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 1, g: 0.18620688, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -521,7 +477,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 0.0344826, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114159634293663118}
   m_Layer: 0
   m_Name: KCl
-  m_TagString: Untagged
+  m_TagString: Molecule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4527901959651038}
   - component: {fileID: 212675945109427506}
-  - component: {fileID: 58925500433653228}
   m_Layer: 8
   m_Name: Chlorine
   m_TagString: Molecule
@@ -70,7 +69,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4438784613690418}
   - component: {fileID: 212470433819986058}
-  - component: {fileID: 58685669575397372}
   m_Layer: 8
   m_Name: Potassium
   m_TagString: Molecule
@@ -183,34 +181,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58685669575397372
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1536379354613100}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
---- !u!58 &58925500433653228
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268117284216480}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.16
 --- !u!61 &61433544024924292
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -236,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd399ce4fa89cae40acc19cc4ee37d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugOut: 0
   mtype: 11
 --- !u!212 &212470433819986058
 SpriteRenderer:
@@ -268,7 +239,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 1, g: 0.18620688, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -303,7 +274,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1379480641
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f608549be2bca2f428f1db809e34daa1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc73206098cdec14c9683c6cc9658a7d, type: 3}
   m_Color: {r: 0, g: 0.08965492, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -20,10 +20,10 @@ public class GV {
     public static float Temperature = 1;
     public static float Temperature_Force_Per_Degree = 1;
 
-    public static readonly float Molecule_Scale = .7f; //scales all new molecules
+    public static readonly float Molecule_Scale = .5f; //scales all new molecules
     public static readonly float Molecule_Speed_Start = 1;
     public static readonly float Molecule_Speed_Min = .33f;
-    public static readonly float Molecule_Speed_Max = 4f;
+    public static readonly float Molecule_Speed_Max = 3.5f;
     public static bool Molecule_Text_Active = false;
 
     //Chemical
@@ -31,7 +31,7 @@ public class GV {
     public static float Merge_Safe_Zone_Radius = .3f; //size of invisible merge protector
 
     //Main Game
-    public static readonly float[] Game_Length = new float[] { 30, 40, 50, 50, 80 };
+    public static readonly float[] Game_Length = new float[] { 45, 60, 80, 100, 120 };
     public static readonly int Game_Lesson_Max = 4;
 
     //Score
@@ -43,7 +43,7 @@ public class GV {
     //launch vars
     public static readonly float Launch_Min_Dist = .5f;
     public static readonly float Launch_Max_Velo = 5f;
-    public static readonly float Launch_Elastic_Max_Dist = 3f;
+    public static readonly float Launch_Elastic_Max_Dist = 2.4f;
     public static readonly float Launch_Velo_Per_Dist = 1.2f;
     public static readonly float Launch_Elastic_Time = .32f; //time to elastic launch
 
