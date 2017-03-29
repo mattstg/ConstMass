@@ -6,7 +6,6 @@ using System.Linq;
 
 public class ProgressTracker {
     public enum ScoreType { Success, Time, Quiz }
-    public static readonly int maxScorePerRound = 1500;
     public static readonly float lossPerQuizAttempt = .05f; //out of one, so
 
     #region singleton
@@ -47,7 +46,7 @@ public class ProgressTracker {
 
     public float GetScore(ScoreType scoreType,int lesson, bool raw = false)
     {
-        return (raw) ? scoreDict[scoreType][(int)lesson] : (int)(scoreDict[scoreType][(int)lesson] * maxScorePerRound);
+        return (raw) ? scoreDict[scoreType][(int)lesson] : (int)(scoreDict[scoreType][(int)lesson] * GV.MaxScore(scoreType));
     }
 
     public void SetScore(ScoreType scoreType, int lesson, float scoreValue)

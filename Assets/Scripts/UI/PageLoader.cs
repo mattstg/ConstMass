@@ -114,8 +114,8 @@ public class PageLoader
         quiz0.LoadQuiz(QuizID.Level0);
 
         ScorePage score0 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
-        score0.UpdateScores(0);
         score0.backActive = false;
+        score0.SetLevel(0);
 
     // PRE-1
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
@@ -158,10 +158,10 @@ public class PageLoader
         quiz1.LoadQuiz(QuizID.Level1);
 
         ScorePage score1 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
-        score1.UpdateScores(1);
         score1.backActive = false;
+        score1.SetLevel(1);
 
-    // PRE-2
+        // PRE-2
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.SetTextContent("A chemical equation is considered a <i>balanced</i> chemical equation if the total number of each type of atom in the reactants " +
             "is equal to the total number of each type of atom in the products.");
@@ -223,10 +223,10 @@ public class PageLoader
         quiz2.LoadQuiz(QuizID.Level2);
 
         ScorePage score2 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
-        score2.UpdateScores(2);
         score2.backActive = false;
+        score2.SetLevel(2);
 
-    // PRE-3
+        // PRE-3
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.SetTextContent("Sometimes, part of a reactant can appear to go missing during a chemical reaction.\n\n" +
 
@@ -283,10 +283,10 @@ public class PageLoader
         quiz3.LoadQuiz(QuizID.Level3);
 
         ScorePage score3 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
-        score3.UpdateScores(3);
         score3.backActive = false;
+        score3.SetLevel(3);
 
-    // CONCLUSION
+        // CONCLUSION
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.SetTextContent("This final lesson is optional material. Feel free to skip it, but we recommend you check it out!\n\n" +
             "It covers two chemical reactions that we think are truly fascinating. These reactions are occurring constantly around you and inside of you, and they are fundamental to life on earth!");

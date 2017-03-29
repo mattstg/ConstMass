@@ -120,7 +120,7 @@ public class QuizPage : Page
                 foreach (float qs in quizScores)
                     avrgScore += qs;
                 avrgScore /= quizScores.Count;
-                ProgressTracker.Instance.SetScore(ProgressTracker.ScoreType.Quiz,GV.Current_Flow_Index,avrgScore);
+                ProgressTracker.Instance.SetScore(ProgressTracker.ScoreType.Quiz, (GV.Current_Flow_Index - 1), avrgScore);
                 ProgressTracker.Instance.SubmitProgress(2 * GV.Current_Flow_Index);
                 break;
             default:

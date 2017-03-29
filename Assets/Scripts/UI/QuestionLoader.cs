@@ -71,10 +71,10 @@ public class QuestionLoader
     public void Level1(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
     {
         QuestionData a = new QuestionData();
-        a.question = "Complete the sentence:  Endothermic reactions...";
+        a.question = "Fill in the blanks:\n____________ require energy to occur, and ____________ release excess energy";
         a.info = "If you can't remember, you'll just have to guess!";
-        a.AddAnswer("require energy to occur, and exothermic reactions release excess energy", true);
-        a.AddAnswer("release excess energy, and exothermic reactions require energy to occur");
+        a.AddAnswer("Endothermic reactions  /\nexothermic reactions", true);
+        a.AddAnswer("Exothermic reactions  /\nendothermic reactions");
         a.SetCorrectText("Endothermic reactions require energy to occur, and exothermic reactions release excess energy.");
 
         QuestionData b = new QuestionData();

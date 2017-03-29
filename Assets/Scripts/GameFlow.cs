@@ -48,7 +48,7 @@ public class GameFlow : MonoBehaviour {
     {
         ProgressTracker.Instance.SetScore(ProgressTracker.ScoreType.Success,  GV.Current_Flow_Index, sucessScore);
         ProgressTracker.Instance.SetScore(ProgressTracker.ScoreType.Time, GV.Current_Flow_Index, timeScore);
-        ProgressTracker.Instance.SubmitProgress(GV.Current_Flow_Index + 1); 
+        ProgressTracker.Instance.SubmitProgress((GV.Current_Flow_Index * 2) + 1); 
         //Then start next level sequence
         InputManager.gameInputActivate = false;
         GameManager.Instance.RecordCurrentLevel();

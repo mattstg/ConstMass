@@ -8,30 +8,41 @@ public class ScorePage : Page
 {
     public List<RectTransform> levelEntry;
     public List<Text> gameText;
+    public List<Text> timeText;
     public List<Text> quizText;
     public List<Text> totalText;
     public Text totalTotalText;
 
-    private int level;
+    private int level = 0;
 
     private int[] game = new int[4];
+    private int[] time = new int[4];
     private int[] quiz = new int[4];
     private int[] total = new int[4];
     private int totalTotal;
-    
-    public void UpdateScores(int level)
+
+    public override void PageOpened()
     {
-        // set level
-        this.level = level;
+        base.PageOpened();
+        UpdateScores();
+    }
+
+    public void SetLevel(int l)
+    {
+        level = l;
+    }
+
+    public void UpdateScores()
+    {
+        totalTotal = 0;
         for (int i = 0; i < 4; i++)
         {
-            // set game[i], quiz[i], total[i]
-            game[i] = 0;
-            quiz[i] = 0;  // should be int between 0 and 100, if a bonus to be displayed as a percentage
-            total[i] = 0;
+            game[i] = (int)ProgressTracker.Instance.GetScore(ProgressTracker.ScoreType.Success, i);
+            time[i] = (int)ProgressTracker.Instance.GetScore(ProgressTracker.ScoreType.Time, i);
+            quiz[i] = (int)ProgressTracker.Instance.GetScore(ProgressTracker.ScoreType.Quiz, i);
+            total[i] = game[i] + time[i] + quiz[i];
+            totalTotal += total[i];
         }
-        // set totalTotal
-        totalTotal = 0;
         UpdateText();
     }
 
@@ -43,7 +54,8 @@ public class ScorePage : Page
             {
                 levelEntry[i].gameObject.SetActive(true);
                 gameText[i].text = game[i].ToString();
-                quizText[i].text = quiz[i].ToString() + '%';
+                timeText[i].text = "+" + time[i].ToString();
+                quizText[i].text = quiz[i].ToString();
                 totalText[i].text = total[i].ToString();
             }
             else

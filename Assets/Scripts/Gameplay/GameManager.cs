@@ -167,7 +167,7 @@ public class GameManager  {
 
     public float CalculateTimeScore()
     {
-        float perc = Mathf.Clamp01(1 - (roundTime / GV.Game_Length[GV.Current_Flow_Index]));
+        float perc = Mathf.Clamp01(roundTime / GV.Game_Length[GV.Current_Flow_Index]);
         float score = perc;
         return score;
     }

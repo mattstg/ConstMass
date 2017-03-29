@@ -37,8 +37,8 @@ public class GV {
     //Score
     public static readonly float Time_Score_Perc_For_Max = .8f;
     public static readonly float Score_Time_Max = 500;
-    public static readonly float Score_Success_Max = 1500;
-    public static readonly float Score_Quiz_Max = 1500;
+    public static readonly float Score_Success_Max = 1000;
+    public static readonly float Score_Quiz_Max = 1000;
 
     //launch vars
     public static readonly float Launch_Min_Dist = .5f;
@@ -49,7 +49,23 @@ public class GV {
 
     public static int Current_Flow_Index = 0;
 
-    public static bool cascadeSpeedOverride = true;
+    public static bool overrideCascadeSpeed = true;
+    public static float globalCascadeSpeed = 600f;
+
+    public static float MaxScore(ProgressTracker.ScoreType st)
+    {
+        switch (st)
+        {
+            case ProgressTracker.ScoreType.Success:
+                return Score_Success_Max;
+            case ProgressTracker.ScoreType.Time:
+                return Score_Time_Max;
+            case ProgressTracker.ScoreType.Quiz:
+                return Score_Quiz_Max;
+            default:
+                return 0;
+        }
+    }
 
     public static string MoleculeFormula(MoleculeType mtype)
     {
