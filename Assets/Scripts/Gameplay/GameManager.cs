@@ -31,7 +31,7 @@ public class GameManager  {
     bool gameRunning = false;
     int curLoadedLevel = 0;
     protected float roundTime = 0;
-    public bool currentLevelIsStart = true;
+    public bool currentLevelIsStart = false;
     //This class pretty much does everything in game
 
     GV.MoleculeType goalMoleculeType;
@@ -85,6 +85,7 @@ public class GameManager  {
 
     public void InitializeStartLevel()
     {
+        currentLevelIsStart = true;
         activeCompounds = new List<Molecule>();
         GameObject go = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Levels/StartLevel")) as GameObject;
         foreach (Transform t in go.transform)
