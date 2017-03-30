@@ -154,7 +154,7 @@ public class GameManager  {
     private void EndGame()
     {
         gameRunning = false;
-        float gameScore = Mathf.Clamp01(goalMoleculeCount / goalMoleculeRequired);
+        float gameScore = Mathf.Clamp01((float)goalMoleculeCount / (float)goalMoleculeRequired);
         float timeScore = CalculateTimeScore(roundTime);
         roundTime = 99;
         infoPanel.gameObject.SetActive(false);
@@ -191,7 +191,6 @@ public class GameManager  {
     {
         float secondsFor100 = GV.Time_Score_Perc_For_Max * GV.Game_Length[GV.Current_Flow_Index];
         float perc = Mathf.Clamp01(_roundTime/secondsFor100);
-        Debug.Log("round time: " + _roundTime + " score for 100: " + secondsFor100);
         return perc;
     }
 
