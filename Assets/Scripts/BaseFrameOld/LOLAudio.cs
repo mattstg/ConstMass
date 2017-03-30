@@ -21,6 +21,7 @@ public class LOLAudio
     }
     #endregion
     
+    public bool soundIsActive = true;
     private LOLAudio()
     {
     }
