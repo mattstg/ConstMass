@@ -986,7 +986,7 @@ Prefab:
     - target: {fileID: 224983177273345570, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224983177273345570, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
@@ -1055,7 +1055,7 @@ Prefab:
     - target: {fileID: 114822070528610256, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
       propertyPath: m_Text
-      value: Chemical formula overlay
+      value: DISPLAY MOLECULE NAMES
       objectReference: {fileID: 0}
     - target: {fileID: 114822070528610256, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
@@ -1065,7 +1065,7 @@ Prefab:
     - target: {fileID: 114822070528610256, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
       propertyPath: m_FontData.m_MaxSize
-      value: 18
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 224150180481874140, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
@@ -1075,7 +1075,7 @@ Prefab:
     - target: {fileID: 224150180481874140, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -8
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 224150180481874140, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
@@ -1085,7 +1085,7 @@ Prefab:
     - target: {fileID: 224150180481874140, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -6
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 114891556465930574, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
         type: 2}
@@ -1111,6 +1111,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114822070528610256, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932, type: 2}
