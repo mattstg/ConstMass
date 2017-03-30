@@ -119,7 +119,8 @@ public class GameManager  {
             MonoBehaviour.Destroy(t.gameObject);
         activeCompounds = new List<Molecule>();
         MergeManager.Instance.ClearMergeManager();
-        Launcher.Instance.ClearLauncher();
+        if(!currentLevelIsStart)  //it activates the launcher then deletes when scene changes, causes issue
+            Launcher.Instance.ClearLauncher();
         gameRunning = false;
     }
 

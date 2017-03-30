@@ -33,15 +33,16 @@ public class GameFlow : MonoBehaviour {
 
     public void LessonFinished()
     {
-        Debug.Log("lesson finished");
-        //Then play current level:game
         if(GV.Current_Flow_Index >= GV.Game_Lesson_Max)
-        {
-            Debug.Log("END OF GAME FLOW");
-            //Was the final lesson, not followed by a game, load scorescreen or end the game
-        }
+            EndOfGameFlow();
         else
             LoadLevel(GV.Current_Flow_Index);
+    }
+
+    private void EndOfGameFlow()
+    {
+        //Stop playing music
+        //Send onComplete call
     }
 
     public void GameFinished(float sucessScore, float timeScore)
