@@ -61,7 +61,8 @@ public class MergeManager
         newMole.transform.localScale = newMole.transform.localScale * GV.Molecule_Scale;
         newMole.GetComponent<Rigidbody2D>().mass = MoleculeDict.Instance.GetMoleculeMass(mtype);
         Molecule toRet = newMole.GetComponent<Molecule>();
-        GameManager.activeCompounds.Add(toRet);
+        GameManager.Instance.MoleculeCreated(toRet);
+        
         toRet.Initialize(mtype);
     }
 
@@ -107,10 +108,8 @@ public class MergeManager
             else
             {
                 MergeManager.instance.MergeComplete(m1.mtype, m2.mtype, center);
-                GameManager.activeCompounds.Remove(m1);
-                GameManager.activeCompounds.Remove(m2);
-                MonoBehaviour.Destroy(m1.gameObject);
-                MonoBehaviour.Destroy(m2.gameObject);
+                GameManager.Instance.MoleculeRemoved(m1);
+                GameManager.Instance.MoleculeRemoved(m2);
                 MonoBehaviour.Destroy(mergeProtector);
                 mergeProtector = null;
                 completed = true;

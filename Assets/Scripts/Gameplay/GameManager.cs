@@ -30,14 +30,40 @@ public class GameManager  {
     bool compoundIsSelected = false; //doing if(selectedCompound) has minute costs, but ipad...
     bool gameRunning = false;
     int curLoadedLevel = 0;
-    float winTimeChecker = 3;
     protected float roundTime = 0;
     //This class pretty much does everything in game
+
+    GV.MoleculeType goalMoleculeType;
+    int goalMoleculeCount = 0;
+    int goalMoleculeRequired = 0;
+
 
     public void LinkInfoPanel(InfoPanel _infoPanel, Transform _gameParent)
     {
         infoPanel = _infoPanel;
         gameParent = _gameParent;
+    }
+
+    public void MoleculeCreated(Molecule m)
+    {
+        if (m.mtype == goalMoleculeType)
+        {
+            goalMoleculeCount++;
+            infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
+        }
+        activeCompounds.Add(m);
+
+    }
+
+    public void MoleculeRemoved(Molecule m)
+    {
+        if (m.mtype == goalMoleculeType)
+        {
+            goalMoleculeCount--;
+            infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
+        }
+        GameManager.activeCompounds.Remove(m);
+        MonoBehaviour.Destroy(m.gameObject);
     }
 
     public void RecordCurrentLevel()
@@ -60,10 +86,11 @@ public class GameManager  {
         MonoBehaviour.Destroy(go);
         gameRunning = true;
         curLoadedLevel = GV.Current_Flow_Index;
-        roundTime = GV.Game_Length[lvl];
+        SetupGameWinCondition(GV.Current_Flow_Index);        
         infoPanel.gameObject.SetActive(true);
         gameParent.gameObject.SetActive(true);
         infoPanel.SetupLevel(curLoadedLevel);
+        infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
     }
 
     public void UnloadCurrentLevel()
@@ -98,31 +125,14 @@ public class GameManager  {
 
     private void GameEndCheck(float dt)
     {
-        if (winTimeChecker <= 0)
-        {
-            if (GameManager.Instance.IsGameOver())
-            {
-                EndGame();
-                return;
-            }
-            winTimeChecker = 3;
-        }
-        else
-        {
-            winTimeChecker -= dt;
-        }
-
-        if(roundTime <= 0)
-        {
-            EndGame();
-            return;
-        }
+       if (goalMoleculeCount >= goalMoleculeRequired || roundTime <= 0)
+           EndGame();
     }
 
     private void EndGame()
     {
         gameRunning = false;
-        float gameScore = CalculateGameScore();
+        float gameScore = Mathf.Clamp01(goalMoleculeCount / goalMoleculeRequired);
         float timeScore = CalculateTimeScore(roundTime);
         roundTime = 99;
         infoPanel.gameObject.SetActive(false);
@@ -130,50 +140,36 @@ public class GameManager  {
         GV.gameFlow.GameFinished(gameScore, timeScore);
     }
 
-    public bool IsGameOver()
+    public void SetupGameWinCondition(int lvl)
     {
-        int[] moleculeCount = new int[GV.Molecule_Enum_Count];
-        foreach(Molecule c in activeCompounds)
-            moleculeCount[(int)c.mtype]++;
-
-        switch(GV.Current_Flow_Index)
+        roundTime = GV.Game_Length[lvl];
+        goalMoleculeCount = 0;
+        switch (lvl)
         {
             case 0:
-                return moleculeCount[(int)GV.MoleculeType.HCl] >= 8;
+                goalMoleculeType = GV.MoleculeType.HCl;
+                goalMoleculeRequired = 8;
+                break;
             case 1:
-                return moleculeCount[(int)GV.MoleculeType.H2O] >= 4;
+                goalMoleculeType = GV.MoleculeType.H2O;
+                goalMoleculeRequired = 4;
+                break;
             case 2:
-                return moleculeCount[(int)GV.MoleculeType.NaCl] >= 6;
+                goalMoleculeType = GV.MoleculeType.NaCl;
+                goalMoleculeRequired = 6;
+                break;
             case 3:
-                return moleculeCount[(int)GV.MoleculeType.H2O] >= 3;
+                goalMoleculeType = GV.MoleculeType.H2O;
+                goalMoleculeRequired = 3;
+                break;
         }
-        return false;
-    }
-
-    public float CalculateGameScore()
-    {
-        int[] moleculeCount = new int[GV.Molecule_Enum_Count];
-        foreach (Molecule c in activeCompounds)
-            moleculeCount[(int)c.mtype]++;
-
-        switch (GV.Current_Flow_Index)
-        {
-            case 0:
-                return moleculeCount[(int)GV.MoleculeType.HCl] / 8f;
-            case 1:
-                return moleculeCount[(int)GV.MoleculeType.H2O] / 4f;
-            case 2:
-                return moleculeCount[(int)GV.MoleculeType.NaCl] / 6f;
-            case 3:
-                return moleculeCount[(int)GV.MoleculeType.H2O] / 3f;
-        }
-        return 0;
     }
 
     public float CalculateTimeScore(float _roundTime)
     {
         float secondsFor100 = GV.Time_Score_Perc_For_Max * GV.Game_Length[GV.Current_Flow_Index];
         float perc = Mathf.Clamp01(_roundTime/secondsFor100);
+        Debug.Log("round time: " + _roundTime + " score for 100: " + secondsFor100);
         return perc;
     }
 
@@ -211,5 +207,5 @@ public class GameManager  {
         Launcher.Instance.ReleaseMouse(loc);
     }
     #endregion
-
+  
 }

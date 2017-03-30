@@ -15,6 +15,7 @@ public class InfoPanel : MonoBehaviour {
     {
         SetFormulasVisible(curLevel);
         levelText.text = "LEVEL " + curLevel;
+        StateGoal(curLevel);
     }
 
     private void SetFormulasVisible(int curLevel)
@@ -24,12 +25,17 @@ public class InfoPanel : MonoBehaviour {
             reactionParentList.GetChild(i).gameObject.SetActive(i < visibleFields);
     }
 
+    public void UpdateProgressText(int progress, int maxProgress)
+    {
+        progressText.text = "PROGRESS:  " + progress + " / " + maxProgress;
+    }
+
     public void SetTimeRemaining(float time)
     {
         scoreText.SetScoreTime(time);
     }
 
-    private string StateGoal(int lvl) //Yes, this could be generic
+    private void StateGoal(int lvl) //Yes, this could be generic
     {
         string toOut = "GOAL: ";
         switch(lvl)
@@ -47,6 +53,6 @@ public class InfoPanel : MonoBehaviour {
                 toOut += "Make 3  " + GV.MoleculeFormula(GV.MoleculeType.H2O);
                 break;
         }
-        return toOut;
+        goalText.text = toOut;
     }
 }
