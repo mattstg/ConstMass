@@ -22,7 +22,8 @@ public class Launcher
     }
     #endregion
     bool elasticGraphicEnabled = false;
-    GameObject elasticGraphics;
+    GameObject elasticGraphic;
+    GameObject moleHalo;
 
     bool moleSelected = false;
     Molecule toLaunch;
@@ -39,8 +40,10 @@ public class Launcher
 
     private void Setup()
     {
-        elasticGraphics = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Elastic")) as GameObject;
-        elasticGraphics.SetActive(false);
+        moleHalo = MonoBehaviour.Instantiate(Resources.Load("Prefabs/moleculeHalo")) as GameObject;
+        elasticGraphic = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Elastic")) as GameObject;
+        elasticGraphic.SetActive(false);
+        moleHalo.SetActive(false);
         elasticGraphicEnabled = false;
     }
 
@@ -57,7 +60,8 @@ public class Launcher
         molePos = curMousePos = toLaunch.transform.position;
         moleSelected = true;
         elasticDist = 0;
-        
+        moleHalo.transform.position = molePos;
+        moleHalo.SetActive(true);
     }
 
     public void ClearLauncher() //at game end
@@ -67,7 +71,8 @@ public class Launcher
         moleSelected = false;
         molePos = new Vector2();
         elasticDist = 0;
-        elasticGraphics.SetActive(false);
+        elasticGraphic.SetActive(false);
+        moleHalo.SetActive(false);
         elasticGraphicEnabled = false;
         elasticAnimationOccuring = false;
     }
@@ -86,18 +91,19 @@ public class Launcher
             {
                 if (!elasticGraphicEnabled)
                 {
-                    elasticGraphics.SetActive(true);
+                    elasticGraphic.SetActive(true);
+                    //mouseHalo.SetActive(true);
                     elasticGraphicEnabled = true;
                 }
-                elasticGraphics.transform.position = molePos;
-                elasticGraphics.transform.eulerAngles = new Vector3(0,0,ang);
-                elasticGraphics.transform.localScale = new Vector2(elasticDist, 1);
+                elasticGraphic.transform.position = molePos;
+                elasticGraphic.transform.eulerAngles = new Vector3(0,0,ang);
+                elasticGraphic.transform.localScale = new Vector2(elasticDist, 1);
             }
             else
             {
                 if (elasticGraphicEnabled)
                 {
-                    elasticGraphics.SetActive(false);
+                    elasticGraphic.SetActive(false);
                     elasticGraphicEnabled = false;
                 }
             }
@@ -106,7 +112,8 @@ public class Launcher
         {
             if (elasticGraphicEnabled)
             {
-                elasticGraphics.SetActive(false);
+                elasticGraphic.SetActive(false);
+                moleHalo.SetActive(false);
                 elasticGraphicEnabled = false;
             }
         }
@@ -133,7 +140,7 @@ public class Launcher
             else
             {
                 float length = elasticDist * (curElasticAnimTime / GV.Launch_Elastic_Time);
-                elasticGraphics.transform.localScale = new Vector2(length, 1);
+                elasticGraphic.transform.localScale = new Vector2(length, 1);
             }
         }
     }
@@ -161,7 +168,8 @@ public class Launcher
             moleSelected = false;
             molePos = new Vector2();
             elasticDist = 0;
-            elasticGraphics.SetActive(false);
+            elasticGraphic.SetActive(false);
+            moleHalo.SetActive(false);
             elasticGraphicEnabled = false;
             elasticAnimationOccuring = false;
         }
