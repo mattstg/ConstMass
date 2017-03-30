@@ -14,7 +14,7 @@ public class InfoPanel : MonoBehaviour {
     public void SetupLevel(int curLevel)
     {
         SetFormulasVisible(curLevel);
-        levelText.text = "LEVEL " + curLevel;
+        levelText.text = "LEVEL " + (curLevel + 1);
         StateGoal(curLevel);
     }
 

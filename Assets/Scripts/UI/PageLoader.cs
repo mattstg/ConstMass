@@ -21,6 +21,7 @@ public class PageLoader
     private string quiz = "QuizPage";
     private string breakdown = "BreakdownPage";
     private string score = "ScorePage";
+    private string levelScore = "LevelScorePage";
 
     #region Singleton
     private static PageLoader instance;
@@ -62,8 +63,9 @@ public class PageLoader
     // INTRODUCTION, PRE-0
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.TitleSettings(true, true, "");
-        a.SetTextContent("<i>Dance of Atoms</i> is a game about what happens to atoms and molecules during <i>chemical reactions</i>. Chemical reactions occur when atoms of colliding molecules " +
-            "rearrange themselves by breaking current bonds and creating new ones, leading to the formation of new substances.");
+        a.SetTextContent("<i>Dance of Atoms</i> is a game about what happens to atoms and molecules during <i>chemical reactions</i>.\n\n" +
+            
+            "Chemical reactions occur when atoms of colliding molecules rearrange themselves by breaking current bonds and creating new ones, leading to the formation of new substances.");
 
         CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         b.TitleSettings(true, true, "");
@@ -102,6 +104,9 @@ public class PageLoader
     private void PreLevel1(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
     // POST-0
+        LevelScorePage levelScore0 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
+        levelScore0.Generate(0);
+
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
         pre0breakdown.TitleSettings(true, true, "LEVEL 1:  PRE-GAME BREAKDOWN");
@@ -146,6 +151,9 @@ public class PageLoader
     private void PreLevel2(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
     // POST-1
+        LevelScorePage levelScore1 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
+        levelScore1.Generate(1);
+
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
         pre1breakdown.TitleSettings(true, true, "LEVEL 2:  PRE-GAME BREAKDOWN");
@@ -161,7 +169,7 @@ public class PageLoader
         score1.backActive = false;
         score1.SetLevel(1);
 
-        // PRE-2
+    // PRE-2
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.SetTextContent("A chemical equation is considered a <i>balanced</i> chemical equation if the total number of each type of atom in the reactants " +
             "is equal to the total number of each type of atom in the products.");
@@ -211,6 +219,9 @@ public class PageLoader
     private void PreLevel3(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
     // POST-2
+        LevelScorePage levelScore2 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
+        levelScore2.Generate(2);
+
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
         pre2breakdown.TitleSettings(true, true, "LEVEL 3:  PRE-GAME BREAKDOWN");
@@ -226,7 +237,7 @@ public class PageLoader
         score2.backActive = false;
         score2.SetLevel(2);
 
-        // PRE-3
+    // PRE-3
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.SetTextContent("Sometimes, part of a reactant can appear to go missing during a chemical reaction.\n\n" +
 
@@ -271,6 +282,9 @@ public class PageLoader
     private void Final(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
     {
     // POST-3
+        LevelScorePage levelScore3 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
+        levelScore3.Generate(3);
+
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
         pre3breakdown.TitleSettings(true, true, "LEVEL 4:  PRE-GAME BREAKDOWN");
@@ -286,7 +300,7 @@ public class PageLoader
         score3.backActive = false;
         score3.SetLevel(3);
 
-        // CONCLUSION
+    // CONCLUSION
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.SetTextContent("This final lesson is optional material. Feel free to skip it, but we recommend you check it out!\n\n" +
             "It covers two chemical reactions that we think are truly fascinating. These reactions are occurring constantly around you and inside of you, and they are fundamental to life on earth!");

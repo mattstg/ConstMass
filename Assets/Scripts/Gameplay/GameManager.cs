@@ -77,6 +77,12 @@ public class GameManager  {
         endLevelMoleList.Sort();
         LevelMoleculeTracker.Instance.RecordLevel(GV.Current_Flow_Index, endLevelMoleList);
     }
+
+    public void RecordProgressAndTime()
+    {
+        ProgressTracker.Instance.SetProgressAndTime(GV.Current_Flow_Index, goalMoleculeCount, roundTime);
+    }
+
     public void InitializeStartLevel()
     {
         activeCompounds = new List<Molecule>();
@@ -159,6 +165,7 @@ public class GameManager  {
         gameRunning = false;
         float gameScore = Mathf.Clamp01((float)goalMoleculeCount / (float)goalMoleculeRequired);
         float timeScore = CalculateTimeScore(roundTime);
+        RecordProgressAndTime();
         roundTime = 99;
         infoPanel.gameObject.SetActive(false);
         gameParent.gameObject.SetActive(false);
