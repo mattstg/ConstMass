@@ -60,7 +60,7 @@ public class GameManager  {
     public void MoleculeRemoved(Molecule m)
     {
 
-        if (!currentLevelIsStart && m.mtype == goalMoleculeType)
+        if (!currentLevelIsStart && m.mtype == goalMoleculeType) //if you are bored try commenting out "!currentLevelIsStart &&"
         {
             goalMoleculeCount--;
             infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
