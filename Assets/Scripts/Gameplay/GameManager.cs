@@ -74,6 +74,17 @@ public class GameManager  {
         endLevelMoleList.Sort();
         LevelMoleculeTracker.Instance.RecordLevel(GV.Current_Flow_Index, endLevelMoleList);
     }
+    public void InitializeStartLevel()
+    {
+        activeCompounds = new List<Molecule>();
+        GameObject go = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Levels/StartLevel")) as GameObject;
+        foreach (Transform t in go.transform)
+            MergeManager.Instance.CreateMolecule(t.GetComponent<MoleculeEditorLoader>().moleculeType, t.position);
+        MonoBehaviour.Destroy(go);
+        gameRunning = true;
+        
+
+    }
 
     public void CreateAndInitializeLevel(int lvl)
     {
@@ -120,6 +131,17 @@ public class GameManager  {
             infoPanel.SetTimeRemaining(roundTime);
 
             GameEndCheck(dt);
+        }
+    }
+
+    public void StartScreenUpdate(float dt)
+    {
+        if (gameRunning)
+        {
+            foreach (Molecule c in activeCompounds)
+                c.UpdateMolecule();
+
+            MergeManager.Instance.UpdateMerger(dt);
         }
     }
 
