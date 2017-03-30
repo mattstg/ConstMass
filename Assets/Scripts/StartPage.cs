@@ -8,6 +8,7 @@ public class StartPage : MonoBehaviour {
     public void StartClicked()
     {
         GameManager.Instance.UnloadCurrentLevel();
+        GameManager.Instance.currentLevelIsStart = false;
         SceneManager.LoadScene("MainScene");
 
     }

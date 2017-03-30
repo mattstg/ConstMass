@@ -31,6 +31,7 @@ public class GameManager  {
     bool gameRunning = false;
     int curLoadedLevel = 0;
     protected float roundTime = 0;
+    public bool currentLevelIsStart = true;
     //This class pretty much does everything in game
 
     GV.MoleculeType goalMoleculeType;
@@ -46,18 +47,20 @@ public class GameManager  {
 
     public void MoleculeCreated(Molecule m)
     {
-        if (m.mtype == goalMoleculeType)
+        if (!currentLevelIsStart && m.mtype == goalMoleculeType)
         {
             goalMoleculeCount++;
             infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
         }
+        
         activeCompounds.Add(m);
 
     }
 
     public void MoleculeRemoved(Molecule m)
     {
-        if (m.mtype == goalMoleculeType)
+
+        if (!currentLevelIsStart && m.mtype == goalMoleculeType)
         {
             goalMoleculeCount--;
             infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
