@@ -22,7 +22,8 @@ public class GameManager  {
     }
     #endregion
 
-    ScoreText scoreText;
+    InfoPanel infoPanel;
+    Transform gameParent;
 
     public static List<Molecule> activeCompounds = new List<Molecule>(); //to access everywhere, gets filled by MergeManager
     Molecule selectedCompound;
@@ -33,9 +34,10 @@ public class GameManager  {
     protected float roundTime = 0;
     //This class pretty much does everything in game
 
-    public void LinkScoreText(ScoreText st)
+    public void LinkInfoPanel(InfoPanel _infoPanel, Transform _gameParent)
     {
-        scoreText = st;
+        infoPanel = _infoPanel;
+        gameParent = _gameParent;
     }
 
     public void RecordCurrentLevel()
@@ -59,7 +61,9 @@ public class GameManager  {
         gameRunning = true;
         curLoadedLevel = GV.Current_Flow_Index;
         roundTime = GV.Game_Length[lvl];
-        scoreText.gameObject.SetActive(true);
+        infoPanel.gameObject.SetActive(true);
+        gameParent.gameObject.SetActive(true);
+        infoPanel.SetupLevel(curLoadedLevel);
     }
 
     public void UnloadCurrentLevel()
@@ -86,7 +90,7 @@ public class GameManager  {
 
             roundTime -= dt;
             roundTime = Mathf.Clamp(roundTime, 0, 512);
-            scoreText.SetScoreTime(roundTime);
+            infoPanel.SetTimeRemaining(roundTime);
 
             GameEndCheck(dt);
         }
@@ -119,9 +123,10 @@ public class GameManager  {
     {
         gameRunning = false;
         float gameScore = CalculateGameScore();
-        float timeScore = CalculateTimeScore();
+        float timeScore = CalculateTimeScore(roundTime);
         roundTime = 99;
-        scoreText.gameObject.SetActive(false);
+        infoPanel.gameObject.SetActive(false);
+        gameParent.gameObject.SetActive(false);
         GV.gameFlow.GameFinished(gameScore, timeScore);
     }
 
@@ -165,11 +170,11 @@ public class GameManager  {
         return 0;
     }
 
-    public float CalculateTimeScore()
+    public float CalculateTimeScore(float _roundTime)
     {
-        float perc = Mathf.Clamp01(roundTime / GV.Game_Length[GV.Current_Flow_Index]);
-        float score = perc;
-        return score;
+        float secondsFor100 = GV.Time_Score_Perc_For_Max * GV.Game_Length[GV.Current_Flow_Index];
+        float perc = Mathf.Clamp01(_roundTime/secondsFor100);
+        return perc;
     }
 
 

@@ -9,7 +9,8 @@ public class GameFlow : MonoBehaviour {
 	
     protected AudioLooper audioLooper;
     PanelManager panelManager;
-    public ScoreText scoreText; //public, send to gamemanager and clear
+    public InfoPanel infoPanel;
+    public Transform gameParent;
     public UnityEngine.UI.InputField levelSelected; //temp to restart/force load level
 
     protected int stage = 0;
@@ -19,8 +20,7 @@ public class GameFlow : MonoBehaviour {
 	{
         audioLooper = new AudioLooper();
         GV.gameFlow = this;
-        GameManager.Instance.LinkScoreText(scoreText);
-        scoreText = null;
+        GameManager.Instance.LinkInfoPanel(infoPanel, gameParent);
         panelManager = GameObject.FindObjectOfType<PanelManager>();
         StartNextLoadout();
     }

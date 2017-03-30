@@ -32,6 +32,7 @@ public class GV {
 
     //Main Game
     public static readonly float[] Game_Length = new float[] { 45, 60, 80, 100, 120 };
+    public static readonly int[] visibleFormulas = new int[] { 1, 2, 4, 6 };
     public static readonly int Game_Lesson_Max = 4;
 
     //Score
