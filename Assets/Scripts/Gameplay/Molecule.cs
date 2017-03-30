@@ -150,28 +150,55 @@ public class Molecule : MonoBehaviour
 
    public void BoundsCorrection()
    {
+      
        Vector2 curPos = transform.position;
-       //Returns resulting direction, bounces if hits walls
-       if (curPos.x < GV.Game_Bounds.z)
-       {
-            rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y);
-            curPos.x = GV.Game_Bounds.z;
-       }
-       if (curPos.x > GV.Game_Bounds.x)
-       {
-            rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x) * -1, rb2d.velocity.y);
-            curPos.x = GV.Game_Bounds.x;
-       }
-       if (curPos.y > GV.Game_Bounds.y)
-       {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y) * -1);
-            curPos.y = GV.Game_Bounds.y;
-       }
-       if (curPos.y < GV.Game_Bounds.w)
-       {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y));
-            curPos.y = GV.Game_Bounds.w;
-       }
+        //Returns resulting direction, bounces if hits walls
+        if (!GameManager.Instance.currentLevelIsStart)
+        {
+            if (curPos.x < GV.Game_Bounds.z)
+            {
+                rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y);
+                curPos.x = GV.Game_Bounds.z;
+            }
+            if (curPos.x > GV.Game_Bounds.x)
+            {
+                rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x) * -1, rb2d.velocity.y);
+                curPos.x = GV.Game_Bounds.x;
+            }
+            if (curPos.y > GV.Game_Bounds.y)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y) * -1);
+                curPos.y = GV.Game_Bounds.y;
+            }
+            if (curPos.y < GV.Game_Bounds.w)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y));
+                curPos.y = GV.Game_Bounds.w;
+            }
+        }
+        else if(GameManager.Instance.currentLevelIsStart)
+        {
+            if (curPos.x < GV.Start_Screen_Bounds.z)
+            {
+                rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y);
+                curPos.x = GV.Start_Screen_Bounds.z;
+            }
+            if (curPos.x > GV.Start_Screen_Bounds.x)
+            {
+                rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x) * -1, rb2d.velocity.y);
+                curPos.x = GV.Start_Screen_Bounds.x;
+            }
+            if (curPos.y > GV.Start_Screen_Bounds.y)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y) * -1);
+                curPos.y = GV.Start_Screen_Bounds.y;
+            }
+            if (curPos.y < GV.Start_Screen_Bounds.w)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y));
+                curPos.y = GV.Start_Screen_Bounds.w;
+            }
+        }
        transform.position = curPos;
    }
 }
