@@ -23,13 +23,16 @@ public class ScoreText : MonoBehaviour {
             textScore.text = TimeAsTimerString (totalTime); 
 	}
 
-	public string TimeAsTimerString(float totalTime)
-	{
-		string sec = (((int)totalTime % 60).ToString()).PadLeft(2,'0');
-		string min = (((int)totalTime / 60).ToString()).PadLeft(2,'0');
-		string ms = (((int)((totalTime - (int)totalTime) * 100)).ToString()).PadLeft(2,'0');
+    public string TimeAsTimerString(float totalTime, bool showMilliseconds = false)
+    {
+        string min = (((int)totalTime / 60).ToString()).PadLeft(1, '0');
+        string sec = (((int)totalTime % 60).ToString()).PadLeft(2, '0');
+        string ms = (((int)((totalTime - (int)totalTime) * 100)).ToString()).PadLeft(2, '0');
+        string colon = ":";
 
-		return  min +  ":" + sec + ":" + ms; 
-	}
-
+        if (showMilliseconds)
+            return min + colon + sec + colon + ms;
+        else
+            return min + colon + sec;
+    }
 }

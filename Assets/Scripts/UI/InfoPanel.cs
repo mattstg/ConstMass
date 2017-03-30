@@ -37,7 +37,7 @@ public class InfoPanel : MonoBehaviour {
 
     private void StateGoal(int lvl) //Yes, this could be generic
     {
-        string toOut = "GOAL: ";
+        string toOut = "GOAL:  ";
         switch(lvl)
         {
             case 0:
@@ -50,7 +50,7 @@ public class InfoPanel : MonoBehaviour {
                 toOut += "Make 6 NaCl";
                 break;
             case 3:
-                toOut += "Make 3  " + GV.MoleculeFormula(GV.MoleculeType.H2O);
+                toOut += "Make 3 " + GV.MoleculeFormula(GV.MoleculeType.H2O);
                 break;
         }
         goalText.text = toOut;
