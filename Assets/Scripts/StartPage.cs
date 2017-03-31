@@ -5,13 +5,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI; using LoLSDK;
 
 public class StartPage : MonoBehaviour {
+    string songChosen = "GameMusicRetro.mp3";
     bool soundActive = true;
     public GameObject muteButton;
 
     void Start()
     {
         LOLSDK.Init("com.Pansimula.DanceOfAtoms");
-        LOLAudio.Instance.PlayAudio("GameMusic.mp3",true);
+        LOLAudio.Instance.soundIsActive = true;
+        LOLAudio.Instance.AddToBanList("CorrectMolecule.wav");
+        LOLAudio.Instance.AddToBanList("Seperate.wav");
+        LOLAudio.Instance.AddToBanList("Wobble.wav");
+        AudioLooper.Instance.StartAudioLooper(songChosen, GetSongLength(songChosen));
         GameManager.Instance.InitializeStartLevel();
     }
 
@@ -20,6 +25,26 @@ public class StartPage : MonoBehaviour {
         GameManager.Instance.UnloadCurrentLevel();
         GameManager.Instance.currentLevelIsStart = false;
         SceneManager.LoadScene("MainScene");
+        LOLAudio.Instance.ClearBanList();
+        LOLAudio.Instance.soundIsActive = soundActive;
+    }
+
+    public void ChoseSong(int songID)
+    {
+        string newsong = (songID == 1) ? "GameMusicNew.mp3" : "GameMusicRetro.mp3";
+        if(songChosen != newsong && soundActive)
+        {
+            AudioLooper.Instance.CloseAudioLooper();
+            AudioLooper.Instance.StartAudioLooper(newsong, GetSongLength(songChosen));
+            songChosen = newsong;
+        }
+    }
+
+    public float GetSongLength(string songName) //shouldnt be here but w.e
+    {
+        if (songName == "GameMusicNew.mp3")
+            return 32;
+        return 20;
     }
 
     public void MutePressed()
@@ -29,12 +54,12 @@ public class StartPage : MonoBehaviour {
         if (soundActive)
         {
             muteButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("Graphics/UI/Sound");
-            LOLAudio.Instance.PlayAudio("GameMusic.mp3", true);
+            AudioLooper.Instance.StartAudioLooper(songChosen, GetSongLength(songChosen));
         }
         else
         {
             muteButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("Graphics/UI/Mute");
-            LOLAudio.Instance.StopAudio("GameMusic.mp3");
+            AudioLooper.Instance.CloseAudioLooper();
         }
     }
 	
@@ -42,5 +67,6 @@ public class StartPage : MonoBehaviour {
 	void Update () {
         float dt = Time.deltaTime;
         GameManager.Instance.StartScreenUpdate(dt);
+        AudioLooper.Instance.Update(dt);
     }
 }

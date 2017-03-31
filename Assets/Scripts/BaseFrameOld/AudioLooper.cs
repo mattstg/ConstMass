@@ -3,6 +3,24 @@ using System.Collections.Generic;
 using UnityEngine; using LoLSDK;
 
 public class AudioLooper {
+    //For future game, should be a manager that holds many AudioLoopers, more generic setup with args instead of reading a switch
+    #region Singleton
+    private static AudioLooper instance;
+
+    private AudioLooper() { }
+
+    public static AudioLooper Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new AudioLooper();
+            }
+            return instance;
+        }
+    }
+    #endregion
 
     private string audioName;
     private float trackLength;
@@ -11,20 +29,17 @@ public class AudioLooper {
     bool[] playingAudio = new bool[2];
     private float fadeTime = 3;
 
-    public void StartAudioLooper(int lessonType)
-    {/*
-        if (lessonType != LessonType.Intro && lessonType != LessonType.Post) //they have music, not ambience
-        {
-            curTime[0] = curTime[1] = 0;
-            playingAudio[0] = playingAudio[1] = false;
-            trackLength = GetLengthOfAmbient(lessonType);
-            audioName = lessonType + "Ambient.mp3";
-            isPlaying = true;
-            PlayAudio(0);
-        }*/
+    public void StartAudioLooper(string _audioName, float _trackLength)
+    {
+        curTime[0] = curTime[1] = 0;
+        playingAudio[0] = playingAudio[1] = false;
+        trackLength = _trackLength;
+        audioName = _audioName;
+        isPlaying = true;
+        PlayAudio(0);
     }
 
-    public void Update()
+    public void Update(float dt)
     {
         if(isPlaying)
         {
@@ -32,7 +47,7 @@ public class AudioLooper {
             {
                 if(playingAudio[i])
                 {
-                    curTime[i] += Time.deltaTime;
+                    curTime[i] += dt;
                     if(!playingAudio[GOI(i)] && curTime[i] + fadeTime >= trackLength)
                     {
                         PlayAudio(GOI(i));
@@ -51,33 +66,16 @@ public class AudioLooper {
     {
         curTime[i] = 0;
         playingAudio[i] = true;
-        LOLAudio.Instance.PlayAudio(audioName, false);
+        LOLAudio.Instance.PlayAudio(audioName, false); 
     }
 
     public void CloseAudioLooper()
     {
         LOLAudio.Instance.StopAudio(audioName);
         LOLAudio.Instance.StopAudio(audioName);
+        isPlaying = false;
     }
 
-
-    private float GetLengthOfAmbient(int lessonType)
-    {/*
-        switch (lessonType)
-        {
-            case LessonType.Frog:
-                return 13;
-            case LessonType.Fish:
-                return 27;
-            case LessonType.Bower:
-                return 33;
-            case LessonType.Duck:
-                return 36;
-            case LessonType.Caribou:
-                return 8;
-        }*/
-        return 0;
-    }
 
     private int GOI(int i) //Get Other Index
     {

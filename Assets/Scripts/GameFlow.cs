@@ -7,7 +7,6 @@ public class GameFlow : MonoBehaviour {
 	
 	public bool canTimeOut = true;
 	
-    protected AudioLooper audioLooper;
     PanelManager panelManager;
     public InfoPanel infoPanel;
     public Transform gameParent;
@@ -18,7 +17,6 @@ public class GameFlow : MonoBehaviour {
 
 	public void Start()
 	{
-        audioLooper = new AudioLooper();
         GV.gameFlow = this;
         GameManager.Instance.LinkInfoPanel(infoPanel, gameParent);
         panelManager = GameObject.FindObjectOfType<PanelManager>();
@@ -41,6 +39,7 @@ public class GameFlow : MonoBehaviour {
 
     private void EndOfGameFlow()
     {
+        AudioLooper.Instance.CloseAudioLooper();
         LOLAudio.Instance.StopAudio("GameMusic.mp3");
         LOLSDK.Instance.CompleteGame();
         //Stop playing music
@@ -104,10 +103,7 @@ public class GameFlow : MonoBehaviour {
     {
         float dt = Time.deltaTime;
         GameManager.Instance.Update(dt);
-
-        if (audioLooper != null)
-            audioLooper.Update();
-
+        AudioLooper.Instance.Update(dt);
     }
 
 
