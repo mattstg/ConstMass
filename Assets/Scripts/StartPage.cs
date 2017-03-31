@@ -22,7 +22,7 @@ public class StartPage : MonoBehaviour {
 
     public void StartClicked()
     {
-        GameManager.Instance.UnloadMainMenu();
+        GameManager.Instance.UnloadCurrentLevel();
         GameManager.Instance.currentLevelIsStart = false;
         LOLAudio.Instance.ClearBanList();
         LOLAudio.Instance.soundIsActive = soundActive;
