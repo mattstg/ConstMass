@@ -22,7 +22,7 @@ public class LevelScorePage : CascadeTextPage
         if (progress[0] == progress[1])
         {
             text = "Congratulations! You successfully produced all " + progress[1] + " " + GV.MoleculeFormula((GV.MoleculeType)progress[2]) + " molecules! " +
-                "You will recieve a full score of " + gameScore + " points for your performance.\n\n" +
+                "You will receive a full score of " + gameScore + " points for your performance.\n\n" +
                 "Because you finished in only " + TimeString(time[0]) + ", you will also get +" + timeScore + " bonus points for your speed!\n\n" +
                 "The quiz will also give you an opportunity to boost your score even more.";
         }
