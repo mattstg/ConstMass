@@ -124,16 +124,17 @@ public class PageLoader
 
     // PRE-1
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        a.SetTextContent("You may have noticed in the last level that the temperature of the reaction chamber changed whenever a chemical reaction occurred. You might have even noticed that the speeds of the molecules changed whenever the temperature changed.\n\n" +
+        a.SetTextContent("In the real world, when a chemical reaction occurs, it affects the temperature of the matter around it.\n\n" +
             "All chemical reactions are either <i>endothermic</i> or <i>exothermic</i>.\n\n" +
-            "For an endothermic reaction to occur, it requires more energy than it has stored in its chemical bonds, and so it must absorb energy from its surroundings (often in the form of heat).\n\n" +
+            "For an endothermic reaction to occur, it requires more energy than it has stored in its chemical bonds, and so it must absorb energy from its surroundings (usually in the form of heat).\n\n" +
             "Exothermic reactions, on the other hand, produce an excess of energy, which is then released into the surroundings (again, often as heat).");
         a.TitleSettings(true, true, "");
         a.backActive = false;
 
         CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         b.SetTextContent("When an endothermic reaction absorbs heat from its surroundings, it slows down the movements of the surrounding molecules. When an exothermic reactions emits heat, it speeds up the movements of the surrounding molecules.\n\n" +
-            "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones. But watch out: faster-moving molecules will be harder for you to hit with your molecule accelerator!");
+            "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones.\n\n" +
+            "That is why an egg fries faster when you turn up the element: the increased heat energizes the egg's molecules, leading to a higher rate of chemical reactions!");
         b.TitleSettings(true, true, "");
 
         CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
