@@ -30,8 +30,6 @@ public class ProgressTracker {
 	float[] successScore = new float[4];
     float[] timeScore    = new float[4];
 	float[] quizScore    = new float[4];
-    
-    bool trackProgress = true;
 
 	private ProgressTracker()
 	{
@@ -94,7 +92,7 @@ public class ProgressTracker {
 
     public void SubmitProgress(int progressNumber)
 	{
-        if(trackProgress)
+        if(LOLSDK.Instance.IsInitialized)
             LOLSDK.Instance.SubmitProgress((int)GetTotalScore(), progressNumber, 8);// SCORE, CURRENTPROGRESS, MAXPROGRESS
     }
 
