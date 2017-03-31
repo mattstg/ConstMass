@@ -95,6 +95,18 @@ public class PageLoader
             "You will be using the following chemical reaction equation:\n\n" +
             "H" + S(2) + " + Cl" + S(2) + "  →  2HCl");
 
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        f.TitleSettings(true, true, "");
+        f.SetTextContent("Before starting each level, we will show you a detailed breakdown of all the molecules that will be present in the level.\n\n" +
+
+            "For each molecule, we will show its mass, the total number of atoms that it contains, and the number of each type of atom that it contains. At the bottom we will show the total for each of these values, " +
+            "representing the total mass and number of atoms contained within the level as a whole.\n\n" +
+
+            "This chart, the <i>Pre-Game Breakdown</i>, will represent the state of the level at the very beginning of the level.\n\n" +
+
+            "After each level, we will show you the Pre-Game Breakdown again, to remind you how things were before you started playing, and then we will show you a similar Post-Game Breakdown so you can do a " +
+            "before/after comparison of the matter in the level.");
+
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
         pre0breakdown.TitleSettings(true, true, "LEVEL 1:  PRE-GAME BREAKDOWN");
@@ -107,8 +119,13 @@ public class PageLoader
         LevelScorePage levelScore0 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
         levelScore0.Generate(0);
 
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        a.TitleSettings(true, true, "");
+        a.SetTextContent("Here are the breakdowns. Pay attention to the total mass of the molecules in the chamber before and after the level!");
+
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
+
         pre0breakdown.TitleSettings(true, true, "LEVEL 1:  PRE-GAME BREAKDOWN");
         BreakdownPage post0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post0breakdown.SetLevel(0, false);
@@ -123,25 +140,29 @@ public class PageLoader
         score0.SetLevel(0);
 
     // PRE-1
-        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        a.SetTextContent("In the real world, when a chemical reaction occurs, it affects the temperature of the matter around it.\n\n" +
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        b.SetTextContent("In the real world, when a chemical reaction occurs, it affects the temperature of the matter around it.\n\n" +
             "All chemical reactions are either <i>endothermic</i> or <i>exothermic</i>.\n\n" +
             "For an endothermic reaction to occur, it requires more energy than it has stored in its chemical bonds, and so it must absorb energy from its surroundings (usually in the form of heat).\n\n" +
             "Exothermic reactions, on the other hand, produce an excess of energy, which is then released into the surroundings (again, often as heat).");
-        a.TitleSettings(true, true, "");
-        a.backActive = false;
-
-        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        b.SetTextContent("When an endothermic reaction absorbs heat from its surroundings, it slows down the movements of the surrounding molecules. When an exothermic reactions emits heat, it speeds up the movements of the surrounding molecules.\n\n" +
-            "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones.\n\n" +
-            "That is why an egg fries faster when you turn up the element: the increased heat energizes the egg's molecules, leading to a higher rate of chemical reactions!");
         b.TitleSettings(true, true, "");
+        b.backActive = false;
 
         CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        c.SetTextContent("In the next level, you will be required to make 4 H" + S(2) + "O (water) molecules from 2 H" + S(2) + " molecules, 2 Cl molecules, and 4 NaHCO" + S(3) + " (sodium bicarbonate, or baking soda) molecules.\n\n" +
+        c.SetTextContent("When an endothermic reaction absorbs heat from its surroundings, it slows down the movements of the surrounding molecules. When an exothermic reactions emits heat, it speeds up the movements of the surrounding molecules.\n\n" +
+            "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones.\n\n" +
+            "That is why an egg fries faster when you turn up the element: the increased heat energizes the egg's molecules, leading to a higher rate of chemical reactions!");
+        c.TitleSettings(true, true, "");
+
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        d.SetTextContent("In the next level, you will be required to make 4 H" + S(2) + "O (water) molecules from 2 H" + S(2) + " molecules, 2 Cl molecules, and 4 NaHCO" + S(3) + " (sodium bicarbonate, or baking soda) molecules.\n\n" +
             "This will require that you use the reaction from the previous level together with a new one:\n\n" +
             "NaHCO" + S(3) + " + HCl  →  NaCl + CO" + S(2) + " + H" + S(2) + "O");
-        c.TitleSettings(true, true, "");
+        d.TitleSettings(true, true, "");
+
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        e.TitleSettings(true, true, "");
+        e.SetTextContent("Now for the details:");
 
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
@@ -154,6 +175,9 @@ public class PageLoader
     // POST-1
         LevelScorePage levelScore1 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
         levelScore1.Generate(1);
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        f.TitleSettings(true, true, "");
+        f.SetTextContent("In the upcoming breakdowns, verify whether the amount of any kind of atom changed during the level.");
 
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
@@ -211,6 +235,10 @@ public class PageLoader
             "NaOH + HCl  →  NaCl + H" + S(2) + "O");
         e.TitleSettings(true, true, "");
 
+        CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        g.TitleSettings(true, true, "");
+        g.SetTextContent("Let's check the Pre-Game Breakdown:");
+
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
         pre2breakdown.TitleSettings(true, true, "LEVEL 3:  PRE-GAME BREAKDOWN");
@@ -222,6 +250,10 @@ public class PageLoader
     // POST-2
         LevelScorePage levelScore2 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
         levelScore2.Generate(2);
+
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        e.TitleSettings(true, true, "");
+        e.SetTextContent("As you've probably come to expect, the following breakdowns will confirm that no matter was lost or gained during the level!");
 
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
@@ -274,6 +306,10 @@ public class PageLoader
             "Good luck!");
         d.TitleSettings(true, true, "");
 
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        f.TitleSettings(true, true, "");
+        f.SetTextContent("Here's the Pre-Game Breakdown for the final level:");
+
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
         pre3breakdown.TitleSettings(true, true, "LEVEL 4:  PRE-GAME BREAKDOWN");
@@ -285,6 +321,10 @@ public class PageLoader
     // POST-3
         LevelScorePage levelScore3 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
         levelScore3.Generate(3);
+
+        CascadeTextPage h = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        h.TitleSettings(true, true, "");
+        h.SetTextContent("Let's do one last comparison:");
 
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
