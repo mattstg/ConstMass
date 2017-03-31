@@ -26,7 +26,7 @@ public class StartPage : MonoBehaviour {
         GameManager.Instance.currentLevelIsStart = false;
         LOLAudio.Instance.ClearBanList();
         LOLAudio.Instance.soundIsActive = soundActive;
-        //SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene");
         
     }
 
