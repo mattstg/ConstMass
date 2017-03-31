@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI; using LoLSDK;
 
 public class StartPage : MonoBehaviour {
-    string songChosen = "GameMusicRetro.mp3";
+    string songChosen = "GameMusicNew.mp3";
     bool soundActive = true;
     public GameObject muteButton;
 
@@ -31,11 +31,11 @@ public class StartPage : MonoBehaviour {
 
     public void ChoseSong(int songID)
     {
-        string newsong = (songID == 1) ? "GameMusicNew.mp3" : "GameMusicRetro.mp3";
+        string newsong = (songID == 0) ? "GameMusicNew.mp3" : "GameMusicRetro.mp3";
         if(songChosen != newsong && soundActive)
         {
             AudioLooper.Instance.CloseAudioLooper();
-            AudioLooper.Instance.StartAudioLooper(newsong, GetSongLength(songChosen));
+            AudioLooper.Instance.StartAudioLooper(newsong, GetSongLength(newsong));
             songChosen = newsong;
         }
     }
