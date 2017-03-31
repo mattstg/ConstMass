@@ -99,15 +99,17 @@ public class PageLoader
 
         CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         f.TitleSettings(true, true, "");
-        f.SetTextContent("Before starting each level, we will show you a detailed breakdown of all the molecules that will be present in the level.\n\n" +
+        f.SetTextContent("Before and after each level, we will show you a detailed breakdown of all the molecules present in the level.\n\n" +
 
             "For each molecule, we will show its mass, the total number of atoms that it contains, and the number of each type of atom that it contains. At the bottom we will show the total for each of these values, " +
-            "representing the total mass and number of atoms contained within the level as a whole.\n\n" +
+            "representing the total mass and number of atoms contained within the level as a whole.");
 
-            "This chart, the <i>Pre-Game Breakdown</i>, will represent the state of the level at the very beginning of the level.\n\n" +
+        CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        g.TitleSettings(true, true, "");
+        g.SetTextContent("Before each level, we will show you the <i>pre-game breakdown</i>, which represents the state of the level as it is at the very beginning, before you start playing.\n\n" +
 
-            "After each level, we will show you the Pre-Game Breakdown again, to remind you how things were before you started playing, and then we will show you a similar Post-Game Breakdown so you can do a " +
-            "before/after comparison of the matter in the level.");
+            "After each level, we will show you the pre-game breakdown again, to remind you of how things were initially. Then we will show you a similar <i>post-game breakdown</i>, " +
+            "which represents the state of the level after you have finished playing, so that you will be able to do a before/after comparison of the matter in the level.");
 
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
@@ -123,7 +125,7 @@ public class PageLoader
 
         CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         a.TitleSettings(true, true, "");
-        a.SetTextContent("Here are the breakdowns. Pay attention to the total mass of the molecules in the chamber before and after the level!");
+        a.SetTextContent("Here are the breakdowns. Pay attention to the total mass of the molecules in the chamber both before and after the level!");
 
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
@@ -153,7 +155,7 @@ public class PageLoader
         CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         c.SetTextContent("When an endothermic reaction absorbs heat from its surroundings, it slows down the movements of the surrounding molecules. When an exothermic reactions emits heat, it speeds up the movements of the surrounding molecules.\n\n" +
             "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones.\n\n" +
-            "That is why an egg fries faster when you turn up the element: the increased heat energizes the egg's molecules, leading to a higher rate of chemical reactions!");
+            "That is why an egg fries faster when you turn up the element: the increased heat energizes the egg’s molecules, leading to a higher rate of chemical reactions!");
         c.TitleSettings(true, true, "");
 
         CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
@@ -177,9 +179,10 @@ public class PageLoader
     // POST-1
         LevelScorePage levelScore1 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
         levelScore1.Generate(1);
-        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        f.TitleSettings(true, true, "");
-        f.SetTextContent("In the upcoming breakdowns, verify whether the amount of any kind of atom changed during the level.");
+
+        CascadeTextPage x = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        x.TitleSettings(true, true, "");
+        x.SetTextContent("In the upcoming breakdowns, verify whether the total number of any kind of atom changed during the level.");
 
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
@@ -237,9 +240,9 @@ public class PageLoader
             "NaOH + HCl  →  NaCl + H" + S(2) + "O");
         e.TitleSettings(true, true, "");
 
-        CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
-        g.TitleSettings(true, true, "");
-        g.SetTextContent("Let's check the Pre-Game Breakdown:");
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        f.TitleSettings(true, true, "");
+        f.SetTextContent("Before starting the next level, let’s check the pre-game breakdown:");
 
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
@@ -255,7 +258,7 @@ public class PageLoader
 
         CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         e.TitleSettings(true, true, "");
-        e.SetTextContent("As you've probably come to expect, the following breakdowns will confirm that no matter was lost or gained during the level!");
+        e.SetTextContent("As you’ve probably come to expect, the following breakdowns will confirm that no matter was lost or gained during the level!");
 
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
@@ -310,7 +313,7 @@ public class PageLoader
 
         CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         f.TitleSettings(true, true, "");
-        f.SetTextContent("Here's the Pre-Game Breakdown for the final level:");
+        f.SetTextContent("Here’s the pre-game breakdown for the final level:");
 
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
@@ -326,7 +329,7 @@ public class PageLoader
 
         CascadeTextPage h = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         h.TitleSettings(true, true, "");
-        h.SetTextContent("Let's do one last comparison:");
+        h.SetTextContent("Let’s do one last comparison:");
 
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
