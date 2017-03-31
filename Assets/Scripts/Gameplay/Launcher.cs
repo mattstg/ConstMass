@@ -92,7 +92,6 @@ public class Launcher
                 if (!elasticGraphicEnabled)
                 {
                     elasticGraphic.SetActive(true);
-                    //mouseHalo.SetActive(true);
                     elasticGraphicEnabled = true;
                 }
                 float radius = 0.48f;
