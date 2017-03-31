@@ -27,7 +27,6 @@ public class GameManager  {
 
     public static List<Molecule> activeCompounds = new List<Molecule>(); //to access everywhere, gets filled by MergeManager
     Molecule selectedCompound;
-    bool compoundIsSelected = false; //doing if(selectedCompound) has minute costs, but ipad...
     bool gameRunning = false;
     int curLoadedLevel = 0;
     protected float roundTime = 0;
@@ -121,8 +120,14 @@ public class GameManager  {
             MonoBehaviour.Destroy(t.gameObject);
         activeCompounds = new List<Molecule>();
         MergeManager.Instance.ClearMergeManager();
-        if(!currentLevelIsStart)  //it activates the launcher then deletes when scene changes, causes issue
-            Launcher.Instance.ClearLauncher();
+        Launcher.Instance.ClearLauncher();
+        gameRunning = false;
+    }
+
+    public void UnloadMainMenu() //
+    {
+        activeCompounds = new List<Molecule>();
+        MergeManager.Instance.ClearMergeManager();
         gameRunning = false;
     }
 
@@ -212,7 +217,6 @@ public class GameManager  {
     {
         selectedCompound.SetLock(false);
         selectedCompound = null;
-        compoundIsSelected = false;
     }
 
     //Mouse Code

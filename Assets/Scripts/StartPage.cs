@@ -22,11 +22,12 @@ public class StartPage : MonoBehaviour {
 
     public void StartClicked()
     {
-        GameManager.Instance.UnloadCurrentLevel();
+        GameManager.Instance.UnloadMainMenu();
         GameManager.Instance.currentLevelIsStart = false;
-        SceneManager.LoadScene("MainScene");
         LOLAudio.Instance.ClearBanList();
         LOLAudio.Instance.soundIsActive = soundActive;
+        SceneManager.LoadScene("MainScene");
+        
     }
 
     public void ChoseSong(int songID)

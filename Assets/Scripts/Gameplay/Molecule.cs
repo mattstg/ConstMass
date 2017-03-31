@@ -11,13 +11,10 @@ public class Molecule : MonoBehaviour
     Transform textMesh;
     bool textIsActive;
 
-    float immunityCoutner = GV.Compound_Immunity;
-
     public void Initialize(GV.MoleculeType _mtype)
     {
         mtype = _mtype;
         Initialize();
-
     }
 
     public bool IsSelectable()
