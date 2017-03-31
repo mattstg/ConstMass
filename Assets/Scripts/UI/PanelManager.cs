@@ -36,7 +36,7 @@ public class PanelManager : MonoBehaviour
     public delegate void ClosePanelCallback();
     private ClosePanelCallback closePanelCallback;
 
-    void Awake()
+    void Start()
     {
         if (pagesParent)
         {
