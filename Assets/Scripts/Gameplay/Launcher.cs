@@ -95,9 +95,10 @@ public class Launcher
                     //mouseHalo.SetActive(true);
                     elasticGraphicEnabled = true;
                 }
-                elasticGraphic.transform.position = molePos;
+                float radius = 0.48f;
+                elasticGraphic.transform.position = new Vector2(molePos.x + (Mathf.Cos(ang * Mathf.PI / 180) * radius), molePos.y + (Mathf.Sin(ang * Mathf.PI / 180) * radius));
                 elasticGraphic.transform.eulerAngles = new Vector3(0,0,ang);
-                elasticGraphic.transform.localScale = new Vector2(elasticDist, 1);
+                elasticGraphic.transform.localScale = new Vector2(MathHelper.ApproxDist(curMousePos, elasticGraphic.transform.position), 1);
             }
             else
             {
