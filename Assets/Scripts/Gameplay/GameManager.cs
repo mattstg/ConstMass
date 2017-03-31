@@ -49,6 +49,7 @@ public class GameManager  {
     {
         if (!currentLevelIsStart && m.mtype == goalMoleculeType)
         {
+            LOLAudio.Instance.PlayAudio("CorrectMolecule.wav");
             goalMoleculeCount++;
             infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
         }

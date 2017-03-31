@@ -41,6 +41,8 @@ public class GameFlow : MonoBehaviour {
 
     private void EndOfGameFlow()
     {
+        LOLAudio.Instance.StopAudio("GameMusic.mp3");
+        LOLSDK.Instance.CompleteGame();
         //Stop playing music
         //Send onComplete call
     }

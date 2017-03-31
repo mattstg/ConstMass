@@ -116,6 +116,10 @@ public class Molecule : MonoBehaviour
                 MergeManager.Instance.MergeTwoMolecules(this, m);
             }
         }
+        else
+        {
+            LOLAudio.Instance.PlayAudio("Wobble.wav");
+        }
     }
 
     public void Rebound(Vector2 reboundVector)
@@ -150,7 +154,7 @@ public class Molecule : MonoBehaviour
 
    public void BoundsCorrection()
    {
-      
+        bool playBounceAudio = false;
        Vector2 curPos = transform.position;
         //Returns resulting direction, bounces if hits walls
         if (!GameManager.Instance.currentLevelIsStart)
@@ -159,21 +163,25 @@ public class Molecule : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y);
                 curPos.x = GV.Game_Bounds.z;
+                playBounceAudio = true;
             }
             if (curPos.x > GV.Game_Bounds.x)
             {
                 rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x) * -1, rb2d.velocity.y);
                 curPos.x = GV.Game_Bounds.x;
+                playBounceAudio = true;
             }
             if (curPos.y > GV.Game_Bounds.y)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y) * -1);
                 curPos.y = GV.Game_Bounds.y;
+                playBounceAudio = true;
             }
             if (curPos.y < GV.Game_Bounds.w)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y));
                 curPos.y = GV.Game_Bounds.w;
+                playBounceAudio = true;
             }
         }
         else if(GameManager.Instance.currentLevelIsStart)
@@ -182,23 +190,29 @@ public class Molecule : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x), rb2d.velocity.y);
                 curPos.x = GV.Start_Screen_Bounds.z;
+                playBounceAudio = true;
             }
             if (curPos.x > GV.Start_Screen_Bounds.x)
             {
                 rb2d.velocity = new Vector2(Mathf.Abs(rb2d.velocity.x) * -1, rb2d.velocity.y);
                 curPos.x = GV.Start_Screen_Bounds.x;
+                playBounceAudio = true;
             }
             if (curPos.y > GV.Start_Screen_Bounds.y)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y) * -1);
                 curPos.y = GV.Start_Screen_Bounds.y;
+                playBounceAudio = true;
             }
             if (curPos.y < GV.Start_Screen_Bounds.w)
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Abs(rb2d.velocity.y));
                 curPos.y = GV.Start_Screen_Bounds.w;
+                playBounceAudio = true;
             }
         }
+        if (playBounceAudio)
+            LOLAudio.Instance.PlayAudio("Wobble.wav");
        transform.position = curPos;
    }
 }

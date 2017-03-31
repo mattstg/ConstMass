@@ -48,6 +48,7 @@ public class MergeManager
 
     private void MergeComplete(GV.MoleculeType m1, GV.MoleculeType m2, Vector2 pos)
     {
+        LOLAudio.Instance.PlayAudio("Seperate.wav");
         List<GV.MoleculeType> toCreate = MoleculeDict.Instance.GetProducts(m1, m2);
         foreach (GV.MoleculeType mtype in toCreate)
             CreateMolecule(mtype, pos);

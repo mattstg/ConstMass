@@ -28,7 +28,7 @@ public class LOLAudio
 
     public void PlayAudio(string _name, bool loop = false)
     {
-        if (!MainMenu.Sound_Active || !LOLSDK.Instance.IsInitialized)
+        if (!soundIsActive || !LOLSDK.Instance.IsInitialized)
             return;
 
         LOLSDK.Instance.PlaySound(_name, false, loop);
