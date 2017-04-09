@@ -94,9 +94,14 @@ public class GameFlow : MonoBehaviour {
         }
     }
 
-    public void ToggleNamePressed()
+    public void MoleculeTextPressed()
     {
         GV.Molecule_Text_Active = !GV.Molecule_Text_Active;
+    }
+
+    public void AtomTextPressed()
+    {
+        GV.Atom_Text_Active = !GV.Atom_Text_Active;
     }
 
     public void Update()

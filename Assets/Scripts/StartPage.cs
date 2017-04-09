@@ -17,6 +17,7 @@ public class StartPage : MonoBehaviour {
         LOLAudio.Instance.AddToBanList("Seperate.wav");
         LOLAudio.Instance.AddToBanList("Wobble.wav");
         AudioLooper.Instance.StartAudioLooper(songChosen, GetSongLength(songChosen));
+        GV.Atom_Text_Active = false;
         GameManager.Instance.InitializeStartLevel();
     }
 
@@ -26,6 +27,7 @@ public class StartPage : MonoBehaviour {
         GameManager.Instance.currentLevelIsStart = false;
         LOLAudio.Instance.ClearBanList();
         LOLAudio.Instance.soundIsActive = soundActive;
+        GV.Atom_Text_Active = true;
         SceneManager.LoadScene("MainScene");
         
     }

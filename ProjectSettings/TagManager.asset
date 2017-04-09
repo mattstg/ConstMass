@@ -46,6 +46,9 @@ TagManager:
   - name: Molecule
     uniqueID: 2915486655
     locked: 0
+  - name: AtomText
+    uniqueID: 2651574417
+    locked: 0
   - name: MoleculeText
     uniqueID: 275954889
     locked: 0

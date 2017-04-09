@@ -26,6 +26,7 @@ public class GV {
     public static readonly float Molecule_Speed_Min = .33f;
     public static readonly float Molecule_Speed_Max = 3.5f;
     public static bool Molecule_Text_Active = false;
+    public static bool Atom_Text_Active = true;
 
     //Chemical
     public static float Merge_Time = .3f; //time it takes for molecules to merge

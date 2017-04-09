@@ -8,8 +8,10 @@ public class Molecule : MonoBehaviour
     bool isMerging = false;
     Rigidbody2D rb2d;
     public GV.MoleculeType mtype;
-    Transform textMesh;
-    bool textIsActive;
+    Transform moleText;
+    List<Transform> atomTexts;
+    bool moleTextIsActive;
+    bool atomTextIsActive;
 
     public void Initialize(GV.MoleculeType _mtype)
     {
@@ -28,14 +30,72 @@ public class Molecule : MonoBehaviour
         Vector2 launchDir = new Vector2(Random.Range(-1, 1f), Random.Range(-1, 1f)).normalized;
         rb2d.velocity = launchDir * GV.Molecule_Speed_Start;
         gameObject.AddComponent<RandomSpin>();
-        GameObject tm = Instantiate(Resources.Load("Prefabs/MoleText")) as GameObject;
+        atomTexts = new List<Transform>();
+        atomTextIsActive = GV.Atom_Text_Active;
+        foreach (Transform t in transform)
+        {
+            switch (t.name)
+            {
+                case "Hydrogen":
+                    GameObject hydrogenTextObject = Instantiate(Resources.Load("Prefabs/Text/HydrogenText")) as GameObject;
+                    Transform hydrogenTextTransform = hydrogenTextObject.transform;
+                    hydrogenTextTransform.SetParent(t, false);
+                    hydrogenTextTransform.GetComponentInChildren<Renderer>().sortingLayerName = "AtomText";
+                    hydrogenTextTransform.gameObject.SetActive(atomTextIsActive);
+                    atomTexts.Add(hydrogenTextTransform);
+                    break;
+                case "Carbon":
+                    GameObject carbonTextObject = Instantiate(Resources.Load("Prefabs/Text/CarbonText")) as GameObject;
+                    Transform carbonTextTransform = carbonTextObject.transform;
+                    carbonTextTransform.SetParent(t, false);
+                    carbonTextTransform.GetComponentInChildren<Renderer>().sortingLayerName = "AtomText";
+                    carbonTextTransform.gameObject.SetActive(atomTextIsActive);
+                    atomTexts.Add(carbonTextTransform);
+                    break;
+                case "Oxygen":
+                    GameObject oxygenTextObject = Instantiate(Resources.Load("Prefabs/Text/OxygenText")) as GameObject;
+                    Transform oxygenTextTransform = oxygenTextObject.transform;
+                    oxygenTextTransform.SetParent(t, false);
+                    oxygenTextTransform.GetComponentInChildren<Renderer>().sortingLayerName = "AtomText";
+                    oxygenTextTransform.gameObject.SetActive(atomTextIsActive);
+                    atomTexts.Add(oxygenTextTransform);
+                    break;
+                case "Sodium":
+                    GameObject sodiumTextObject = Instantiate(Resources.Load("Prefabs/Text/SodiumText")) as GameObject;
+                    Transform sodiumTextTransform = sodiumTextObject.transform;
+                    sodiumTextTransform.SetParent(t, false);
+                    sodiumTextTransform.GetComponentInChildren<Renderer>().sortingLayerName = "AtomText";
+                    sodiumTextTransform.gameObject.SetActive(atomTextIsActive);
+                    atomTexts.Add(sodiumTextTransform);
+                    break;
+                case "Chlorine":
+                    GameObject chlorineTextObject = Instantiate(Resources.Load("Prefabs/Text/ChlorineText")) as GameObject;
+                    Transform chlorineTextTransform = chlorineTextObject.transform;
+                    chlorineTextTransform.SetParent(t, false);
+                    chlorineTextTransform.GetComponentInChildren<Renderer>().sortingLayerName = "AtomText";
+                    chlorineTextTransform.gameObject.SetActive(atomTextIsActive);
+                    atomTexts.Add(chlorineTextTransform);
+                    break;
+                case "Potassium":
+                    GameObject potassiumTextObject = Instantiate(Resources.Load("Prefabs/Text/PotassiumText")) as GameObject;
+                    Transform potassiumTextTransform = potassiumTextObject.transform;
+                    potassiumTextTransform.SetParent(t, false);
+                    potassiumTextTransform.GetComponentInChildren<Renderer>().sortingLayerName = "AtomText";
+                    potassiumTextTransform.gameObject.SetActive(atomTextIsActive);
+                    atomTexts.Add(potassiumTextTransform);
+                    break;
+                default:
+                    break;
+            }
+        }
+        GameObject tm = Instantiate(Resources.Load("Prefabs/Text/MoleText")) as GameObject;
         tm.GetComponent<Renderer>().sortingLayerName = "MoleculeText";
         tm.GetComponent<TextMesh>().text = GV.MoleculeFormula(mtype);
-        textMesh = tm.transform;
-        textMesh.SetParent(transform);
-        textMesh.localPosition = new Vector3();
-        textIsActive = GV.Molecule_Text_Active;
-        textMesh.gameObject.SetActive(textIsActive);
+        moleText = tm.transform;
+        moleText.SetParent(transform);
+        moleText.localPosition = new Vector3();
+        moleTextIsActive = GV.Molecule_Text_Active;
+        moleText.gameObject.SetActive(moleTextIsActive);
         //rb2d.AddForce(GV.Temperature_Force_Per_Degree,ForceMode2D.Impulse);
         //initialize the UI, values already initialized
     }
@@ -69,13 +129,29 @@ public class Molecule : MonoBehaviour
 
             BoundsCorrection();
         }
-        if(textIsActive != GV.Molecule_Text_Active)
+        if(moleTextIsActive != GV.Molecule_Text_Active)
         {
-            textIsActive = GV.Molecule_Text_Active;
-            textMesh.gameObject.SetActive(textIsActive);
+            moleTextIsActive = GV.Molecule_Text_Active;
+            moleText.gameObject.SetActive(moleTextIsActive);
         }
-        if (textIsActive)
-            textMesh.transform.rotation = Quaternion.identity;
+        if (moleTextIsActive)
+            moleText.transform.rotation = Quaternion.identity;
+
+        if (atomTextIsActive != GV.Atom_Text_Active)
+        {
+            atomTextIsActive = GV.Atom_Text_Active;
+            foreach (Transform t in atomTexts)
+            {
+                t.gameObject.SetActive(atomTextIsActive);
+            }
+        }
+        if (atomTextIsActive)
+        {
+            foreach (Transform t in atomTexts)
+            {
+                t.rotation = Quaternion.identity;
+            }
+        }
     }
 
     public void Launch(Vector2 speed)

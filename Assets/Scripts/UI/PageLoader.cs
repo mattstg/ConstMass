@@ -405,7 +405,6 @@ public class PageLoader
             "Have a great day!");
         g.TitleSettings(true, true, "");
         g.NextSettings(true, true, true, "Finish");
-        g.canSkip = true;
     }
 
     public List<Page> LoadPages(PanelID panelID, PanelManager panelManager)
