@@ -46,23 +46,26 @@ public class GameFlow : MonoBehaviour {
         //Send onComplete call
     }
 
-    public void GameFinished(float sucessScore, float timeScore)
+    public void GameCompleted(float sucessScore, float timeScore)
     {
         ProgressTracker.Instance.SetScore(ProgressTracker.ScoreType.Success,  GV.Current_Flow_Index, sucessScore);
         ProgressTracker.Instance.SetScore(ProgressTracker.ScoreType.Time, GV.Current_Flow_Index, timeScore);
         ProgressTracker.Instance.SubmitProgress((GV.Current_Flow_Index * 2) + 1); 
-        //Then start next level sequence
-        InputManager.gameInputActivate = false;
         GameManager.Instance.RecordCurrentLevel();
+        Debug.Log(string.Format("game finished, [SucessScore,TimeScore]:[{0},{1}]", sucessScore, timeScore));
+    }
+
+    public void UnloadGame()
+    {
+        InputManager.gameInputActivate = false;
         GameManager.Instance.UnloadCurrentLevel();
         GV.Current_Flow_Index++;
         StartNextLoadout();
-        Debug.Log(string.Format("game finished, [SucessScore,TimeScore]:[{0},{1}] ",sucessScore,timeScore));
     }
-
 
     private void LoadLevel(int lvl)
     {
+        GV.Paused = false;
         GameManager.Instance.CreateAndInitializeLevel(lvl);
         InputManager.gameInputActivate = true;
     }
@@ -78,7 +81,8 @@ public class GameFlow : MonoBehaviour {
             {
                 GV.Current_Flow_Index--;
                 LoadLevel(GV.Current_Flow_Index);
-                GameFinished(1f, 1f);
+                GameCompleted(1f, 1f);
+                UnloadGame();
             }
             else
             {
@@ -102,6 +106,11 @@ public class GameFlow : MonoBehaviour {
     public void AtomTextPressed()
     {
         GV.Atom_Text_Active = !GV.Atom_Text_Active;
+    }
+
+    public void PausePressed()
+    {
+        GV.Paused = !GV.Paused;
     }
 
     public void Update()

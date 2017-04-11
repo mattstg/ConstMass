@@ -36,6 +36,8 @@ public class GV {
     public static readonly float[] Game_Length = new float[] { 45, 90, 150, 210 };
     public static readonly int[] visibleFormulas = new int[] { 1, 2, 4, 6 };
     public static readonly int Game_Lesson_Max = 4;
+    public static readonly float Completion_Delay = 2;
+    public static bool Paused = false;
 
     //Score
     public static readonly float Time_Score_Perc_For_Max = .2f; //which means 80% of score

@@ -6,6 +6,7 @@ public class Molecule : MonoBehaviour
 {
     bool isLocked = false;
     bool isMerging = false;
+    bool isPaused = false;
     Rigidbody2D rb2d;
     public GV.MoleculeType mtype;
     Transform moleText;
@@ -21,7 +22,7 @@ public class Molecule : MonoBehaviour
 
     public bool IsSelectable()
     {
-        return !isLocked && !isMerging;
+        return !isLocked && !isMerging && !isPaused;
     }
 
     public void Initialize()
@@ -115,19 +116,45 @@ public class Molecule : MonoBehaviour
 
     public void UpdateMolecule()
     {
-        if (!isLocked && !isMerging)
+        if (isPaused != GV.Paused)
+        {
+            isPaused = GV.Paused;
+            if (!isMerging)
+            {
+                if (isPaused)
+                {
+                    SetMotion sm = gameObject.AddComponent<SetMotion>();
+                    sm.isActive = false;
+                    sm.velocity = rb2d.velocity;
+                    sm.angularVelocity = rb2d.angularVelocity;
+                    sm.constraints = rb2d.constraints;
+                    rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+                }
+                else
+                {
+                    SetMotion sm = gameObject.GetComponent<SetMotion>();
+                    if (sm)
+                        sm.isActive = true;
+                }
+            }
+        }
+
+        if (!isPaused && !isLocked && !isMerging)
         {
             float speed = rb2d.velocity.magnitude;
-            if (speed > GV.Molecule_Speed_Max)
+            if (speed != 0)
             {
-                rb2d.velocity = rb2d.velocity * (GV.Molecule_Speed_Max / speed);
-            }
-            else if(speed < GV.Molecule_Speed_Min)
-            {
-                rb2d.velocity = rb2d.velocity * (GV.Molecule_Speed_Min / speed);
-            }
+                if (speed > GV.Molecule_Speed_Max)
+                {
+                    rb2d.velocity = rb2d.velocity * (GV.Molecule_Speed_Max / speed);
+                }
+                else if (speed < GV.Molecule_Speed_Min)
+                {
+                    rb2d.velocity = rb2d.velocity * (GV.Molecule_Speed_Min / speed);
+                }
 
-            BoundsCorrection();
+                BoundsCorrection();
+            }
         }
         if(moleTextIsActive != GV.Molecule_Text_Active)
         {
@@ -228,7 +255,7 @@ public class Molecule : MonoBehaviour
    public void BoundsCorrection()
    {
         bool playBounceAudio = false;
-       Vector2 curPos = transform.position;
+        Vector2 curPos = transform.position;
         //Returns resulting direction, bounces if hits walls
         if (!GameManager.Instance.currentLevelIsStart)
         {

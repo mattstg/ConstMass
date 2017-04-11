@@ -32,6 +32,8 @@ public class MergeManager
 
     public void UpdateMerger(float dt)
     {
+        if (GV.Paused)
+            return;
         for(int i = activeMergers.Count - 1; i >= 0; i--)
         {
             if (!activeMergers[i].completed)

@@ -130,7 +130,7 @@ public class Launcher
 
     public void Update(float dt)
     {
-        if(elasticAnimationOccuring)
+        if(elasticAnimationOccuring && !GV.Paused)
         {
             curElasticAnimTime -= Time.deltaTime;
             if (curElasticAnimTime <= 0)

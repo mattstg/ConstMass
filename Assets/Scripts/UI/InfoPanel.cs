@@ -11,15 +11,17 @@ public class InfoPanel : MonoBehaviour {
     public Text goalText;
     public Text progressText;
     public CanvasButton atomTextButton;
+    public CanvasButton pauseButton;
 
     public void SetupLevel(int curLevel)
     {
         SetFormulasVisible(curLevel);
         levelText.text = "LEVEL " + (curLevel + 1);
         StateGoal(curLevel);
-        if (atomTextButton)
-            if (atomTextButton.IsSelected() != GV.Atom_Text_Active)
-                atomTextButton.SetSelected(GV.Atom_Text_Active, false);
+        if (pauseButton && pauseButton.IsSelected() != GV.Paused)
+            pauseButton.SetSelected(GV.Paused, false);
+        if (atomTextButton && atomTextButton.IsSelected() != GV.Atom_Text_Active)
+            atomTextButton.SetSelected(GV.Atom_Text_Active, false);
     }
 
     private void SetFormulasVisible(int curLevel)

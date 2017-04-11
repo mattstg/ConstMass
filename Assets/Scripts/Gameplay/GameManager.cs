@@ -28,6 +28,8 @@ public class GameManager  {
     public static List<Molecule> activeCompounds = new List<Molecule>(); //to access everywhere, gets filled by MergeManager
     Molecule selectedCompound;
     bool gameRunning = false;
+    bool completionDelaying = false;
+    float completionDelay = 0;
     int curLoadedLevel = 0;
     protected float roundTime = 0;
     public bool currentLevelIsStart = false;
@@ -135,7 +137,6 @@ public class GameManager  {
     {
         if (gameRunning)
         {
-        
             Launcher.Instance.Update(dt);
 
             foreach (Molecule c in activeCompounds)
@@ -143,11 +144,24 @@ public class GameManager  {
 
             MergeManager.Instance.UpdateMerger(dt);
 
-            roundTime -= dt;
-            roundTime = Mathf.Clamp(roundTime, 0, 512);
-            infoPanel.SetTimeRemaining(roundTime);
+            if (!GV.Paused && !completionDelaying)
+            {
+                roundTime -= dt;
+                roundTime = Mathf.Clamp(roundTime, 0, 512);
+                infoPanel.SetTimeRemaining(roundTime);
+            }
 
-            GameEndCheck(dt);
+            if (!completionDelaying)
+                GameEndCheck(dt);
+            else
+            {
+                completionDelay -= dt;
+                if (completionDelay <= 0)
+                {
+                    completionDelaying = false;
+                    EndGame();
+                }
+            }
         }
     }
 
@@ -164,20 +178,35 @@ public class GameManager  {
 
     private void GameEndCheck(float dt)
     {
-       if (goalMoleculeCount >= goalMoleculeRequired || roundTime <= 0)
-           EndGame();
+        if (roundTime <= 0)
+        {
+            RecordCompletion();
+            EndGame();
+        }
+        
+        if (goalMoleculeCount >= goalMoleculeRequired)
+        {
+            RecordCompletion();
+            completionDelay = GV.Completion_Delay;
+            completionDelaying = true;
+        }
+    }
+
+    private void RecordCompletion()
+    {
+        float gameScore = Mathf.Clamp01((float)goalMoleculeCount / (float)goalMoleculeRequired);
+        float timeScore = CalculateTimeScore(roundTime);
+        RecordProgressAndTime();
+        GV.gameFlow.GameCompleted(gameScore, timeScore);
     }
 
     private void EndGame()
     {
         gameRunning = false;
-        float gameScore = Mathf.Clamp01((float)goalMoleculeCount / (float)goalMoleculeRequired);
-        float timeScore = CalculateTimeScore(roundTime);
-        RecordProgressAndTime();
         roundTime = 99;
         infoPanel.gameObject.SetActive(false);
         gameParent.gameObject.SetActive(false);
-        GV.gameFlow.GameFinished(gameScore, timeScore);
+        GV.gameFlow.UnloadGame();
     }
 
     public void SetupGameWinCondition(int lvl)
