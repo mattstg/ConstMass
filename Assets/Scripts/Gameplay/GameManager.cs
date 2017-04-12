@@ -144,22 +144,23 @@ public class GameManager  {
 
             MergeManager.Instance.UpdateMerger(dt);
 
-            if (!GV.Paused && !completionDelaying)
+            if (!GV.Paused)
             {
-                roundTime -= dt;
-                roundTime = Mathf.Clamp(roundTime, 0, 512);
-                infoPanel.SetTimeRemaining(roundTime);
-            }
-
-            if (!completionDelaying)
-                GameEndCheck(dt);
-            else
-            {
-                completionDelay -= dt;
-                if (completionDelay <= 0)
+                if (!completionDelaying)
                 {
-                    completionDelaying = false;
-                    EndGame();
+                    roundTime -= dt;
+                    roundTime = Mathf.Clamp(roundTime, 0, 512);
+                    infoPanel.SetTimeRemaining(roundTime);
+                    GameEndCheck(dt);
+                }
+                else
+                {
+                    completionDelay -= dt;
+                    if (completionDelay <= 0)
+                    {
+                        completionDelaying = false;
+                        EndGame();
+                    }
                 }
             }
         }
@@ -178,17 +179,16 @@ public class GameManager  {
 
     private void GameEndCheck(float dt)
     {
-        if (roundTime <= 0)
-        {
-            RecordCompletion();
-            EndGame();
-        }
-        
         if (goalMoleculeCount >= goalMoleculeRequired)
         {
             RecordCompletion();
             completionDelay = GV.Completion_Delay;
             completionDelaying = true;
+        }
+        else if (roundTime <= 0)
+        {
+            RecordCompletion();
+            EndGame();
         }
     }
 
