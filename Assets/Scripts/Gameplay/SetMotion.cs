@@ -8,6 +8,9 @@ public class SetMotion : MonoBehaviour
     public float angularVelocity;
     public RigidbodyConstraints2D constraints;
     public bool isActive = false;
+    public bool setVelocity = true;
+    public bool setAngularVelocity = true;
+    public bool setConstraints = true;
 
     void FixedUpdate()
     {
@@ -16,9 +19,12 @@ public class SetMotion : MonoBehaviour
             Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
             if (rb2d)
             {
-                rb2d.constraints = constraints;
-                rb2d.velocity = velocity;
-                rb2d.angularVelocity = angularVelocity;
+                if (setConstraints)
+                    rb2d.constraints = constraints;
+                if (setVelocity)
+                    rb2d.velocity = velocity;
+                if (setAngularVelocity)
+                    rb2d.angularVelocity = angularVelocity;
             }
             Destroy(this);
         }

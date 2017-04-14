@@ -59,6 +59,8 @@ public class Launcher
         toLaunch.SetLock(true);
         molePos = curMousePos = toLaunch.transform.position;
         moleSelected = true;
+        GV.SelectedMolecule = toLaunch.mtype;
+        GameManager.Instance.infoPanel.UpdateReactions();
         elasticDist = 0;
         moleHalo.transform.position = molePos;
         moleHalo.SetActive(true);
@@ -69,6 +71,8 @@ public class Launcher
         toLaunch = null;
         moleInitialVelo = new Vector2();
         moleSelected = false;
+        GV.SelectedMolecule = GV.MoleculeType.None;
+        GameManager.Instance.infoPanel.UpdateReactions();
         molePos = new Vector2();
         elasticDist = 0;
         elasticGraphic.SetActive(false);
@@ -80,6 +84,8 @@ public class Launcher
     public void UpdateMousePosition(Vector2 pos)
     {
         if (elasticAnimationOccuring)
+            return;
+        if (GV.Paused)
             return;
 
         if (moleSelected)
@@ -166,6 +172,8 @@ public class Launcher
             toLaunch = null;
             moleInitialVelo = new Vector2();
             moleSelected = false;
+            GV.SelectedMolecule = GV.MoleculeType.None;
+            GameManager.Instance.infoPanel.UpdateReactions();
             molePos = new Vector2();
             elasticDist = 0;
             elasticGraphic.SetActive(false);
@@ -184,6 +192,11 @@ public class Launcher
         return launchSpeed;
     }
 
-
-
+    public bool IsAnimating(Molecule m)
+    {
+        if (!elasticAnimationOccuring)
+            return false;
+        else
+            return toLaunch == m;
+    }
 }

@@ -128,6 +128,7 @@ public class Molecule : MonoBehaviour
                     sm.velocity = rb2d.velocity;
                     sm.angularVelocity = rb2d.angularVelocity;
                     sm.constraints = rb2d.constraints;
+                    sm.setVelocity = !Launcher.Instance.IsAnimating(this);
                     rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
                 }
                 else

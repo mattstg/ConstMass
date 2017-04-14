@@ -22,7 +22,7 @@ public class GameManager  {
     }
     #endregion
 
-    InfoPanel infoPanel;
+    public InfoPanel infoPanel;
     Transform gameParent;
 
     public static List<Molecule> activeCompounds = new List<Molecule>(); //to access everywhere, gets filled by MergeManager
@@ -35,7 +35,6 @@ public class GameManager  {
     public bool currentLevelIsStart = false;
     //This class pretty much does everything in game
 
-    GV.MoleculeType goalMoleculeType;
     int goalMoleculeCount = 0;
     int goalMoleculeRequired = 0;
 
@@ -48,7 +47,7 @@ public class GameManager  {
 
     public void MoleculeCreated(Molecule m)
     {
-        if (!currentLevelIsStart && m.mtype == goalMoleculeType)
+        if (!currentLevelIsStart && m.mtype == GV.GoalMolecule)
         {
             LOLAudio.Instance.PlayAudio("CorrectMolecule.wav");
             goalMoleculeCount++;
@@ -62,7 +61,7 @@ public class GameManager  {
     public void MoleculeRemoved(Molecule m)
     {
 
-        if (!currentLevelIsStart && m.mtype == goalMoleculeType) //if you are bored try commenting out "!currentLevelIsStart &&"
+        if (!currentLevelIsStart && m.mtype == GV.GoalMolecule) //if you are bored try commenting out "!currentLevelIsStart &&"
         {
             goalMoleculeCount--;
             infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
@@ -216,22 +215,23 @@ public class GameManager  {
         switch (lvl)
         {
             case 0:
-                goalMoleculeType = GV.MoleculeType.HCl;
+                GV.GoalMolecule = GV.MoleculeType.HCl;
                 goalMoleculeRequired = 8;
                 break;
             case 1:
-                goalMoleculeType = GV.MoleculeType.H2O;
+                GV.GoalMolecule = GV.MoleculeType.H2O;
                 goalMoleculeRequired = 4;
                 break;
             case 2:
-                goalMoleculeType = GV.MoleculeType.NaCl;
+                GV.GoalMolecule = GV.MoleculeType.NaCl;
                 goalMoleculeRequired = 6;
                 break;
             case 3:
-                goalMoleculeType = GV.MoleculeType.H2O;
+                GV.GoalMolecule = GV.MoleculeType.H2O;
                 goalMoleculeRequired = 3;
                 break;
         }
+        infoPanel.goalText.text = string.Format("GOAL:  Make {0} {1}", goalMoleculeRequired, GV.MoleculeFormula(GV.GoalMolecule));
     }
 
     public float CalculateTimeScore(float _roundTime)

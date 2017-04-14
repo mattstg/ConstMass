@@ -5,7 +5,7 @@ using UnityEngine;
 public class GV {
 
     public enum AtomType { H, C, O, Na, Cl, K }
-    public enum MoleculeType { H2, H2O, HCl, CO2, Na2O, NaHCO3, NaOH, NaCl, Cl2, K2O, KOH, KCl }
+    public enum MoleculeType { H2, H2O, HCl, CO2, Na2O, NaHCO3, NaOH, NaCl, Cl2, K2O, KOH, KCl, None }
     public static readonly int Molecule_Enum_Count = 12;
     //WS
     public static Transform MoleculeParent;
@@ -16,7 +16,7 @@ public class GV {
     public static readonly float Compound_Immunity = 1;  //How long after a reaction before can react again
     public static readonly Vector4 Game_Bounds = new Vector4(3f,4.7f,-6.3f,-4.7f);  //top right xy, bottom left xy
     public static readonly Vector4 Start_Screen_Bounds = new Vector4(6.46f,4.6f,-6.46f,-4.6f);
-    public static readonly float Mouse_Selection_Distance = .3f;
+    public static readonly float Mouse_Selection_Distance = .5f;
     public static readonly float Start_Element_Speed = 2f;
     public static float Temperature = 1;
     public static float Temperature_Force_Per_Degree = 1;
@@ -38,6 +38,8 @@ public class GV {
     public static readonly int Game_Lesson_Max = 4;
     public static readonly float Completion_Delay = 2;
     public static bool Paused = false;
+    public static MoleculeType GoalMolecule = MoleculeType.None;
+    public static MoleculeType SelectedMolecule = MoleculeType.None;
 
     //Score
     public static readonly float Time_Score_Perc_For_Max = .2f; //which means 80% of score
@@ -46,7 +48,7 @@ public class GV {
     public static readonly float Score_Quiz_Max = 1000;
 
     //launch vars
-    public static readonly float Launch_Min_Dist = .5f;
+    public static readonly float Launch_Min_Dist = .7f;
     public static readonly float Launch_Max_Velo = 5f;
     public static readonly float Launch_Elastic_Max_Dist = 2.4f;
     public static readonly float Launch_Velo_Per_Dist = 1.2f;

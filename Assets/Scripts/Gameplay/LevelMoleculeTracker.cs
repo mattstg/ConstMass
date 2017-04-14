@@ -33,7 +33,7 @@ public class LevelMoleculeTracker
             { new Vector2(0,0), new List<GV.MoleculeType>() { GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2 } },
             { new Vector2(1,0), new List<GV.MoleculeType>() { GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.NaHCO3, GV.MoleculeType.NaHCO3, GV.MoleculeType.NaHCO3, GV.MoleculeType.NaHCO3, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2 } },
             { new Vector2(2,0), new List<GV.MoleculeType>() { GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.Na2O, GV.MoleculeType.Na2O, GV.MoleculeType.NaHCO3, GV.MoleculeType.NaHCO3, GV.MoleculeType.NaHCO3, GV.MoleculeType.NaHCO3, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2 } },
-            { new Vector2(3,0), new List<GV.MoleculeType>() { GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.Na2O, GV.MoleculeType.Na2O, GV.MoleculeType.Na2O, GV.MoleculeType.NaHCO3, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2, GV.MoleculeType.K2O } },
+            { new Vector2(3,0), new List<GV.MoleculeType>() { GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.H2, GV.MoleculeType.Na2O, GV.MoleculeType.Na2O, GV.MoleculeType.NaHCO3, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2, GV.MoleculeType.Cl2, GV.MoleculeType.K2O } },
 
             //Post game
             { new Vector2(0,1), new List<GV.MoleculeType>() { } },
