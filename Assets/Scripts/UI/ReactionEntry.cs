@@ -8,7 +8,6 @@ public class ReactionEntry : MonoBehaviour
 {
     public Image highlightImage;
     public Text text;
-    public bool newOccurrence = false;
     private bool highlightVisible = false;
     private float highlightClock = 0;
     
@@ -29,31 +28,30 @@ public class ReactionEntry : MonoBehaviour
     public void InitiateHighlight()
     {
         SetHighlightAlpha(0);
-        newOccurrence = false;
         highlightVisible = false;
+        highlightClock = 0;
+    }
+
+    public void NewOccurrence()
+    {
+        highlightVisible = true;
+        highlightClock = 0;
     }
 
     public void UpdateHighlight(float dt)
     {
-        if (newOccurrence)
+        if (highlightVisible)
         {
-            newOccurrence = false;
-            highlightVisible = true;
-            highlightClock = 0;
-            SetHighlightAlpha(AlphaCurve(highlightClock / GV.Reaction_Highlight_Duration));
-        }
-        else if (highlightVisible)
-        {
-            highlightClock += dt;
             SetHighlightAlpha(AlphaCurve(highlightClock / GV.Reaction_Highlight_Duration));
             if (highlightClock >= GV.Reaction_Highlight_Duration)
                 highlightVisible = false;
+            highlightClock += dt;
         }
     }
 
     private float AlphaCurve(float x)
     {
-        return CurveIntegral(-1.5f * (x - 1));
+        return CurveIntegral(-1 * (x - 1));
     }
 
     private float CurveIntegral(float x)

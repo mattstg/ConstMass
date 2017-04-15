@@ -146,16 +146,16 @@ public class InfoPanel : MonoBehaviour {
     public void ReactionOccurrence(GV.MoleculeType m1, GV.MoleculeType m2)
     {
         if ((m1 == GV.MoleculeType.H2 && m2 == GV.MoleculeType.Cl2) || (m2 == GV.MoleculeType.H2 && m1 == GV.MoleculeType.Cl2))
-            reactions[0].newOccurrence = true;
+            reactions[0].NewOccurrence();
         else if ((m1 == GV.MoleculeType.NaHCO3 && m2 == GV.MoleculeType.HCl) || (m2 == GV.MoleculeType.NaHCO3 && m1 == GV.MoleculeType.HCl))
-            reactions[1].newOccurrence = true;
+            reactions[1].NewOccurrence();
         else if ((m1 == GV.MoleculeType.Na2O && m2 == GV.MoleculeType.H2O) || (m2 == GV.MoleculeType.Na2O && m1 == GV.MoleculeType.H2O))
-            reactions[2].newOccurrence = true;
+            reactions[2].NewOccurrence();
         else if ((m1 == GV.MoleculeType.NaOH && m2 == GV.MoleculeType.HCl) || (m2 == GV.MoleculeType.NaOH && m1 == GV.MoleculeType.HCl))
-            reactions[3].newOccurrence = true;
+            reactions[3].NewOccurrence();
         else if ((m1 == GV.MoleculeType.H2O && m2 == GV.MoleculeType.K2O) || (m2 == GV.MoleculeType.H2O && m1 == GV.MoleculeType.K2O))
-            reactions[4].newOccurrence = true;
+            reactions[4].NewOccurrence();
         else if ((m1 == GV.MoleculeType.KOH && m2 == GV.MoleculeType.HCl) || (m2 == GV.MoleculeType.KOH && m1 == GV.MoleculeType.HCl))
-            reactions[5].newOccurrence = true;
+            reactions[5].NewOccurrence();
     }
 }
