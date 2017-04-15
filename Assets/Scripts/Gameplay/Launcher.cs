@@ -60,7 +60,7 @@ public class Launcher
         molePos = curMousePos = toLaunch.transform.position;
         moleSelected = true;
         GV.SelectedMolecule = toLaunch.mtype;
-        GameManager.Instance.infoPanel.UpdateReactions();
+        GameManager.Instance.infoPanel.UpdateReactionTexts();
         elasticDist = 0;
         moleHalo.transform.position = molePos;
         moleHalo.SetActive(true);
@@ -72,7 +72,7 @@ public class Launcher
         moleInitialVelo = new Vector2();
         moleSelected = false;
         GV.SelectedMolecule = GV.MoleculeType.None;
-        GameManager.Instance.infoPanel.UpdateReactions();
+        GameManager.Instance.infoPanel.UpdateReactionTexts();
         molePos = new Vector2();
         elasticDist = 0;
         elasticGraphic.SetActive(false);
@@ -173,7 +173,7 @@ public class Launcher
             moleInitialVelo = new Vector2();
             moleSelected = false;
             GV.SelectedMolecule = GV.MoleculeType.None;
-            GameManager.Instance.infoPanel.UpdateReactions();
+            GameManager.Instance.infoPanel.UpdateReactionTexts();
             molePos = new Vector2();
             elasticDist = 0;
             elasticGraphic.SetActive(false);

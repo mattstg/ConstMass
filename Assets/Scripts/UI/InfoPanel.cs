@@ -18,7 +18,9 @@ public class InfoPanel : MonoBehaviour {
     {
         visibleFields = GV.visibleFormulas[curLevel];
         SetFormulasVisible(curLevel);
-        UpdateReactions();
+        UpdateReactionTexts();
+        foreach (ReactionEntry r in reactions)
+            r.InitiateHighlight();
         levelText.text = "LEVEL " + (curLevel + 1);
         //StateGoal(curLevel);
         GV.SelectedMolecule = GV.MoleculeType.None;
@@ -125,11 +127,35 @@ public class InfoPanel : MonoBehaviour {
         return formula;
     }
 
-    public void UpdateReactions()
+    public void UpdateReactionTexts()
     {
         for (int i = 0; i < visibleFields; i++)
         {
             reactions[i].text.text = ReactionText(i);
         }
+    }
+
+    public void UpdateReactionHighlights(float dt)
+    {
+        for (int i = 0; i < visibleFields; i++)
+        {
+            reactions[i].UpdateHighlight(dt);
+        }
+    }
+
+    public void ReactionOccurrence(GV.MoleculeType m1, GV.MoleculeType m2)
+    {
+        if ((m1 == GV.MoleculeType.H2 && m2 == GV.MoleculeType.Cl2) || (m2 == GV.MoleculeType.H2 && m1 == GV.MoleculeType.Cl2))
+            reactions[0].newOccurrence = true;
+        else if ((m1 == GV.MoleculeType.NaHCO3 && m2 == GV.MoleculeType.HCl) || (m2 == GV.MoleculeType.NaHCO3 && m1 == GV.MoleculeType.HCl))
+            reactions[1].newOccurrence = true;
+        else if ((m1 == GV.MoleculeType.Na2O && m2 == GV.MoleculeType.H2O) || (m2 == GV.MoleculeType.Na2O && m1 == GV.MoleculeType.H2O))
+            reactions[2].newOccurrence = true;
+        else if ((m1 == GV.MoleculeType.NaOH && m2 == GV.MoleculeType.HCl) || (m2 == GV.MoleculeType.NaOH && m1 == GV.MoleculeType.HCl))
+            reactions[3].newOccurrence = true;
+        else if ((m1 == GV.MoleculeType.H2O && m2 == GV.MoleculeType.K2O) || (m2 == GV.MoleculeType.H2O && m1 == GV.MoleculeType.K2O))
+            reactions[4].newOccurrence = true;
+        else if ((m1 == GV.MoleculeType.KOH && m2 == GV.MoleculeType.HCl) || (m2 == GV.MoleculeType.KOH && m1 == GV.MoleculeType.HCl))
+            reactions[5].newOccurrence = true;
     }
 }

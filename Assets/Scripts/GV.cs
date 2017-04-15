@@ -20,6 +20,7 @@ public class GV {
     public static readonly float Start_Element_Speed = 2f;
     public static float Temperature = 1;
     public static float Temperature_Force_Per_Degree = 1;
+    public static float Reaction_Highlight_Duration = 3;
 
     public static readonly float Molecule_Scale = .5f; //scales all new molecules
     public static readonly float Molecule_Speed_Start = 1;

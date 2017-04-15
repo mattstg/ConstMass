@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightImage: {fileID: 78202803}
   text: {fileID: 1961193386}
+  newOccurrence: 0
 --- !u!114 &102177098 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114555261186979972, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
@@ -383,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightImage: {fileID: 239380524}
   text: {fileID: 1379654184}
+  newOccurrence: 0
 --- !u!1 &256759206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,6 +1416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightImage: {fileID: 634886770}
   text: {fileID: 1866848209}
+  newOccurrence: 0
 --- !u!1 &635839632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,6 +2162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightImage: {fileID: 999314475}
   text: {fileID: 570952318}
+  newOccurrence: 0
 --- !u!1 &1029787018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,6 +3151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightImage: {fileID: 1530780280}
   text: {fileID: 734931007}
+  newOccurrence: 0
 --- !u!1 &1538083060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3664,6 +3669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightImage: {fileID: 1796068790}
   text: {fileID: 813854114}
+  newOccurrence: 0
 --- !u!1 &1866848207
 GameObject:
   m_ObjectHideFlags: 0

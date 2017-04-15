@@ -145,6 +145,7 @@ public class GameManager  {
 
             if (!GV.Paused)
             {
+                infoPanel.UpdateReactionHighlights(dt);
                 if (!completionDelaying)
                 {
                     roundTime -= dt;
