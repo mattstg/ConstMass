@@ -72,54 +72,39 @@ public class InfoPanel : MonoBehaviour {
         goalText.text = toOut;
     }*/
 
-    public string MoleculeText(GV.MoleculeType m, bool isProduct, int coefficient = 1)
+    public string MoleculeFormula(GV.MoleculeType m, bool isProduct, int coefficient = 1)
     {
-        string openMarkup = "";
-        string closeMarkup = "";
-        string moleculeFormula = (coefficient > 1) ? coefficient.ToString() : "";
-        moleculeFormula += GV.MoleculeFormula(m);
-
-        if (m == GV.SelectedMolecule && !isProduct)
-        {
-            openMarkup = "<color=#8DC6FF>";
-            closeMarkup = "</color>";
-        }
-        if (m == GV.GoalMolecule && isProduct)
-        {
-            openMarkup = "<color=#77FF77>";
-            closeMarkup = "</color>";
-        }
-        return openMarkup + moleculeFormula + closeMarkup;
+        return GV.ColoredMoleculeFormula(m, isProduct, coefficient);
     }
 
-    public string ReactionText(int id)
+    public string ReactionFormula(int id)
     {
         string formula = "";
         switch (id)
         {
             case 0:     //* H₂ + Cl₂  →  2HCl
                 formula = string.Format("{0} + {1}  →  {2}",
-                    MoleculeText(GV.MoleculeType.H2, false), MoleculeText(GV.MoleculeType.Cl2, false), MoleculeText(GV.MoleculeType.HCl, true, 2));
+                    MoleculeFormula(GV.MoleculeType.H2, false), MoleculeFormula(GV.MoleculeType.Cl2, false), MoleculeFormula(GV.MoleculeType.HCl, true, 2));
                 break;
             case 1:     //  NaHCO₃ + HCl  →  NaCl + CO₂ + H₂O
                 formula = string.Format("{0} + {1}  →\n{2} + {3} + {4}",
-                    MoleculeText(GV.MoleculeType.NaHCO3, false), MoleculeText(GV.MoleculeType.HCl, false), MoleculeText(GV.MoleculeType.NaCl, true), MoleculeText(GV.MoleculeType.CO2, true), MoleculeText(GV.MoleculeType.H2O, true));
+                    MoleculeFormula(GV.MoleculeType.NaHCO3, false), MoleculeFormula(GV.MoleculeType.HCl, false), MoleculeFormula(GV.MoleculeType.NaCl, true), MoleculeFormula(GV.MoleculeType.CO2, true), MoleculeFormula(GV.MoleculeType.H2O, true));
                 break;
             case 2:     //  Na₂O + H₂O  →  2NaOH
                 formula = string.Format("{0} + {1}  →\n{2}",
-                    MoleculeText(GV.MoleculeType.Na2O, false), MoleculeText(GV.MoleculeType.H2O, false), MoleculeText(GV.MoleculeType.NaOH, true, 2));
+                    MoleculeFormula(GV.MoleculeType.Na2O, false), MoleculeFormula(GV.MoleculeType.H2O, false), MoleculeFormula(GV.MoleculeType.NaOH, true, 2));
                 break;
             case 3:     //  NaOH + HCl  →  NaCl + H₂O
                 formula = string.Format("{0} + {1}  →\n{2} + {3}",
-                    MoleculeText(GV.MoleculeType.NaOH, false), MoleculeText(GV.MoleculeType.HCl, false), MoleculeText(GV.MoleculeType.NaCl, true), MoleculeText(GV.MoleculeType.H2O, true));
+                    MoleculeFormula(GV.MoleculeType.NaOH, false), MoleculeFormula(GV.MoleculeType.HCl, false), MoleculeFormula(GV.MoleculeType.NaCl, true), MoleculeFormula(GV.MoleculeType.H2O, true));
                 break;
             case 4:     //* H₂O + K₂O  →  2KOH
                 formula = string.Format("{0} + {1}  →  {2}",
-                    MoleculeText(GV.MoleculeType.H2O, false), MoleculeText(GV.MoleculeType.K2O, false), MoleculeText(GV.MoleculeType.KOH, true, 2));
+                    MoleculeFormula(GV.MoleculeType.H2O, false), MoleculeFormula(GV.MoleculeType.K2O, false), MoleculeFormula(GV.MoleculeType.KOH, true, 2));
                 break;
             case 5:     //  KOH + HCl  →  KCl + H₂O
                 formula = string.Format("{0} + {1}  →\n{2} + {3}",
-                    MoleculeText(GV.MoleculeType.KOH, false), MoleculeText(GV.MoleculeType.HCl, false), MoleculeText(GV.MoleculeType.KCl, true), MoleculeText(GV.MoleculeType.H2O, true));
+                    MoleculeFormula(GV.MoleculeType.KOH, false), MoleculeFormula(GV.MoleculeType.HCl, false), MoleculeFormula(GV.MoleculeType.KCl, true), MoleculeFormula(GV.MoleculeType.H2O, true));
                 break;
             default:
                 break;
@@ -131,7 +116,7 @@ public class InfoPanel : MonoBehaviour {
     {
         for (int i = 0; i < visibleFields; i++)
         {
-            reactions[i].text.text = ReactionText(i);
+            reactions[i].text.text = ReactionFormula(i);
         }
     }
 

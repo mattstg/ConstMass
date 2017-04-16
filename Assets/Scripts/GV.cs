@@ -122,6 +122,26 @@ public class GV {
         return formula;
     }
 
+    public static string ColoredMoleculeFormula(MoleculeType m, bool isProduct, int coefficient = 1)
+    {
+        string openMarkup = "";
+        string closeMarkup = "";
+        string moleculeFormula = (coefficient > 1) ? coefficient.ToString() : "";
+        moleculeFormula += MoleculeFormula(m);
+
+        if (m == SelectedMolecule && !isProduct)
+        {
+            openMarkup = "<color=#8DC6FF>";
+            closeMarkup = "</color>";
+        }
+        if (m == GoalMolecule && isProduct)
+        {
+            openMarkup = "<color=#77FF77>";
+            closeMarkup = "</color>";
+        }
+        return openMarkup + moleculeFormula + closeMarkup;
+    }
+
     public static char SubscriptNumeral(int subscript)
     {
         switch (subscript)

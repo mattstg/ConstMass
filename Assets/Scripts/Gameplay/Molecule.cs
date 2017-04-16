@@ -91,7 +91,7 @@ public class Molecule : MonoBehaviour
         }
         GameObject tm = Instantiate(Resources.Load("Prefabs/Text/MoleText")) as GameObject;
         tm.GetComponentInChildren<Renderer>().sortingLayerName = "MoleculeText";
-        tm.GetComponentInChildren<TextMesh>().text = GV.MoleculeFormula(mtype);
+        tm.GetComponentInChildren<TextMesh>().text = GV.ColoredMoleculeFormula(mtype, true);
         moleText = tm.transform;
         moleText.SetParent(transform);
         moleText.localPosition = new Vector3();
