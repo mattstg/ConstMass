@@ -7,9 +7,9 @@ public class InfoPanel : MonoBehaviour {
 
     public List<ReactionEntry> reactions;
     public ScoreText scoreText;
-    public Text levelText;
     public Text goalText;
     public Text progressText;
+    public ProgressFill progressBar;
     public CanvasButton atomTextButton;
     public CanvasButton pauseButton;
     int visibleFields;
@@ -19,9 +19,9 @@ public class InfoPanel : MonoBehaviour {
         visibleFields = GV.visibleFormulas[curLevel];
         SetFormulasVisible(curLevel);
         UpdateReactionTexts();
+        progressBar.SetPresentFill(0);
         foreach (ReactionEntry r in reactions)
             r.InitiateHighlight();
-        levelText.text = "LEVEL " + (curLevel + 1);
         //StateGoal(curLevel);
         GV.SelectedMolecule = GV.MoleculeType.None;
         if (pauseButton && pauseButton.IsSelected() != GV.Paused)
@@ -36,9 +36,11 @@ public class InfoPanel : MonoBehaviour {
             reactions[i].gameObject.SetActive(i < visibleFields);
     }
 
-    public void UpdateProgressText(int progress, int maxProgress)
+    public void UpdateProgress(int progress, int maxProgress)
     {
-        progressText.text = "PROGRESS:  " + progress + " / " + maxProgress;
+        progressText.text = progress.ToString();
+        float progressQuotient = (float)progress / (float)maxProgress;
+        progressBar.SetTargetFill(progressQuotient, GV.Progress_Bar_Duration);
     }
 
     public void SetTimeRemaining(float time)

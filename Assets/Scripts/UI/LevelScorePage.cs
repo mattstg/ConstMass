@@ -34,8 +34,8 @@ public class LevelScorePage : CascadeTextPage
         }
         else
         {
-            text = "Well done! You managed to produce " + progress[0] + " out of " + progress[1] + " " + GV.MoleculeFormula((GV.MoleculeType)progress[2]) +
-                " molecules. Although you didn’t completely achieve the level’s goal before the time ran out, you will still receive a score of " + gameScore + " points!\n\n" +
+            text = "Well done! You managed to produce " + progress[0] + " out of " + progress[1] + " " + GV.MoleculeFormula((GV.MoleculeType)progress[2]) + " molecules.\n\n" +
+                "Although you didn’t completely achieve the level’s goal before the time ran out, you will still receive a score of " + gameScore + " points!\n\n" +
                 "You will also be able to boost your score for this level by doing well on the quiz.";
         }
         SetTextContent(text);

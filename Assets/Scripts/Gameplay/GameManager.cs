@@ -51,7 +51,7 @@ public class GameManager  {
         {
             LOLAudio.Instance.PlayAudio("CorrectMolecule.wav");
             goalMoleculeCount++;
-            infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
+            infoPanel.UpdateProgress(goalMoleculeCount, goalMoleculeRequired);
         }
         
         activeCompounds.Add(m);
@@ -64,7 +64,7 @@ public class GameManager  {
         if (!currentLevelIsStart && m.mtype == GV.GoalMolecule) //if you are bored try commenting out "!currentLevelIsStart &&"
         {
             goalMoleculeCount--;
-            infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
+            infoPanel.UpdateProgress(goalMoleculeCount, goalMoleculeRequired);
         }
         GameManager.activeCompounds.Remove(m);
         MonoBehaviour.Destroy(m.gameObject);
@@ -112,7 +112,7 @@ public class GameManager  {
         infoPanel.gameObject.SetActive(true);
         gameParent.gameObject.SetActive(true);
         infoPanel.SetupLevel(curLoadedLevel);
-        infoPanel.UpdateProgressText(goalMoleculeCount, goalMoleculeRequired);
+        infoPanel.UpdateProgress(goalMoleculeCount, goalMoleculeRequired);
     }
 
     public void UnloadCurrentLevel()
@@ -146,6 +146,7 @@ public class GameManager  {
             if (!GV.Paused)
             {
                 infoPanel.UpdateReactionHighlights(dt);
+                infoPanel.progressBar.UpdateProgress(dt);
                 if (!completionDelaying)
                 {
                     roundTime -= dt;
@@ -232,7 +233,7 @@ public class GameManager  {
                 goalMoleculeRequired = 3;
                 break;
         }
-        infoPanel.goalText.text = string.Format("GOAL:  Make {0} {1}", goalMoleculeRequired, GV.MoleculeFormula(GV.GoalMolecule));
+        infoPanel.goalText.text = string.Format("{0} {1}", goalMoleculeRequired, GV.MoleculeFormula(GV.GoalMolecule));
     }
 
     public float CalculateTimeScore(float _roundTime)

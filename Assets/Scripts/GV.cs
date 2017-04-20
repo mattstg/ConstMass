@@ -20,7 +20,6 @@ public class GV {
     public static readonly float Start_Element_Speed = 2f;
     public static float Temperature = 1;
     public static float Temperature_Force_Per_Degree = 1;
-    public static float Reaction_Highlight_Duration = 3;
 
     public static readonly float Molecule_Scale = .5f; //scales all new molecules
     public static readonly float Molecule_Speed_Start = 1;
@@ -41,6 +40,8 @@ public class GV {
     public static bool Paused = false;
     public static MoleculeType GoalMolecule = MoleculeType.None;
     public static MoleculeType SelectedMolecule = MoleculeType.None;
+    public static float Reaction_Highlight_Duration = 4;
+    public static float Progress_Bar_Duration = 1.5f;
 
     //Score
     public static readonly float Time_Score_Perc_For_Max = .2f; //which means 80% of score
@@ -58,7 +59,7 @@ public class GV {
     public static int Current_Flow_Index = 0;
 
     public static bool overrideCascadeSpeed = true;
-    public static float globalCascadeSpeed = 80f;
+    public static float globalCascadeSpeed = 100;
 
     public static float MaxScore(ProgressTracker.ScoreType st)
     {
@@ -124,22 +125,22 @@ public class GV {
 
     public static string ColoredMoleculeFormula(MoleculeType m, bool isProduct, int coefficient = 1)
     {
-        string openMarkup = "";
-        string closeMarkup = "";
+        string openTag = "";
+        string closeTag = "";
         string moleculeFormula = (coefficient > 1) ? coefficient.ToString() : "";
         moleculeFormula += MoleculeFormula(m);
 
         if (m == SelectedMolecule && !isProduct)
         {
-            openMarkup = "<color=#8DC6FF>";
-            closeMarkup = "</color>";
+            openTag = "<color=#8DC6FF>";
+            closeTag = "</color>";
         }
         if (m == GoalMolecule && isProduct)
         {
-            openMarkup = "<color=#77FF77>";
-            closeMarkup = "</color>";
+            openTag = "<color=#77FF77FF>";
+            closeTag = "</color>";
         }
-        return openMarkup + moleculeFormula + closeMarkup;
+        return openTag + moleculeFormula + closeTag;
     }
 
     public static char SubscriptNumeral(int subscript)
@@ -170,5 +171,29 @@ public class GV {
                 Debug.Log("GV.SubscriptNumeral() error, argument out of bounds.");
                 return 'X';
         }
+    }
+
+    public static float CurveIntegral(float x)
+    {
+        float y;
+
+        if (x < 0)
+            y = 0;
+        else if (x > 1)
+            y = 1;
+        else if (x <= 0.5f)
+            y = x * CurveVelocity(x) / 2;
+        else
+            y = 0.5f + ((x - 0.5f) * (CurveVelocity(x) + 2) / 2);
+
+        return y;
+    }
+
+    public static float CurveVelocity(float x)
+    {
+        if (x >= 0 && x <= 1)
+            return -4 * Mathf.Abs(x - 0.5f) + 2;
+        else
+            return 0;
     }
 }
