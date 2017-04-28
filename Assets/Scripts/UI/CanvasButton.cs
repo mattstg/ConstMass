@@ -22,7 +22,7 @@ public class CanvasButton : MonoBehaviour
     protected bool isSelected = false;
     protected bool isEnabled = true;
 
-    void Awake()
+    protected virtual void Awake()
     {
         if (!canvasManager & clickAudio)
             canvasManager = GetComponentInParent<CanvasManager>();

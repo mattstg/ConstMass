@@ -36,7 +36,7 @@ public class GV {
     public static readonly float[] Game_Length = new float[] { 45, 90, 150, 210 };
     public static readonly int[] visibleFormulas = new int[] { 1, 2, 4, 6 };
     public static readonly int Game_Lesson_Max = 4;
-    public static readonly float Completion_Delay = 2;
+    public static readonly float Completion_Delay = 2.5f;
     public static bool Paused = false;
     public static MoleculeType GoalMolecule = MoleculeType.None;
     public static MoleculeType SelectedMolecule = MoleculeType.None;
@@ -135,10 +135,18 @@ public class GV {
             openTag = "<color=#8DC6FF>";
             closeTag = "</color>";
         }
-        if (m == GoalMolecule && isProduct)
+        else if (m == GoalMolecule)
         {
-            openTag = "<color=#77FF77FF>";
-            closeTag = "</color>";
+            if (isProduct)
+            {
+                openTag = "<color=#77FF77FF>";
+                closeTag = "</color>";
+            }
+            else
+            {
+                openTag = "<color=#FFA5A5>";
+                closeTag = "</color>";
+            }
         }
         return openTag + moleculeFormula + closeTag;
     }

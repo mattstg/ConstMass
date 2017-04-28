@@ -50,8 +50,11 @@ public class GameManager  {
         if (!currentLevelIsStart && m.mtype == GV.GoalMolecule)
         {
             LOLAudio.Instance.PlayAudio("CorrectMolecule.wav");
-            goalMoleculeCount++;
-            infoPanel.UpdateProgress(goalMoleculeCount, goalMoleculeRequired);
+            if (!completionDelaying)
+            {
+                goalMoleculeCount++;
+                infoPanel.UpdateProgress(goalMoleculeCount, goalMoleculeRequired);
+            }
         }
         
         activeCompounds.Add(m);
@@ -61,7 +64,7 @@ public class GameManager  {
     public void MoleculeRemoved(Molecule m)
     {
 
-        if (!currentLevelIsStart && m.mtype == GV.GoalMolecule) //if you are bored try commenting out "!currentLevelIsStart &&"
+        if (!currentLevelIsStart && m.mtype == GV.GoalMolecule && !completionDelaying) //if you are bored try commenting out "!currentLevelIsStart &&"
         {
             goalMoleculeCount--;
             infoPanel.UpdateProgress(goalMoleculeCount, goalMoleculeRequired);
