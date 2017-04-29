@@ -4,8 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using LoLSDK;
 
-public class LevelScorePage : CascadeTextPage
+public class LevelScorePage : Page
 {
+    public Text messageText;
+    public Text progressText;
+    public Text goalText;
+    public Text timeRemainingText;
+    public Text timeTotalText;
+    public Text gameScoreText;
+    public Text timeBonusText;
+
     private int[] progress;
     private float[] time;
     private int gameScore;
@@ -18,7 +26,23 @@ public class LevelScorePage : CascadeTextPage
         gameScore = (int)ProgressTracker.Instance.GetScore(ProgressTracker.ScoreType.Success, level);
         timeScore = (int)ProgressTracker.Instance.GetScore(ProgressTracker.ScoreType.Time, level);
 
-        string text = "";
+        progressText.text = progress[0].ToString();
+        goalText.text = progress[1] + " " + GV.MoleculeFormula((GV.MoleculeType)progress[2]);
+        timeRemainingText.text = TimeString(time[0]);
+        timeTotalText.text = TimeString(time[1]);
+        gameScoreText.text = gameScore.ToString();
+        timeBonusText.text = "+" + timeScore.ToString();
+
+        if (progress[0] == progress[1])
+            messageText.text = "CONGRATULATIONS!";
+        else if (progress[0] == 0)
+            messageText.text = "OH NO!";
+        else
+            messageText.text = "WELL DONE!";
+
+
+
+        /*string text = "";
         if (progress[0] == progress[1])
         {
             text = "Congratulations! You successfully produced all " + progress[1] + " " + GV.MoleculeFormula((GV.MoleculeType)progress[2]) + " molecules! " +
@@ -38,11 +62,16 @@ public class LevelScorePage : CascadeTextPage
                 "Although you didn’t completely achieve the level’s goal before the time ran out, you will still receive a score of " + gameScore + " points!\n\n" +
                 "You will also be able to boost your score for this level by doing well on the quiz.";
         }
-        SetTextContent(text);
+        SetTextContent(text);*/
     }
 
     public string TimeString(float t)
     {
+        int min = (int)t / 60;
+        int sec = (int)t % 60;
+        return min.ToString().PadLeft(1, '0') + ":" + sec.ToString().PadLeft(2, '0');
+
+        /*
         int min = (int)t / 60;
         int sec = (int)t % 60;
         string minString = min.ToString();
@@ -57,5 +86,6 @@ public class LevelScorePage : CascadeTextPage
             return secString + " second" + secPlural;
         else
             return minString + " minute" + minPlural + " and " + secString + " second" + secPlural;
+        */
     }
 }

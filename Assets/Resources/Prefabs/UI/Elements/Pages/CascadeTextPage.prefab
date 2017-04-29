@@ -144,10 +144,11 @@ MonoBehaviour:
     text. Cascade text. Cascade text. Cascade text. Cascade text. Cascade text. Cascade
     text. Cascade text. Cascade text. '
   charactersPerSecond: 60
-  ifExceedsParent: 0
+  ifExceedsPage: 1
   autoScroll: 1
-  smoothTime: 3
+  smoothTime: 2.5
   offset: 0
+  canSkip: 0
 --- !u!222 &222786425306241144
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -77,7 +77,7 @@ public class ProgressTracker {
     public void SetProgressAndTime(int level, int progress, float time)
     {
         progressArray[level][0] = progress;
-        timeArray[level][0] = timeArray[level][1] - time;
+        timeArray[level][0] = time;
     }
 
     public int[] GetProgressArray(int level)

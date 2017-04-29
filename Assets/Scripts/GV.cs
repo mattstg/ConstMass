@@ -33,7 +33,7 @@ public class GV {
     public static float Merge_Safe_Zone_Radius = .3f; //size of invisible merge protector
 
     //Main Game
-    public static readonly float[] Game_Length = new float[] { 45, 90, 150, 210 };
+    public static readonly float[] Game_Length = new float[] { 60, 100, 150, 210 };
     public static readonly int[] visibleFormulas = new int[] { 1, 2, 4, 6 };
     public static readonly int Game_Lesson_Max = 4;
     public static readonly float Completion_Delay = 2.5f;

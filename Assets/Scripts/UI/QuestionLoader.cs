@@ -71,7 +71,7 @@ public class QuestionLoader
     public void Level1(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
     {
         QuestionData a = new QuestionData();
-        a.question = "Fill in the blanks:\n_________________ require energy to occur, and _________________ release excess energy.";
+        a.question = "Fill in the blanks:\n___________________ require energy to occur, and ___________________ release excess energy.";
         a.info = "If you can't remember, you'll just have to guess!";
         a.AddAnswer("Endothermic reactions  /\nexothermic reactions", true);
         a.AddAnswer("Exothermic reactions  /\nendothermic reactions");

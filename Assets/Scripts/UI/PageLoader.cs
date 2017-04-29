@@ -91,6 +91,10 @@ public class PageLoader
 
         Page tutorial2 = AddPage("Tutorial/TutorialPage2", panelManager, pagesParent, pages);
 
+        Page tutorial3 = AddPage("Tutorial/TutorialPage3", panelManager, pagesParent, pages);
+
+        Page tutorial4 = AddPage("Tutorial/TutorialPage4", panelManager, pagesParent, pages);
+
         CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         e.TitleSettings(true, true, "");
         e.SetTextContent("In the first level, you will be required to make 8 HCl (hydrogen chloride) molecules from 4 H" + S(2) + " (pure hydrogen) molecules and 4 Cl" + S(2) + " (pure chlorine) molecules.\n\n" +
@@ -113,7 +117,7 @@ public class PageLoader
 
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
-        pre0breakdown.TitleSettings(true, true, "LEVEL 1:  PRE-GAME BREAKDOWN");
+        pre0breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 1 </size>]");
         pre0breakdown.NextSettings(true, true, true, "Begin!");
     }
 
@@ -130,13 +134,13 @@ public class PageLoader
         BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre0breakdown.SetLevel(0, true);
 
-        pre0breakdown.TitleSettings(true, true, "LEVEL 1:  PRE-GAME BREAKDOWN");
+        pre0breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 1 </size>]");
         BreakdownPage post0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post0breakdown.SetLevel(0, false);
-        post0breakdown.TitleSettings(true, true, "LEVEL 1:  POST-GAME BREAKDOWN");
+        post0breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN  [<size=26> LEVEL 1 </size>]");
 
         QuizPage quiz0 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
-        quiz0.TitleSettings(true, true, "LEVEL 1:  QUIZ");
+        quiz0.TitleSettings(true, true, "QUIZ  [<size=26> LEVEL 1 </size>]");
         quiz0.LoadQuiz(QuizID.Level0);
 
         ScorePage score0 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
@@ -170,7 +174,7 @@ public class PageLoader
 
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
-        pre1breakdown.TitleSettings(true, true, "LEVEL 2:  PRE-GAME BREAKDOWN");
+        pre1breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 2 </size>]");
         pre1breakdown.NextSettings(true, true, true, "Begin!");
     }
 
@@ -186,13 +190,13 @@ public class PageLoader
 
         BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre1breakdown.SetLevel(1, true);
-        pre1breakdown.TitleSettings(true, true, "LEVEL 2:  PRE-GAME BREAKDOWN");
+        pre1breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 2 </size>]");
         BreakdownPage post1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post1breakdown.SetLevel(1, false);
-        post1breakdown.TitleSettings(true, true, "LEVEL 2:  POST-GAME BREAKDOWN");
+        post1breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN  [<size=26> LEVEL 2 </size>]");
 
         QuizPage quiz1 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
-        quiz1.TitleSettings(true, true, "LEVEL 2:  QUIZ");
+        quiz1.TitleSettings(true, true, "QUIZ  [<size=26> LEVEL 2 </size>]");
         quiz1.LoadQuiz(QuizID.Level1);
 
         ScorePage score1 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
@@ -246,7 +250,7 @@ public class PageLoader
 
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
-        pre2breakdown.TitleSettings(true, true, "LEVEL 3:  PRE-GAME BREAKDOWN");
+        pre2breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 3 </size>]");
         pre2breakdown.NextSettings(true, true, true, "Begin!");
     }
 
@@ -262,13 +266,13 @@ public class PageLoader
 
         BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre2breakdown.SetLevel(2, true);
-        pre2breakdown.TitleSettings(true, true, "LEVEL 3:  PRE-GAME BREAKDOWN");
+        pre2breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 3 </size>]");
         BreakdownPage post2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post2breakdown.SetLevel(2, false);
-        post2breakdown.TitleSettings(true, true, "LEVEL 3:  POST-GAME BREAKDOWN");
+        post2breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN  [<size=26> LEVEL 3 </size>]");
 
         QuizPage quiz2 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
-        quiz2.TitleSettings(true, true, "LEVEL 3:  QUIZ");
+        quiz2.TitleSettings(true, true, "QUIZ  [<size=26> LEVEL 3 </size>]");
         quiz2.LoadQuiz(QuizID.Level2);
 
         ScorePage score2 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
@@ -317,7 +321,7 @@ public class PageLoader
 
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
-        pre3breakdown.TitleSettings(true, true, "LEVEL 4:  PRE-GAME BREAKDOWN");
+        pre3breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 4 </size>]");
         pre3breakdown.NextSettings(true, true, true, "Begin!");
     }
 
@@ -333,13 +337,13 @@ public class PageLoader
 
         BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         pre3breakdown.SetLevel(3, true);
-        pre3breakdown.TitleSettings(true, true, "LEVEL 4:  PRE-GAME BREAKDOWN");
+        pre3breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 4 </size>]");
         BreakdownPage post3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
         post3breakdown.SetLevel(3, false);
-        post3breakdown.TitleSettings(true, true, "LEVEL 4:  POST-GAME BREAKDOWN");
+        post3breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN  [<size=26> LEVEL 4 </size>]");
 
         QuizPage quiz3 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
-        quiz3.TitleSettings(true, true, "LEVEL 4:  QUIZ");
+        quiz3.TitleSettings(true, true, "QUIZ  [<size=26> LEVEL 4 </size>]");
         quiz3.LoadQuiz(QuizID.Level3);
 
         ScorePage score3 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);

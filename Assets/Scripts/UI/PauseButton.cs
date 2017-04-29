@@ -24,6 +24,8 @@ public class PauseButton : CanvasButton
 
     public override void OnClick()
     {
+        if (isSelected != GV.Paused)
+            isSelected = GV.Paused;
         SetPause(!isSelected, true);
     }
 
