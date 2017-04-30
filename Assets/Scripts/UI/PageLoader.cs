@@ -85,15 +85,15 @@ public class PageLoader
         d.SetTextContent("Think of it this way: if you build four chairs out of an assortment of pieces of wood, and then take them apart and use every piece of wood to build a desk and a stool instead, " +
             "the combined weight of the desk and the stool will equal the total weight of the four chairs!");
 
-        Page tutorial0 = AddPage("Tutorial/TutorialPage0", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage0", panelManager, pagesParent, pages);
 
-        Page tutorial1 = AddPage("Tutorial/TutorialPage1", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage1", panelManager, pagesParent, pages);
 
-        Page tutorial2 = AddPage("Tutorial/TutorialPage2", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage2", panelManager, pagesParent, pages);
 
-        Page tutorial3 = AddPage("Tutorial/TutorialPage3", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage3", panelManager, pagesParent, pages);
 
-        Page tutorial4 = AddPage("Tutorial/TutorialPage4", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage4", panelManager, pagesParent, pages);
 
         CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
         e.TitleSettings(true, true, "");
