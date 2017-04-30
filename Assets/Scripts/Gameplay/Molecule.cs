@@ -215,7 +215,8 @@ public class Molecule : MonoBehaviour
             {
                 m.isMerging = isMerging = true;
                 MergeManager.Instance.MergeTwoMolecules(this, m);
-                GameManager.Instance.infoPanel.ReactionOccurrence(mtype, m.mtype);
+                if(!GameManager.Instance.currentLevelIsStart)
+                    GameManager.Instance.infoPanel.ReactionOccurrence(mtype, m.mtype);
             }
         }
         else
