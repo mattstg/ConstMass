@@ -85,27 +85,27 @@ public class InfoPanel : MonoBehaviour {
         switch (id)
         {
             case 0:     //* H₂ + Cl₂  →  2HCl
-                formula = string.Format("{0} + {1}  →  {2}",
+                formula = string.Format("{0} + {1}   →   {2}",
                     MoleculeFormula(GV.MoleculeType.H2, false), MoleculeFormula(GV.MoleculeType.Cl2, false), MoleculeFormula(GV.MoleculeType.HCl, true, 2));
                 break;
             case 1:     //  NaHCO₃ + HCl  →  NaCl + CO₂ + H₂O
-                formula = string.Format("{0} + {1}  →\n{2} + {3} + {4}",
+                formula = string.Format("{0} + {1}   →\n{2} + {3} + {4}",
                     MoleculeFormula(GV.MoleculeType.NaHCO3, false), MoleculeFormula(GV.MoleculeType.HCl, false), MoleculeFormula(GV.MoleculeType.NaCl, true), MoleculeFormula(GV.MoleculeType.CO2, true), MoleculeFormula(GV.MoleculeType.H2O, true));
                 break;
             case 2:     //  Na₂O + H₂O  →  2NaOH
-                formula = string.Format("{0} + {1}  →\n{2}",
+                formula = string.Format("{0} + {1}   →\n{2}",
                     MoleculeFormula(GV.MoleculeType.Na2O, false), MoleculeFormula(GV.MoleculeType.H2O, false), MoleculeFormula(GV.MoleculeType.NaOH, true, 2));
                 break;
             case 3:     //  NaOH + HCl  →  NaCl + H₂O
-                formula = string.Format("{0} + {1}  →\n{2} + {3}",
+                formula = string.Format("{0} + {1}   →\n{2} + {3}",
                     MoleculeFormula(GV.MoleculeType.NaOH, false), MoleculeFormula(GV.MoleculeType.HCl, false), MoleculeFormula(GV.MoleculeType.NaCl, true), MoleculeFormula(GV.MoleculeType.H2O, true));
                 break;
             case 4:     //* H₂O + K₂O  →  2KOH
-                formula = string.Format("{0} + {1}  →  {2}",
+                formula = string.Format("{0} + {1}   →   {2}",
                     MoleculeFormula(GV.MoleculeType.H2O, false), MoleculeFormula(GV.MoleculeType.K2O, false), MoleculeFormula(GV.MoleculeType.KOH, true, 2));
                 break;
             case 5:     //  KOH + HCl  →  KCl + H₂O
-                formula = string.Format("{0} + {1}  →\n{2} + {3}",
+                formula = string.Format("{0} + {1}   →\n{2} + {3}",
                     MoleculeFormula(GV.MoleculeType.KOH, false), MoleculeFormula(GV.MoleculeType.HCl, false), MoleculeFormula(GV.MoleculeType.KCl, true), MoleculeFormula(GV.MoleculeType.H2O, true));
                 break;
             default:

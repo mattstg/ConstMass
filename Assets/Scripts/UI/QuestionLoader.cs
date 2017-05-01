@@ -49,7 +49,7 @@ public class QuestionLoader
         a.SetCorrectText("For any given reaction, the chemicals that go into it are the reactants.\nThe chemicals that come out of it are the products.");
 
         QuestionData b = new QuestionData();
-        b.question = "If 3 H" + S(2) + " molecules and 3 Cl" + S(2) + " molecules react to form hydrogen chloride, how many HCl molecules will be produced?";
+        b.question = "If 3 H₂ molecules and 3 Cl₂ molecules react to form hydrogen chloride, how many HCl molecules will be produced?";
         b.info = "Hint: the reactants in this question are composed of 6 hydrogen atoms and 6 chlorine atoms. Each HCl molecule is composed of 1 hydrogen atom and 1 chlorine atom.";
         b.AddAnswer("1");
         b.AddAnswer("3");
@@ -101,28 +101,28 @@ public class QuestionLoader
     public void Level2()
     {
         QuestionData a = new QuestionData();
-        a.question = "How many hydrogen atoms and oxygen atoms are present in the expression 4H" + S(2) + "O?";
-        a.info = "Remember, the 4 means that there are 4 H" + S(2) + "O molecules present, while the " + S(2) + " means there are 2 hydrogen atoms in each molecule.";
+        a.question = "How many hydrogen atoms and oxygen atoms are present in the expression 4H₂O?";
+        a.info = "Remember, the 4 means that there are 4 H₂O molecules present, while the ₂ means there are 2 hydrogen atoms in each molecule.";
         a.AddAnswer("4 hydrogen atoms and 2 oxygen atoms");
         a.AddAnswer("8 hydrogen atoms and 1 oxygen atom");
         a.AddAnswer("4 hydrogen atoms and 8 oxygen atoms");
         a.AddAnswer("8 hydrogen atoms and 4 oxygen atoms", true);
-        a.SetCorrectText("4 molecules of H" + S(2) + "O together contain 8 hydrogen atoms and 4 oxygen atoms.");
+        a.SetCorrectText("4 molecules of H₂O together contain 8 hydrogen atoms and 4 oxygen atoms.");
 
         QuestionData b = new QuestionData();
-        b.question = "Select the balanced form of the following chemical equation:\nZn + HCl  →  H" + S(2) + " + ZnCl" + S(2);
+        b.question = "Select the balanced form of the following chemical equation:\nZn + HCl   →   H₂ + ZnCl₂";
         b.info = "Hint: the correct answer will have the same number of each type of atom on the right side of the equation as there are on the left.";
-        b.AddAnswer("Zn + 2HCl  →\nH" + S(2) + " + ZnCl" + S(2), true);
-        b.AddAnswer("2Zn + HCl  →\nH" + S(2) + " + ZnCl" + S(2));
-        b.AddAnswer("Zn + 2HCl  →\n2H" + S(2) + " + ZnCl" + S(2));
-        b.AddAnswer("2Zn + 2HCl  →\nH" + S(2) + " + 2ZnCl" + S(2));
-        b.SetCorrectText("Zn + 2HCl  →  H" + S(2) + " + ZnCl" + S(2) + ".");
+        b.AddAnswer("Zn + 2HCl   →\nH₂ + ZnCl₂", true);
+        b.AddAnswer("2Zn + HCl   →\nH₂ + ZnCl₂");
+        b.AddAnswer("Zn + 2HCl   →\n2H₂ + ZnCl₂");
+        b.AddAnswer("2Zn + 2HCl   →\nH₂ + 2ZnCl₂");
+        b.SetCorrectText("Zn + 2HCl   →   H₂ + ZnCl₂.");
 
         QuestionData c = new QuestionData();
-        c.question = "Select the balanced form of the following chemical equation:\nC" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  CO" + S(2) + " + H" + S(2) + "O";
+        c.question = "Select the balanced form of the following chemical equation:\nC₁₂H₂₂O₁₁ + 12O₂   →   CO₂ + H₂O";
         c.info = "Hint: the correct answer will have the same number of each type of atom on the right side of the equation as there are on the left.";
-        c.AddAnswer("C" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  11CO" + S(2) + " + 12H" + S(2) + "O");
-        c.AddAnswer("C" + S(1) + S(2) + "H" + S(2) + S(2) + "O" + S(1) + S(1) + " + 12O" + S(2) + "  →  12CO" + S(2) + " + 11H" + S(2) + "O", true);
+        c.AddAnswer("C₁₂H₂₂O₁₁ + 12O₂   →   11CO₂ + 12H₂O");
+        c.AddAnswer("C₁₂H₂₂O₁₁ + 12O₂   →   12CO₂ + 11H₂O", true);
         c.SetCorrectText();
 
 
@@ -139,20 +139,20 @@ public class QuestionLoader
     public void Level3()
     {
         QuestionData a = new QuestionData();
-        a.question = "Is the following chemical equation balanced?\n6H" + S(2) + "O + 6CO" + S(2) + "  →  C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 6O" + S(2);
+        a.question = "Is the following chemical equation balanced?\n6H₂O + 6CO₂   →   C₆H₁₂O₆ + 6O₂";
         a.info = "Hint: count how many hydrogen, oxygen, and carbon atoms are on either side of the equation. If they are equal, then the equation is balanced!";
         a.AddAnswer("Yes", true);
         a.AddAnswer("No");
         a.SetCorrectText("Yes, the equation is balanced.");
 
         QuestionData b = new QuestionData();
-        b.question = "How many oxygen atoms are present in the following expression?\n2C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 12O" + S(2);
+        b.question = "How many oxygen atoms are present in the following expression?\n2C₆H₁₂O₆ + 12O₂";
         b.info = "Just add them up!";
         b.AddAnswer("8");
         b.AddAnswer("13");
         b.AddAnswer("24");
         b.AddAnswer("36", true);
-        b.SetCorrectText("2 glucose molecules and 12 O" + S(2) + " molecules together contain 36 oxygen atoms.");
+        b.SetCorrectText("2 glucose molecules and 12 O₂ molecules together contain 36 oxygen atoms.");
 
         QuestionData c = new QuestionData();
         c.question = "Why do the coals and ashes that remain after a log has burned weigh less than the original log?";
@@ -277,10 +277,5 @@ public class QuestionLoader
         q.AssignQuiz(quizPage);
         questions.Add(q);
         return q;
-    }
-
-    public char S(int s)
-    {
-        return GV.SubscriptNumeral(s);
     }
 }
