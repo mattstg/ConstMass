@@ -23,6 +23,10 @@ public class PageLoader
     private string score = "ScorePage";
     private string levelScore = "LevelScorePage";
 
+    private PanelManager panelManager;
+    private RectTransform pagesParent;
+    private List<Page> pages;
+
     #region Singleton
     private static PageLoader instance;
 
@@ -58,97 +62,97 @@ public class PageLoader
     *      - pre-y breakdown chart
     */
 
-    private void PreLevel0(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
+    private void PreLevel0()
     {
-    // INTRODUCTION, PRE-0
-        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        // INTRODUCTION, PRE-0
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText);
         a.TitleSettings(true, true, "");
         a.SetTextContent("<i>Dance of Atoms</i> is a game about what happens to atoms and molecules during <i>chemical reactions</i>.\n\n" +
-            
+
             "Chemical reactions occur when atoms of colliding molecules rearrange themselves by breaking current bonds and creating new ones, leading to the formation of new substances.");
 
-        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText);
         b.TitleSettings(true, true, "");
         b.SetTextContent("In a chemical reaction, the molecules that collide are called the <i>reactants</i>, and the molecules that are produced are called the <i>products</i>.\n\n" +
             "During a chemical reaction, atoms are never created or destroyed. Therefore, even though the atoms are rearranged into new molecules, the total amount of each type of atom in the reactants " +
             "is always equal to the total amount of each type of atom in the products.\n\n" +
             "Every atom of each type of element has a specific mass, known as <i>atomic mass</i> (measured in <i>atomic mass units</i>, or <i>amu</i>). During a chemical reaction, atoms’ atomic masses never change.");
 
-        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText);
         c.TitleSettings(true, true, "");
         c.SetTextContent("Because both the total number of each type of atom, and the individual mass of each atom, never change during a chemical reaction, the total mass of the reactants is " +
             "always the same as the total mass of the products.\n\n" +
             "This principle is known as the <i>conservation of matter in chemical reactions</i>.");
 
-        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText);
         d.TitleSettings(true, true, "");
         d.SetTextContent("Think of it this way: if you build four chairs out of an assortment of pieces of wood, and then take them apart and use every piece of wood to build a desk and a stool instead, " +
             "the combined weight of the desk and the stool will equal the total weight of the four chairs!");
 
-        AddPage("Tutorial/TutorialPage0", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage0");
 
-        AddPage("Tutorial/TutorialPage1", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage1");
 
-        AddPage("Tutorial/TutorialPage2", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage2");
 
-        AddPage("Tutorial/TutorialPage3", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage3");
 
-        AddPage("Tutorial/TutorialPage4", panelManager, pagesParent, pages);
+        AddPage("Tutorial/TutorialPage4");
 
-        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText);
         e.TitleSettings(true, true, "");
         e.SetTextContent("In the first level, you will be required to make 8 HCl (hydrogen chloride) molecules from 4 H" + S(2) + " (pure hydrogen) molecules and 4 Cl" + S(2) + " (pure chlorine) molecules.\n\n" +
             "You will be using the following chemical reaction equation:\n\n" +
             "H" + S(2) + " + Cl" + S(2) + "  →  2HCl");
 
-        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText);
         f.TitleSettings(true, true, "");
         f.SetTextContent("Before and after each level, we will show you a detailed breakdown of all the molecules present in the level.\n\n" +
 
             "For each molecule, we will show its mass, the total number of atoms that it contains, and the number of each type of atom that it contains. At the bottom we will show the total for each of these values, " +
             "representing the total mass and number of atoms contained within the level as a whole.");
 
-        CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText);
         g.TitleSettings(true, true, "");
         g.SetTextContent("Before each level, we will show you the <i>pre-game breakdown</i>, which represents the state of the level as it is at the very beginning, before you start playing.\n\n" +
 
             "After each level, we will show you the pre-game breakdown again, to remind you of how things were initially. Then we will show you a similar <i>post-game breakdown</i>, " +
             "which represents the state of the level after you have finished playing, so that you will be able to do a before/after comparison of the matter in the level.");
 
-        BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown);
         pre0breakdown.SetLevel(0, true);
         pre0breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 1 </size>]");
         pre0breakdown.NextSettings(true, true, true, "Begin!");
     }
 
-    private void PreLevel1(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
+    private void PreLevel1()
     {
-    // POST-0
-        LevelScorePage levelScore0 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
+        // POST-0
+        LevelScorePage levelScore0 = (LevelScorePage)AddPage(levelScore);
         levelScore0.Generate(0);
 
-        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText);
         a.TitleSettings(true, true, "");
         a.SetTextContent("Here are the breakdowns. Pay attention to the total mass of the molecules in the chamber both before and after the level!");
 
-        BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage pre0breakdown = (BreakdownPage)AddPage(breakdown);
         pre0breakdown.SetLevel(0, true);
 
         pre0breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 1 </size>]");
-        BreakdownPage post0breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage post0breakdown = (BreakdownPage)AddPage(breakdown);
         post0breakdown.SetLevel(0, false);
         post0breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN  [<size=26> LEVEL 1 </size>]");
 
-        QuizPage quiz0 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        QuizPage quiz0 = (QuizPage)AddPage(quiz);
         quiz0.TitleSettings(true, true, "QUIZ  [<size=26> LEVEL 1 </size>]");
         quiz0.LoadQuiz(QuizID.Level0);
 
-        ScorePage score0 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
+        ScorePage score0 = (ScorePage)AddPage(score);
         score0.backActive = false;
         score0.SetLevel(0);
 
-    // PRE-1
-        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        // PRE-1
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText);
         b.SetTextContent("In the real world, when a chemical reaction occurs, it affects the temperature of the matter around it.\n\n" +
             "All chemical reactions are either <i>endothermic</i> or <i>exothermic</i>.\n\n" +
             "For an endothermic reaction to occur, it requires more energy than it has stored in its chemical bonds, and so it must absorb energy from its surroundings (usually in the form of heat).\n\n" +
@@ -156,61 +160,61 @@ public class PageLoader
         b.TitleSettings(true, true, "");
         b.backActive = false;
 
-        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText);
         c.SetTextContent("When an endothermic reaction absorbs heat from its surroundings, it slows down the movements of the surrounding molecules. When an exothermic reactions emits heat, it speeds up the movements of the surrounding molecules.\n\n" +
             "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones.\n\n" +
             "That is why an egg fries faster when you turn up the element: the increased heat energizes the egg’s molecules, leading to a higher rate of chemical reactions!");
         c.TitleSettings(true, true, "");
 
-        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText);
         d.SetTextContent("In the next level, you will be required to make 4 H" + S(2) + "O (water) molecules from 2 H" + S(2) + " molecules, 2 Cl molecules, and 4 NaHCO" + S(3) + " (sodium bicarbonate, or baking soda) molecules.\n\n" +
             "This will require that you use the reaction from the previous level together with a new one:\n\n" +
             "NaHCO" + S(3) + " + HCl  →  NaCl + CO" + S(2) + " + H" + S(2) + "O");
         d.TitleSettings(true, true, "");
 
-        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText);
         e.TitleSettings(true, true, "");
         e.SetTextContent("Now for the details:");
 
-        BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown);
         pre1breakdown.SetLevel(1, true);
         pre1breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 2 </size>]");
         pre1breakdown.NextSettings(true, true, true, "Begin!");
     }
 
-    private void PreLevel2(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
+    private void PreLevel2()
     {
-    // POST-1
-        LevelScorePage levelScore1 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
+        // POST-1
+        LevelScorePage levelScore1 = (LevelScorePage)AddPage(levelScore);
         levelScore1.Generate(1);
 
-        CascadeTextPage x = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage x = (CascadeTextPage)AddPage(cascadeText);
         x.TitleSettings(true, true, "");
         x.SetTextContent("In the upcoming breakdowns, verify whether the total number of any kind of atom changed during the level.");
 
-        BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage pre1breakdown = (BreakdownPage)AddPage(breakdown);
         pre1breakdown.SetLevel(1, true);
         pre1breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 2 </size>]");
-        BreakdownPage post1breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage post1breakdown = (BreakdownPage)AddPage(breakdown);
         post1breakdown.SetLevel(1, false);
         post1breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN  [<size=26> LEVEL 2 </size>]");
 
-        QuizPage quiz1 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        QuizPage quiz1 = (QuizPage)AddPage(quiz);
         quiz1.TitleSettings(true, true, "QUIZ  [<size=26> LEVEL 2 </size>]");
         quiz1.LoadQuiz(QuizID.Level1);
 
-        ScorePage score1 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
+        ScorePage score1 = (ScorePage)AddPage(score);
         score1.backActive = false;
         score1.SetLevel(1);
 
-    // PRE-2
-        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        // PRE-2
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText);
         a.SetTextContent("A chemical equation is considered a <i>balanced</i> chemical equation if the total number of each type of atom in the reactants " +
             "is equal to the total number of each type of atom in the products.");
         a.TitleSettings(true, true, "");
         a.backActive = false;
 
-        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText);
         b.SetTextContent("Remember: when considering a chemical expression, such as 3CO" + S(2) + ", the large number that comes before the molecule refers to the amount of " +
             "that type of molecule in the situation, while the small subscript numbers that come after certain atoms refer to the amount of that kind of atom in " +
             "every molecule of that type.\n\n" +
@@ -218,13 +222,13 @@ public class PageLoader
             "(If there is no subscript following an atom in such an expression, it means there is just 1 of those atoms in the molecule).");
         b.TitleSettings(true, true, "");
 
-        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText);
         c.SetTextContent("So, 3CO" + S(2) + " refers to 3 carbon dioxide molecules, each of which contains a single carbon atom and two oxygen atoms, for a total of 3 carbon atoms and 6 oxygen atoms.\n\n" +
 
             "By totaling up the atoms on either side of a chemical equation in this manner, we can check whether the equation is balanced!");
         c.TitleSettings(true, true, "");
 
-        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText);
         d.SetTextContent("For instance, consider the following equation:  4Fe + 3O" + S(2) + "  →  Fe" + S(2) + "O" + S(3) + "\n\n" +
 
             "This says that 4 Fe (iron) molecules react with 3 O" + S(2) + " (oxygen) molecules to create one Fe" + S(2) + "O" + S(3) + " (ferric oxide) molecule. " +
@@ -235,7 +239,7 @@ public class PageLoader
             "The balanced equation looks like this:  4Fe + 3O" + S(2) + "  →  2Fe" + S(2) + "O" + S(3) + ".");
         d.TitleSettings(true, true, "");
 
-        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText);
         e.SetTextContent("In the next level, you will be required to produce 6 NaCl (sodium chloride, or salt) molecules out of 3 H" + S(2) + " molecules, 3 Cl molecules, 4 NaHCO" + S(3) + " molecules, " +
             "and 2 Na" + S(2) + "O (sodium oxide) molecules. You will have to use the reactions from the previous levels as well as two new reactions:\n\n" +
 
@@ -244,43 +248,43 @@ public class PageLoader
             "NaOH + HCl  →  NaCl + H" + S(2) + "O");
         e.TitleSettings(true, true, "");
 
-        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText);
         f.TitleSettings(true, true, "");
         f.SetTextContent("Before starting the next level, let’s check the pre-game breakdown:");
 
-        BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown);
         pre2breakdown.SetLevel(2, true);
         pre2breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 3 </size>]");
         pre2breakdown.NextSettings(true, true, true, "Begin!");
     }
 
-    private void PreLevel3(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
+    private void PreLevel3()
     {
-    // POST-2
-        LevelScorePage levelScore2 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
+        // POST-2
+        LevelScorePage levelScore2 = (LevelScorePage)AddPage(levelScore);
         levelScore2.Generate(2);
 
-        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText);
         e.TitleSettings(true, true, "");
         e.SetTextContent("As you’ve probably come to expect, the following breakdowns will confirm that no matter was lost or gained during the level!");
 
-        BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage pre2breakdown = (BreakdownPage)AddPage(breakdown);
         pre2breakdown.SetLevel(2, true);
         pre2breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 3 </size>]");
-        BreakdownPage post2breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage post2breakdown = (BreakdownPage)AddPage(breakdown);
         post2breakdown.SetLevel(2, false);
         post2breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN  [<size=26> LEVEL 3 </size>]");
 
-        QuizPage quiz2 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        QuizPage quiz2 = (QuizPage)AddPage(quiz);
         quiz2.TitleSettings(true, true, "QUIZ  [<size=26> LEVEL 3 </size>]");
         quiz2.LoadQuiz(QuizID.Level2);
 
-        ScorePage score2 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
+        ScorePage score2 = (ScorePage)AddPage(score);
         score2.backActive = false;
         score2.SetLevel(2);
 
-    // PRE-3
-        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        // PRE-3
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText);
         a.SetTextContent("Sometimes, part of a reactant can appear to go missing during a chemical reaction.\n\n" +
 
             "However, we know that this never actually happens. Usually, the “missing” matter either escaped as a gas (sometimes an invisible gas), " +
@@ -288,7 +292,7 @@ public class PageLoader
         a.TitleSettings(true, true, "");
         a.backActive = false;
 
-        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText);
         b.SetTextContent("For example, think of a burning log. The wood is reacting with nearby oxygen molecules in a chemical reaction called <i>combustion</i>.\n\n" +
 
             "When the fire has finished, it might seem like the reaction has destroyed some of the reactant matter: the ash and coals that remain weigh a lot less than the log did before it was burned.\n\n" +
@@ -297,7 +301,7 @@ public class PageLoader
             "the total mass will always be equal to that of the original log!");
         b.TitleSettings(true, true, "");
 
-        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText);
         c.SetTextContent("When you balance a chemical equation, you are ensuring that the chemical reaction can occur without breaking the law of conservation of matter. In a balanced equation, " +
             "the total mass of the products is always equal to the total mass of the reactants.\n\n" +
 
@@ -305,7 +309,7 @@ public class PageLoader
             "you already know what atoms will make up the <i>products</i> of the chemical reaction!");
         c.TitleSettings(true, true, "");
 
-        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText);
         d.SetTextContent("In the final level, you need to produce 3 H" + S(2) + "O molecules out of 1 Na" + S(2) + "O molecule, 1 NaHCO" + S(3) + " molecule, 3 Cl molecules, 3 H" + S(2) + " molecules, " +
             "and 1 K" + S(2) + "O (potassium oxide) molecule. You will need to use every chemical reaction from the previous levels, as well as two new reactions:\n\n" +
 
@@ -315,50 +319,50 @@ public class PageLoader
             "Good luck!");
         d.TitleSettings(true, true, "");
 
-        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText);
         f.TitleSettings(true, true, "");
         f.SetTextContent("Here’s the pre-game breakdown for the final level:");
 
-        BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown);
         pre3breakdown.SetLevel(3, true);
         pre3breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 4 </size>]");
         pre3breakdown.NextSettings(true, true, true, "Begin!");
     }
 
-    private void Final(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
+    private void Final()
     {
-    // POST-3
-        LevelScorePage levelScore3 = (LevelScorePage)AddPage(levelScore, panelManager, pagesParent, pages);
+        // POST-3
+        LevelScorePage levelScore3 = (LevelScorePage)AddPage(levelScore);
         levelScore3.Generate(3);
 
-        CascadeTextPage h = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage h = (CascadeTextPage)AddPage(cascadeText);
         h.TitleSettings(true, true, "");
         h.SetTextContent("Let’s do one last comparison:");
 
-        BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage pre3breakdown = (BreakdownPage)AddPage(breakdown);
         pre3breakdown.SetLevel(3, true);
         pre3breakdown.TitleSettings(true, true, "PRE-GAME BREAKDOWN  [<size=26> LEVEL 4 </size>]");
-        BreakdownPage post3breakdown = (BreakdownPage)AddPage(breakdown, panelManager, pagesParent, pages);
+        BreakdownPage post3breakdown = (BreakdownPage)AddPage(breakdown);
         post3breakdown.SetLevel(3, false);
         post3breakdown.TitleSettings(true, true, "POST-GAME BREAKDOWN  [<size=26> LEVEL 4 </size>]");
 
-        QuizPage quiz3 = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        QuizPage quiz3 = (QuizPage)AddPage(quiz);
         quiz3.TitleSettings(true, true, "QUIZ  [<size=26> LEVEL 4 </size>]");
         quiz3.LoadQuiz(QuizID.Level3);
 
-        ScorePage score3 = (ScorePage)AddPage(score, panelManager, pagesParent, pages);
+        ScorePage score3 = (ScorePage)AddPage(score);
         score3.backActive = false;
         score3.SetLevel(3);
 
-    // CONCLUSION
-        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        // CONCLUSION
+        CascadeTextPage a = (CascadeTextPage)AddPage(cascadeText);
         a.SetTextContent("This final lesson is optional material. Feel free to skip it, but we recommend you check it out!\n\n" +
             "It covers two chemical reactions that we think are truly fascinating. These reactions are occurring constantly around you and inside of you, and they are fundamental to life on earth!");
         a.TitleSettings(true, true, "");
         a.backActive = false;
         a.canSkip = true;
-        
-        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+
+        CascadeTextPage b = (CascadeTextPage)AddPage(cascadeText);
         b.SetTextContent("<i>Photosynthesis</i> is a chemical reaction used by plant life to harness the energy in sunlight. It follows this equation:  " +
             "6H" + S(2) + "O + 6CO" + S(2) + "  →  C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 6O" + S(2) + ".\n\n" +
 
@@ -369,7 +373,7 @@ public class PageLoader
         b.TitleSettings(true, true, "");
         b.canSkip = true;
 
-        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText);
         c.SetTextContent("When an animal eats a plant, it consumes the plant’s glucose. When the animal inhales, it consumes oxygen molecules that were produced by photosynthesis reactions. " +
             "A chemical reaction then occurs inside the body of the animal, known as <i>cellular respiration</i>.\n\n" +
 
@@ -380,14 +384,14 @@ public class PageLoader
         c.TitleSettings(true, true, "");
         c.canSkip = true;
 
-        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText);
         d.SetTextContent("However, cellular respiration is an exothermic reaction, so it releases energy as it occurs. In fact, the amount of energy it releases is equal to the amount of " +
             "sunlight energy that it took for the photosynthesis reaction that created the glucose in the first place! This energy is then used by the cells of the animal, " +
             "and is what enables animals to move, think, and do pretty much everything that they do!");
         d.TitleSettings(true, true, "");
         d.canSkip = true;
 
-        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage e = (CascadeTextPage)AddPage(cascadeText);
         e.SetTextContent("After the cellular respiration reaction has occurred, the 6 water molecules and 6 carbon dioxide molecules are shed from the body of the animal and released back " +
             "into the atmosphere, where they can once again be the reactants of a photosynthesis reaction.\n\n" +
 
@@ -396,14 +400,14 @@ public class PageLoader
         e.TitleSettings(true, true, "");
         e.canSkip = true;
 
-        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText);
         f.SetTextContent("If you were playing close attention, you might have noticed that throughout the entire cycle of photosynthesis and cellular respiration, no matter went missing.\n\n" +
 
             "Though the atoms may change partners on a regular basis, it is always the very same atoms, dancing on and on!");
         f.TitleSettings(true, true, "");
         f.canSkip = true;
 
-        CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText);
         g.SetTextContent("Thanks for playing! We hope you enjoyed your playthrough of <i>Dance of Atoms</i>.\n\n" +
 
             "Have a great day!");
@@ -411,33 +415,34 @@ public class PageLoader
         g.NextSettings(true, true, true, "Finish");
     }
 
-    public List<Page> LoadPages(PanelID panelID, PanelManager panelManager)
+    public List<Page> LoadPages(PanelID panelID, PanelManager pm)
     {
-        RectTransform pagesParent = panelManager.pagesParent;
-        List<Page> pages = new List<Page>();
+        panelManager = pm;
+        pagesParent = panelManager.pagesParent;
+        pages = new List<Page>();
         if (!panelManager || !pagesParent)
             return pages;
 
         switch (panelID)
         {
             case PanelID.PreLevel0:
-                PreLevel0(panelManager, pagesParent, pages);
+                PreLevel0();
                 break;
             case PanelID.PreLevel1:
-                PreLevel1(panelManager, pagesParent, pages);
+                PreLevel1();
                 break;
             case PanelID.PreLevel2:
-                PreLevel2(panelManager, pagesParent, pages);
+                PreLevel2();
                 break;
             case PanelID.PreLevel3:
-                PreLevel3(panelManager, pagesParent, pages);
+                PreLevel3();
                 break;
             case PanelID.Final:
-                Final(panelManager, pagesParent, pages);
+                Final();
                 break;
 
             case PanelID.PanelTutorial:
-                PanelTutorial(panelManager, pagesParent, pages);
+                PanelTutorial();
                 break;
             default:
                 break;
@@ -448,7 +453,7 @@ public class PageLoader
         return pages;
     }
 
-    public Page AddPage(string prefabName, PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
+    public Page AddPage(string prefabName)
     {
         prefabName = pagePrefabDirectory + prefabName;
         GameObject go = Object.Instantiate(Resources.Load(prefabName)) as GameObject;
@@ -459,19 +464,17 @@ public class PageLoader
         return page;
     }
 
-    private void PanelTutorial(PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
+    private void PanelTutorial()
     {
         /*  
             For each page:
 
             1.  Declare an instance of Page (base/derived class)* as the return of this.AddPage():
-                    Page AddPage(string prefabName, PanelManager panelManager, RectTransform pagesParent, List<Page> pages)
+                    Page AddPage(string prefabName)
                         prefabName: choose from the strings declared above:
                             simpleText / scrollText / cascadeText
                             simpleImage / scrollImage
                             quiz
-                        For the other three variables, always use:
-                            "panelManager, pagesParent, pages"
               * Note on Page base/derived classes:
                     Most of the prefabs use the simple base Page class,
                     but some of them use specialized derived classes.
@@ -521,12 +524,12 @@ public class PageLoader
 
         pages.Capacity = 6;
 
-        Page a = AddPage(simpleText, panelManager, pagesParent, pages);
+        Page a = AddPage(simpleText);
         a.SetTextContent("SimpleTextPage prefab, generated by PageLoader.\n\n" +
             "The panel is in its default state (except for this text content).\n\n" +
             "(Back button is automatically inactive on first page.)");
 
-        Page b = AddPage(simpleText, panelManager, pagesParent, pages);
+        Page b = AddPage(simpleText);
         b.TitleSettings(false, true, "This title is invisible");
         // when title is set inactive, page content is automatically stretched upward
         b.NextSettings(true, true, true, ">");
@@ -539,23 +542,23 @@ public class PageLoader
             "Info has been activated, with toggle button in lower left corner.\n\n" +
             "Text alignment and font size have been modified.");
 
-        QuizPage c = (QuizPage)AddPage(quiz, panelManager, pagesParent, pages);
+        QuizPage c = (QuizPage)AddPage(quiz);
         c.TitleSettings(true, true, "QuizPage: Quiz Tutorial");
         c.LoadQuiz(QuizID.QuizTutorial);
         // quiz content is defined in QuestionLoader
         // no need to set NextButton text; QuizPage manages this automatically
 
-        Page d = AddPage(simpleImage, panelManager, pagesParent, pages);
+        Page d = AddPage(simpleImage);
         d.TitleSettings(true, true, "SimpleImagePage");
         d.NextSettings(true, true, true, "Onward!");
         d.SetImageContent(Resources.Load<Sprite>("Graphics/UI/button.selected"));
         d.SetImageAlpha(0.6f);
 
-        Page e = AddPage(scrollImage, panelManager, pagesParent, pages);
+        Page e = AddPage(scrollImage);
         e.TitleSettings(true, true, "ScrollImagePage");
         e.SetImageContent(Resources.Load<Sprite>("Graphics/fish.circuit"));
 
-        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText, panelManager, pagesParent, pages);
+        CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText);
         f.SetTextContent("Abcd efgh i jkl mnopq rst uvw xy z, a bc defg, hij kl mno pqrs t u vwx, yzab, cd efgh ij klmn opq rstuv wx y " +
             "zabc de fg hij klmno pqr st uvwx y z. Abcd efgh i jkl mnopq rst uvw xy z, a bc defg, hij kl mno pqrs t u vwx, yzab, cd efgh " +
             "ij klmn opq rstuv wx y zabc de fg hij klmno pqr st uvwx y z. Abcd efgh i jkl mnopq rst uvw xy z, a bc defg, hij kl mno pqrs " +

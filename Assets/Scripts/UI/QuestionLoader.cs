@@ -15,6 +15,10 @@ public class QuestionLoader
     private string questionSingle = "QuestionSingle";
     private string questionDouble = "QuestionDouble";
 
+    private QuizPage quizPage;
+    private RectTransform questionsParent;
+    private List<Question> questions;
+
     #region Singleton
     private static QuestionLoader instance;
 
@@ -33,7 +37,7 @@ public class QuestionLoader
     }
     #endregion
 
-    public void Level0(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    public void Level0()
     {
         QuestionData a = new QuestionData();
         a.question = "Which term describes the matter that goes into a chemical reaction?";
@@ -63,12 +67,12 @@ public class QuestionLoader
         c.SetCorrectText("The total mass of the products will be 45amu.");
 
 
-        AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
-        AddQuestion(questionDouble, b, quizPage, questionsParent, questions);
-        AddQuestion(questionDouble, c, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, a);
+        AddQuestion(questionDouble, b);
+        AddQuestion(questionDouble, c);
     }
 
-    public void Level1(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    public void Level1()
     {
         QuestionData a = new QuestionData();
         a.question = "Fill in the blanks:\n___________________ require energy to occur, and ___________________ release excess energy.";
@@ -85,8 +89,8 @@ public class QuestionLoader
         b.AddAnswer("It depends on the type of substance");
         b.SetCorrectText();
 
-        Question aQuestion = AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
-        AddQuestion(questionDouble, b, quizPage, questionsParent, questions);
+        Question aQuestion = AddQuestion(questionDouble, a);
+        AddQuestion(questionDouble, b);
 
         aQuestion.answers[0].GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
         aQuestion.answers[0].GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
@@ -94,7 +98,7 @@ public class QuestionLoader
         aQuestion.answers[1].GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
     }
 
-    public void Level2(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    public void Level2()
     {
         QuestionData a = new QuestionData();
         a.question = "How many hydrogen atoms and oxygen atoms are present in the expression 4H" + S(2) + "O?";
@@ -122,9 +126,9 @@ public class QuestionLoader
         c.SetCorrectText();
 
 
-        AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
-        AddQuestion(questionDouble, b, quizPage, questionsParent, questions);
-        Question cQuestion = AddQuestion(questionDouble, c, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, a);
+        AddQuestion(questionDouble, b);
+        Question cQuestion = AddQuestion(questionDouble, c);
 
         cQuestion.answers[0].GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
         cQuestion.answers[0].GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
@@ -132,7 +136,7 @@ public class QuestionLoader
         cQuestion.answers[1].GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
     }
 
-    public void Level3(QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    public void Level3()
     {
         QuestionData a = new QuestionData();
         a.question = "Is the following chemical equation balanced?\n6H" + S(2) + "O + 6CO" + S(2) + "  →  C" + S(6) + "H" + S(1) + S(2) + "O" + S(6) + " + 6O" + S(2);
@@ -160,29 +164,30 @@ public class QuestionLoader
         c.SetCorrectText();
 
 
-        AddQuestion(questionDouble, a, quizPage, questionsParent, questions);
-        AddQuestion(questionDouble, b, quizPage, questionsParent, questions);
-        AddQuestion(questionDouble, c, quizPage, questionsParent, questions);
+        AddQuestion(questionDouble, a);
+        AddQuestion(questionDouble, b);
+        AddQuestion(questionDouble, c);
     }
 
-    public List<Question> LoadQuestions(QuizID quizID, QuizPage quizPage)
+    public List<Question> LoadQuestions(QuizID quizID, QuizPage qp)
     {
-        RectTransform questionsParent = quizPage.questionsParent;
-        List<Question> questions = new List<Question>();
+        quizPage = qp;
+        questionsParent = quizPage.questionsParent;
+        questions = new List<Question>();
 
         switch (quizID)
         {
             case QuizID.Level0:
-                Level0(quizPage, questionsParent, questions);
+                Level0();
                 break;
             case QuizID.Level1:
-                Level1(quizPage, questionsParent, questions);
+                Level1();
                 break;
             case QuizID.Level2:
-                Level2(quizPage, questionsParent, questions);
+                Level2();
                 break;
             case QuizID.Level3:
-                Level3(quizPage, questionsParent, questions);
+                Level3();
                 break;
             case QuizID.QuizTutorial:
 
@@ -207,7 +212,7 @@ public class QuestionLoader
                                 correct answer to the end of "Correct!"
                     
                     5.  After setting the QuestionData as needed, use this.AddQuestion():
-                            void AddQuestion(string prefabName, QuestionData data, QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+                            void AddQuestion(string prefabName, QuestionData data)
                                 prefabName: either this.questionSingle or .questionDouble
                                     questionSingle prefab has lower profile, more balanced layout,
                                         with questions and answers aligned on a single line,
@@ -217,8 +222,6 @@ public class QuestionLoader
                                         and the infoButton, infoText, and answers on a second line
                                     avoid mixing these two prefabs within the same quiz
                                 data: the QuestionData just generated
-                                For the final three variables, always use:
-                                    "quizPage, questionsParent, questions"
                     
                     6.  For efficiency, set questions.Capacity to the total number of Questions to be added,
                         before the initial AddQuestion() call.
@@ -233,7 +236,7 @@ public class QuestionLoader
                 a.AddAnswer("Answer 2", true);  // correct answer
                 a.AddAnswer("Answer 3");
                 a.SetCorrectText();         // correctText = "Correct! Answer 2."
-                AddQuestion(questionSingle, a, quizPage, questionsParent, questions);
+                AddQuestion(questionSingle, a);
 
                 QuestionData b = new QuestionData();
                 b.question = "How many uranium atoms are there in a molecule of water?";
@@ -244,7 +247,7 @@ public class QuestionLoader
                 b.AddAnswer("One million");
                 b.SetCorrectText("Exactly seventeen.");
                     // correctText = "Correct! Exactly seventeen." 
-                AddQuestion(questionSingle, b, quizPage, questionsParent, questions);
+                AddQuestion(questionSingle, b);
 
                 QuestionData c = new QuestionData();
                 c.question = "If you need extra space for questions or answers, " +
@@ -254,7 +257,7 @@ public class QuestionLoader
                 c.AddAnswer("Correct", true);
                 c.AddAnswer("Incorrect");           // these two lines
                 c.AddAnswer("Incorrect", false);    // are equivalent
-                AddQuestion(questionDouble, c, quizPage, questionsParent, questions);
+                AddQuestion(questionDouble, c);
 
                 break;
             default:
@@ -263,7 +266,7 @@ public class QuestionLoader
         return questions;
     }
 
-    public Question AddQuestion(string prefabName, QuestionData data, QuizPage quizPage, RectTransform questionsParent, List<Question> questions)
+    public Question AddQuestion(string prefabName, QuestionData data)
     {
         prefabName = questionsPrefabDirectory + prefabName;
         GameObject go = Object.Instantiate(Resources.Load(prefabName)) as GameObject;

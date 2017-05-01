@@ -20,6 +20,7 @@ public class GameFlow : MonoBehaviour {
         GV.gameFlow = this;
         GameManager.Instance.LinkInfoPanel(infoPanel, gameParent);
         panelManager = GameObject.FindObjectOfType<PanelManager>();
+        panelManager.Initialize();
         StartNextLoadout();
     }
 

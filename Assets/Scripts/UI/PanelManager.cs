@@ -36,7 +36,7 @@ public class PanelManager : MonoBehaviour
     public delegate void ClosePanelCallback();
     private ClosePanelCallback closePanelCallback;
 
-    void Start()
+    public void Initialize()
     {
         if (pagesParent)
         {
@@ -252,12 +252,12 @@ public class PanelManager : MonoBehaviour
             scrollbar.transform.parent.gameObject.SetActive(true);
         else
             scrollbar.transform.parent.gameObject.SetActive(false);
-
+        
         if (p.useScrollRect)
             ppScrollRect.enabled = true;
         else
             ppScrollRect.enabled = false;
-
+        
         if (p.usePageMask)
         {
             ppMask.enabled = true;
@@ -272,7 +272,7 @@ public class PanelManager : MonoBehaviour
             ppImage.color = c;
             ppMask.enabled = false;
         }
-
+        
         SetTitleActive(p.titleActive);
         if (p.titleTextOverride)
             titleText.text = p.titleText;
