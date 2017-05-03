@@ -23,9 +23,9 @@ public class GV {
 
     public static readonly float Molecule_Scale = .5f; //scales all new molecules
     public static readonly float Molecule_Speed_Start = 1;
-    public static readonly float Molecule_Speed_Min = .33f;
+    public static readonly float Molecule_Speed_Min = .4f;
     public static readonly float Molecule_Speed_Max = 3.5f;
-    public static bool Molecule_Text_Active = false;
+    public static bool Molecule_Text_Active = true;
     public static bool Atom_Text_Active = true;
 
     //Chemical
@@ -59,7 +59,7 @@ public class GV {
     public static int Current_Flow_Index = 0;
 
     public static bool overrideCascadeSpeed = true;
-    public static float globalCascadeSpeed = 100;
+    public static float globalCascadeSpeed = 1000;
 
     public static float MaxScore(ProgressTracker.ScoreType st)
     {

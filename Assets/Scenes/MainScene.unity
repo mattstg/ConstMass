@@ -300,6 +300,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &169444243 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114555261186979972, guid: 9b2dcb2b2551dbc46ab5b091d4d2c932,
+    type: 2}
+  m_PrefabInternal: {fileID: 512267813}
+  m_Script: {fileID: 11500000, guid: b1e22cbfeb748c54194a7b990a28cf0b, type: 3}
 --- !u!1 &239380522
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &401438651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1566,7 +1572,8 @@ MonoBehaviour:
   progressText: {fileID: 364447786}
   progressBar: {fileID: 2038017887}
   atomTextButton: {fileID: 102177098}
-  pauseButton: {fileID: 0}
+  moleculeTextButton: {fileID: 169444243}
+  pauseButton: {fileID: 1809330183}
 --- !u!1 &644313076
 GameObject:
   m_ObjectHideFlags: 0
@@ -4235,7 +4242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2095337453
 RectTransform:
   m_ObjectHideFlags: 0

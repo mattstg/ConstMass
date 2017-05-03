@@ -79,6 +79,21 @@ public class GameManager  {
         foreach(Molecule m in activeCompounds)
             endLevelMoleList.Add(m.mtype);
         endLevelMoleList.Sort();
+
+        List<GV.MoleculeType> goalMoleList = new List<GV.MoleculeType>();
+        int firstGoalIndex = -1;
+        for (int i = 0; i < endLevelMoleList.Count; i++)
+        {
+            if (endLevelMoleList[i] == GV.GoalMolecule)
+            {
+                if (firstGoalIndex < 0)
+                    firstGoalIndex = i;
+                goalMoleList.Add(endLevelMoleList[i]);
+            }
+        }
+        endLevelMoleList.RemoveRange(firstGoalIndex, goalMoleList.Count);
+        endLevelMoleList.InsertRange(0, goalMoleList);
+
         LevelMoleculeTracker.Instance.RecordLevel(GV.Current_Flow_Index, endLevelMoleList);
     }
 
@@ -204,7 +219,7 @@ public class GameManager  {
         GV.gameFlow.GameCompleted(gameScore, timeScore);
     }
 
-    private void EndGame()
+    public void EndGame()
     {
         gameRunning = false;
         roundTime = 99;

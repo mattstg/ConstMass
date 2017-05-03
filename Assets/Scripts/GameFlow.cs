@@ -82,8 +82,8 @@ public class GameFlow : MonoBehaviour {
             {
                 GV.Current_Flow_Index--;
                 LoadLevel(GV.Current_Flow_Index);
-                GameCompleted(1f, 1f);
-                UnloadGame();
+                GameCompleted(0, 0);
+                GameManager.Instance.EndGame();
             }
             else
             {

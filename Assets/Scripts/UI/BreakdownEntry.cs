@@ -28,7 +28,7 @@ public class BreakdownEntry : MonoBehaviour
     public void UpdateText()
     {
         if (formulaText)
-            formulaText.text = GV.MoleculeFormula(bm.moleculeType);
+            formulaText.text = GV.ColoredMoleculeFormula(bm.moleculeType, true);
 
         massText.text = bm.mass.ToString();
         totalAtomsText.text = bm.totalAtoms.ToString();

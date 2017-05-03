@@ -11,6 +11,7 @@ public class InfoPanel : MonoBehaviour {
     public Text progressText;
     public ProgressFill progressBar;
     public CanvasButton atomTextButton;
+    public CanvasButton moleculeTextButton;
     public CanvasButton pauseButton;
     int visibleFields;
 
@@ -28,6 +29,8 @@ public class InfoPanel : MonoBehaviour {
             pauseButton.SetSelected(GV.Paused, false);
         if (atomTextButton && atomTextButton.IsSelected() != GV.Atom_Text_Active)
             atomTextButton.SetSelected(GV.Atom_Text_Active, false);
+        if (moleculeTextButton && moleculeTextButton.IsSelected() != GV.Molecule_Text_Active)
+            moleculeTextButton.SetSelected(GV.Molecule_Text_Active, false);
     }
 
     private void SetFormulasVisible(int curLevel)

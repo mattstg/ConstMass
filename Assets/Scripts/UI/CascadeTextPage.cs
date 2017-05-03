@@ -69,7 +69,8 @@ public class CascadeTextPage : Page
             {
                 HandleTags();
                 timeElapsed -= (1f / charactersPerSecond);
-                activeText += finalText[currentCharacter++];
+                if (currentCharacter < finalText.Length)
+                    activeText += finalText[currentCharacter++];
                 text.text = activeText + tagsAppendix;
             }
             if (currentCharacter >= finalText.Length)
@@ -121,6 +122,8 @@ public class CascadeTextPage : Page
                     activeText += finalText[currentCharacter++];
                 activeText += finalText[currentCharacter++];
             }
+            if (currentCharacter >= finalText.Length)
+                break;
         }
     }
 
