@@ -64,7 +64,7 @@ public class GameManager  {
     public void MoleculeRemoved(Molecule m)
     {
 
-        if (!currentLevelIsStart && m.mtype == GV.GoalMolecule && !completionDelaying) //if you are bored try commenting out "!currentLevelIsStart &&"
+        if (/*!currentLevelIsStart &&*/ m.mtype == GV.GoalMolecule && !completionDelaying) //if you are bored try commenting out "!currentLevelIsStart &&"
         {
             goalMoleculeCount--;
             infoPanel.UpdateProgress(goalMoleculeCount, goalMoleculeRequired);
@@ -91,8 +91,11 @@ public class GameManager  {
                 goalMoleList.Add(endLevelMoleList[i]);
             }
         }
-        endLevelMoleList.RemoveRange(firstGoalIndex, goalMoleList.Count);
-        endLevelMoleList.InsertRange(0, goalMoleList);
+        if (endLevelMoleList.Count > 0 && goalMoleList.Count > 0)
+        {
+            endLevelMoleList.RemoveRange(firstGoalIndex, goalMoleList.Count);
+            endLevelMoleList.InsertRange(0, goalMoleList);
+        }
 
         LevelMoleculeTracker.Instance.RecordLevel(GV.Current_Flow_Index, endLevelMoleList);
     }

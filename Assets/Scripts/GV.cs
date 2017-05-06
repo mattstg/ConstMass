@@ -59,7 +59,7 @@ public class GV {
     public static int Current_Flow_Index = 0;
 
     public static bool overrideCascadeSpeed = true;
-    public static float globalCascadeSpeed = 1000;
+    public static float globalCascadeSpeed = 100;
 
     public static float MaxScore(ProgressTracker.ScoreType st)
     {

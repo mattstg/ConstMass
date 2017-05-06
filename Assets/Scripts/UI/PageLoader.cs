@@ -170,14 +170,14 @@ public class PageLoader
             "All chemical reactions are either <i>endothermic</i> or <i>exothermic</i>.\n\n" +
             "For an endothermic reaction to occur, it requires more energy than it has stored in its chemical bonds, and so it must absorb energy from its surroundings (usually in the form of heat).\n\n" +
             "Exothermic reactions, on the other hand, produce an excess of energy, which is then released into the surroundings (again, often as heat).");
-        b.TitleSettings(true, true, "REACTIONS:  <size=30>ENDOTHERMIC / EXOTHERMIC</size>\n<size=18>ABSORBING ENERGY  /  RELEASING ENERGY</size>");
+        b.TitleSettings(true, true, "ENDOTHERMIC <size=30>AND</size> EXOTHERMIC REACTIONS\n<size=18>ABSORBING ENERGY  /  RELEASING ENERGY</size>");
         b.backActive = false;
 
         CascadeTextPage c = (CascadeTextPage)AddPage(cascadeText);
         c.SetTextContent("When an endothermic reaction absorbs heat from its surroundings, it slows down the movements of the surrounding molecules. When an exothermic reactions emits heat, it speeds up the movements of the surrounding molecules.\n\n" +
             "The faster that molecules are moving, the more frequently they collide, and potentially react with each other. Therefore, warmer reactants will tend to react at a higher rate than cooler ones.\n\n" +
             "That is why an egg fries faster when you turn up the element: the increased heat energizes the egg’s molecules, leading to a higher rate of chemical reactions!");
-        c.TitleSettings(true, true, "REACTIONS:  <size=30>ENDOTHERMIC / EXOTHERMIC</size>\n<size=18>HEAT  /  MOLECULAR SPEED  /  REACTION RATE</size>");
+        c.TitleSettings(true, true, "ENDOTHERMIC <size=30>AND</size> EXOTHERMIC REACTIONS\n<size=18>HEAT  /  MOLECULAR SPEED  /  REACTION RATE</size>");
 
         CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText);
         d.SetTextContent("In the next level, you will begin with:\n" +
@@ -237,7 +237,7 @@ public class PageLoader
         c.SetTextContent("So, 3CO₂ refers to 3 carbon dioxide molecules, each of which contains a single carbon atom and two oxygen atoms, for a total of 3 carbon atoms and 6 oxygen atoms.\n\n" +
 
             "By totaling up the atoms on either side of a chemical equation in this manner, we can check whether the equation is balanced!");
-        c.TitleSettings(true, true, "BALANCED EQUATIONS\n<size=18>CALCULATING NUMBER OF ATOMS</size>");
+        c.TitleSettings(true, true, "BALANCED EQUATIONS\n<size=18>CALCULATING NUMBER OF ATOMS BY TYPE</size>");
 
         CascadeTextPage d = (CascadeTextPage)AddPage(cascadeText);
         d.SetTextContent("For instance, consider the following equation:  4Fe + 3O₂   →   Fe₂O₃\n\n" +
@@ -392,14 +392,14 @@ public class PageLoader
 
             "This is how plants and animals continuously exchange matter and energy in a way that benefits them both, and allows life to harness energy from the sun’s rays. " +
             "This is one of the reasons it is so important to preserve plant life on earth!");
-        e.TitleSettings(true, true, "PHOTOSYNTHESIS  /  CELLULAR RESPIRATION\n<size=18>CYCLE  /  NECESSARY FOR LIFE</size>");
+        e.TitleSettings(true, true, "PHOTOSYNTHESIS <size=30>AND</size> CELLULAR RESPIRATION\n<size=18>CYCLE OF ENERGY AND MATTER  /  NECESSARY FOR LIFE</size>");
         e.canSkip = true;
 
         CascadeTextPage f = (CascadeTextPage)AddPage(cascadeText);
         f.SetTextContent("If you were playing close attention, you might have noticed that throughout the entire cycle of photosynthesis and cellular respiration, no matter went missing.\n\n" +
 
             "Though the atoms may change partners on a regular basis, it will always be the very same atoms, dancing on and on!");
-        f.TitleSettings(true, true, "PHOTOSYNTHESIS  /  CELLULAR RESPIRATION\n<size=18>CONSERVATION OF MATTER</size>");
+        f.TitleSettings(true, true, "PHOTOSYNTHESIS <size=30>AND</size> CELLULAR RESPIRATION\n<size=18>CONSERVATION OF MATTER</size>");
         f.canSkip = true;
 
         CascadeTextPage g = (CascadeTextPage)AddPage(cascadeText);
