@@ -64,7 +64,7 @@ public class GameManager  {
     public void MoleculeRemoved(Molecule m)
     {
 
-        if (/*!currentLevelIsStart &&*/ m.mtype == GV.GoalMolecule && !completionDelaying) //if you are bored try commenting out "!currentLevelIsStart &&"
+        if (!currentLevelIsStart && m.mtype == GV.GoalMolecule && !completionDelaying) //if you are bored try commenting out "!currentLevelIsStart &&"
         {
             goalMoleculeCount--;
             infoPanel.UpdateProgress(goalMoleculeCount, goalMoleculeRequired);
