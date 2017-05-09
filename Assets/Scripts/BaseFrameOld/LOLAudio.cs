@@ -41,7 +41,8 @@ public class LOLAudio
 
     public void StopAudio(string _name)
     {
-        LOLSDK.Instance.StopSound(_name);
+        if (LOLSDK.Instance.IsInitialized)
+            LOLSDK.Instance.StopSound(_name);
     }
 
     public void AddToBanList(string toBan)

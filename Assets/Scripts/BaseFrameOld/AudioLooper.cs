@@ -82,4 +82,8 @@ public class AudioLooper {
         return (i + 1) % 2;
     }
     
+    public bool IsPlaying()
+    {
+        return isPlaying;
+    }
 }

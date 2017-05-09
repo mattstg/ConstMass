@@ -45,7 +45,7 @@ public class GV {
     public static bool Sound_Active = true;
 
     //Score
-    public static readonly float Time_Score_Perc_For_Max = .2f; //which means 80% of score
+    public static readonly float Time_Score_Perc_For_Max = .6f;
     public static readonly float Score_Time_Max = 500;
     public static readonly float Score_Success_Max = 1000;
     public static readonly float Score_Quiz_Max = 1000;

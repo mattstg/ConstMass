@@ -30,7 +30,8 @@ public class GameFlow : MonoBehaviour {
         panelManager.LoadPanel((PanelID)GV.Current_Flow_Index, LessonFinished);
         if (GV.Sound_Active)
         {
-            AudioLooper.Instance.CloseAudioLooper();
+            if (AudioLooper.Instance.IsPlaying())
+                AudioLooper.Instance.CloseAudioLooper();
             AudioLooper.Instance.StartAudioLooper("GameMusicRetro.mp3", 20);
         }
     }
@@ -76,7 +77,8 @@ public class GameFlow : MonoBehaviour {
         InputManager.gameInputActivate = true;
         if (GV.Sound_Active)
         {
-            AudioLooper.Instance.CloseAudioLooper();
+            if (AudioLooper.Instance.IsPlaying())
+                AudioLooper.Instance.CloseAudioLooper();
             AudioLooper.Instance.StartAudioLooper("GameMusicNew.mp3", 32);
         }
     }
