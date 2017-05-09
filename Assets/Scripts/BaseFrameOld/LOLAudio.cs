@@ -21,7 +21,6 @@ public class LOLAudio
     }
     #endregion
     
-    public bool soundIsActive = true;
     List<string> bannedList = new List<string>();
 
     private LOLAudio()
@@ -31,7 +30,7 @@ public class LOLAudio
 
     public void PlayAudio(string _name, bool loop = false)
     {
-        if (!soundIsActive || !LOLSDK.Instance.IsInitialized)
+        if (!GV.Sound_Active || !LOLSDK.Instance.IsInitialized)
             return;
 
         if (bannedList.Contains(_name))

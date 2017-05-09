@@ -6,13 +6,12 @@ using UnityEngine.UI; using LoLSDK;
 
 public class StartPage : MonoBehaviour {
     string songChosen = "GameMusicNew.mp3";
-    bool soundActive = true;
     public GameObject muteButton;
 
     void Start()
     {
         LOLSDK.Init("com.Pansimula.DanceOfAtoms");
-        LOLAudio.Instance.soundIsActive = true;
+        GV.Sound_Active = true;
         LOLAudio.Instance.AddToBanList("CorrectMolecule.wav");
         LOLAudio.Instance.AddToBanList("Seperate.wav");
         LOLAudio.Instance.AddToBanList("Wobble.wav");
@@ -27,23 +26,21 @@ public class StartPage : MonoBehaviour {
         GameManager.Instance.UnloadMainMenu();
         GameManager.Instance.currentLevelIsStart = false;
         LOLAudio.Instance.ClearBanList();
-        LOLAudio.Instance.soundIsActive = soundActive;
         GV.Atom_Text_Active = true;
         GV.Molecule_Text_Active = true;
         SceneManager.LoadScene("MainScene");
-        
     }
 
-    public void ChoseSong(int songID)
+    /*public void ChoseSong(int songID)
     {
         string newsong = (songID == 0) ? "GameMusicNew.mp3" : "GameMusicRetro.mp3";
-        if(songChosen != newsong && soundActive)
+        if(songChosen != newsong && GV.Sound_Active)
         {
             AudioLooper.Instance.CloseAudioLooper();
             AudioLooper.Instance.StartAudioLooper(newsong, GetSongLength(newsong));
             songChosen = newsong;
         }
-    }
+    }*/
 
     public float GetSongLength(string songName) //shouldnt be here but w.e
     {
@@ -54,9 +51,8 @@ public class StartPage : MonoBehaviour {
 
     public void MutePressed()
     {
-        soundActive = !soundActive;
-        LOLAudio.Instance.soundIsActive = soundActive;
-        if (soundActive)
+        GV.Sound_Active = !GV.Sound_Active;
+        if (GV.Sound_Active)
         {
             muteButton.GetComponent<Image>().sprite = Resources.Load<Sprite>("Graphics/UI/Sound");
             AudioLooper.Instance.StartAudioLooper(songChosen, GetSongLength(songChosen));

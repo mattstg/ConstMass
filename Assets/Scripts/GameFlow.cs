@@ -28,6 +28,11 @@ public class GameFlow : MonoBehaviour {
     {
         //Start the LessonManager
         panelManager.LoadPanel((PanelID)GV.Current_Flow_Index, LessonFinished);
+        if (GV.Sound_Active)
+        {
+            AudioLooper.Instance.CloseAudioLooper();
+            AudioLooper.Instance.StartAudioLooper("GameMusicRetro.mp3", 20);
+        }
     }
 
     public void LessonFinished()
@@ -41,7 +46,7 @@ public class GameFlow : MonoBehaviour {
     private void EndOfGameFlow()
     {
         AudioLooper.Instance.CloseAudioLooper();
-        LOLAudio.Instance.StopAudio("GameMusic.mp3");
+        LOLAudio.Instance.StopAudio("GameMusicRetro.mp3");
         LOLSDK.Instance.CompleteGame();
         //Stop playing music
         //Send onComplete call
@@ -53,7 +58,7 @@ public class GameFlow : MonoBehaviour {
         ProgressTracker.Instance.SetScore(ProgressTracker.ScoreType.Time, GV.Current_Flow_Index, timeScore);
         ProgressTracker.Instance.SubmitProgress((GV.Current_Flow_Index * 2) + 1); 
         GameManager.Instance.RecordCurrentLevel();
-        Debug.Log(string.Format("game finished, [SucessScore,TimeScore]:[{0},{1}]", sucessScore, timeScore));
+        //Debug.Log(string.Format("game finished, [SucessScore,TimeScore]:[{0},{1}]", sucessScore, timeScore));
     }
 
     public void UnloadGame()
@@ -69,6 +74,11 @@ public class GameFlow : MonoBehaviour {
         GV.Paused = false;
         GameManager.Instance.CreateAndInitializeLevel(lvl);
         InputManager.gameInputActivate = true;
+        if (GV.Sound_Active)
+        {
+            AudioLooper.Instance.CloseAudioLooper();
+            AudioLooper.Instance.StartAudioLooper("GameMusicNew.mp3", 32);
+        }
     }
 
 

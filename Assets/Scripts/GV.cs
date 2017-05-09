@@ -42,6 +42,7 @@ public class GV {
     public static MoleculeType SelectedMolecule = MoleculeType.None;
     public static float Reaction_Highlight_Duration = 4;
     public static float Progress_Bar_Duration = 1.5f;
+    public static bool Sound_Active = true;
 
     //Score
     public static readonly float Time_Score_Perc_For_Max = .2f; //which means 80% of score

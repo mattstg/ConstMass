@@ -58,12 +58,10 @@ public class GameManager  {
         }
         
         activeCompounds.Add(m);
-
     }
 
     public void MoleculeRemoved(Molecule m)
     {
-
         if (!currentLevelIsStart && m.mtype == GV.GoalMolecule && !completionDelaying) //if you are bored try commenting out "!currentLevelIsStart &&"
         {
             goalMoleculeCount--;
@@ -114,8 +112,6 @@ public class GameManager  {
             MergeManager.Instance.CreateMolecule(t.GetComponent<MoleculeEditorLoader>().moleculeType, t.position);
         MonoBehaviour.Destroy(go);
         gameRunning = true;
-        
-
     }
 
     public void CreateAndInitializeLevel(int lvl)
