@@ -75,11 +75,11 @@ public class QuestionLoader
     public void Level1()
     {
         QuestionData a = new QuestionData();
-        a.question = "Fill in the blanks:\n___________________ require energy to occur, and ___________________ release excess energy.";
+        a.question = "______________________ absorb more energy than they release, and\n______________________ release more energy than they absorb.";
         a.info = "If you can't remember, you'll just have to guess!";
         a.AddAnswer("Endothermic reactions  /\nexothermic reactions", true);
         a.AddAnswer("Exothermic reactions  /\nendothermic reactions");
-        a.SetCorrectText("Endothermic reactions require energy to occur, and exothermic reactions release excess energy.");
+        a.SetCorrectText("Endothermic reactions absorb more energy than they release, and exothermic reactions release more energy than they absorb.");
 
         QuestionData b = new QuestionData();
         b.question = "How does heat affect the movement of molecules?";

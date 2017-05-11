@@ -8,7 +8,7 @@ public class QuestionData
     public string question = "";
     public string info = "";
     public string correctText = "Correct!";
-    public string incorrectText = "Incorrect";
+    public string incorrectText = "Incorrect.  Please try again!";
     public List<string> answers = new List<string>();
     private int correctAnswer = -1;
 
